@@ -3,7 +3,7 @@
 #git
 git add *
 git commit -am 'update'
-#git push
+git push
 
 #desplega al servidor
 # -h  human readable format
