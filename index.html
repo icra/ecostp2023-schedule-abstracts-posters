@@ -254,8 +254,11 @@
                 <div v-for="conf in [room.sessions[i].confs[j]]">
                   <div>{{conf.titol}}</div>
                   <div><i>{{conf.speaker}}</i></div>
-                  <div><a href=#>See abstract...</a></div>
-                  <div><a href=#>See Poster [PDF]...</a></div>
+                  <div style="font-size:smaller;text-align:right" v-if="conf.speaker">
+                    <a href=#>View Abstract</a>
+                    &mdash;
+                    <a href=#>View Poster [PDF]</a>
+                  </div>
                 </div>
               </div>
             </div>
