@@ -56,7 +56,7 @@
       */
 
       "Tuesday 27th June":[
-        new Room('Room 1: "Sala Cambra"',[
+        new Room('Room 1<br>"Sala Cambra"',[
           new Session(
             "T1. N&P recovery I (08:45-10:30)",
             "Chairs: Mathieu Sperandio (INSA-Toulouse) & Juan Baeza (Univ. Autonoma of Barcelona)", [
@@ -121,7 +121,7 @@
           ),
         ]),
 
-        new Room('Room 2: "Sala Petita"',[
+        new Room('Room 2<br>"Sala Petita"',[
           new Session(
             "T5. Removal of recalcitrant and emerging pollutants I (08:45-10:30)",
             "Chairs: Manuela Antonelli (Univ. Politec. Milano) & Sonia Suarez (USC)", [
@@ -156,7 +156,7 @@
           new Session("T7","chairs",[]),
           new Session("Workshop 1","chairs",[]),
         ]),
-        new Room('Room 3: "Sala Assaig"',[
+        new Room('Room 3<br>"Sala Assaig"',[
           new Session(
             "T8. Digitalization (08:45-10:30)",
             "Chairs: Rafael Gimenez (CETAQUA) & Paula Carrera (Univ. Ghent)", [
@@ -225,7 +225,7 @@
       <tr>
         <td></td>
         <td v-for="room,k in rooms" :style="{background:cell_color(k),textAlign:'center'}">
-          {{room.name}}
+          <div v-html="room.name"></div>
         </td>
       </tr>
 
