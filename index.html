@@ -1,0 +1,285 @@
+<!doctype html><html><head>
+  <meta charset=utf8>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ecoSTP2023</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    summary:hover{
+      cursor:pointer;
+      text-decoration:underline;
+    }
+    td{
+      vertical-align:top;
+    }
+  </style>
+  <script>
+    class Conf{//conference class
+      constructor(hora,speaker,titol,lloc,link_pdf,abstract){
+        this.hora     = hora    ||"";
+        this.speaker  = speaker ||"";
+        this.titol    = titol   ||"";
+        this.lloc     = lloc    ||"";
+        this.link_pdf = link_pdf||false; //optional
+        this.abstract = abstract||false; //optional
+      }
+    }
+
+    class Session{
+      constructor(name, chairs, confs){
+        this.name   = name;  //string
+        this.chairs = chairs;  //string
+        this.confs  = confs; //array of Confs
+      }
+    }
+
+    class Room{
+      constructor(name, sessions){
+        this.name     = name;     //string
+        this.sessions = sessions; //array of Sessions
+        this.visible  = 1;
+      }
+    }
+
+    let schedule={
+      /*
+      "Monday 26th June":[
+        new Room("PALAU DE CONGRESSOS (CONFERENCE CENTRE)",[
+          new Session("OPENING CEREMONY",[
+            new Conf("16:30","","Registration opens"),
+            new Conf("18:00-18:30","","Welcome from the Chairs (Room: “Sala Sinfònica”)<br>Conference opening by the Catalan Minister of Universities and Research M.H. Joaquim Nadal",),
+            new Conf("18:30-19:15","","Plenary 1: Prof. Zhiguo Yuan (City University of Hong Kong, China)<br>“<b>Exploring new opportunities for resource recovery and reuse in wastewater treatment”</b>",),
+            new Conf("19:15-20:00","","Plenary 1: Ms. Eva Martínez Diaz (Isle Utilities, UK)<br><b>“Navigating towards an innovative and sustainable water industry”</b>",),
+            new Conf("20:00-21:00","","Welcome drinks and snacks",),
+          ]),
+        ]),
+      ],
+      */
+
+      "Tuesday 27th June, TECHNICAL SESSIONS, PALAU DE CONGRESSOS (CONFERENCE CENTRE)":[
+        new Room('Room 1: "Sala Cambra"',[
+          new Session(
+            "T1. N&P recovery I (08:45-10:30)",
+            "Chairs: Mathieu Sperandio (INSA-Toulouse) & Juan Baeza (Univ. Autonoma of Barcelona)", [
+              new Conf("08:45","Queralt Farras, Eurecat",     "1.1 Towards a sustainable biorefinery: integrated treatment of the liquid fraction of digestate from the organic fraction of municipal solid waste scale up from laboratory to pilot-scale"),
+              new Conf("09:00","TBD",                         "1.2 TBD"),
+              new Conf("09:15","Matias Vanotti, USDA",        "1.3 Recovery of ammonia and phosphate resources from wastewater using gas-permeable membranes"),
+              new Conf("09:30","Ana Soares, Cranfield Univ.", "1.4 Ammonia Removal and Recovery From Municipal Wastewater"),
+              new Conf("09:45","Ana Mikola, Aalto Univ.",     "1.5 NPHarvest efficient nutrient recovery technology for making clean and safe fertilizers"),
+              new Conf("10:00","Patricia Ruiz Barriga, Univ. Valencia","1.6. Applying electrodialysis technology for the concentration of nutrients from an anaerobic membrane reactor effluent: operational problems."),
+              new Conf("10:05","Matia Mainardis, Univ. Pavia","1.7. Combined water and nutrient recovery from treated wastewater effluents: a case study from Northern Italy."),
+              new Conf("10:10","Rubén Rodríguez-Alegre, LEITAT","1.8. Effect of suspended solids content on ammonium recovery from pig slurry liquid fraction by liquid-liquid membrane contactors."),
+              new Conf("10:15","","Questions/discussion"),
+              new Conf("10:30","","Coffee break"),
+            ]
+          ),
+          new Session(
+            "T2. N&P recovery II (11:00-13:15)",
+            "Chairs: Ana Soares (Cranfield Univ.) & Francesco Fatone (Univ. Polytechnic Marche)",[
+              new Conf("11:00", "Mathieu Sperandio. INSA-TOULOUSE", "2.1. Optimization of ammonia recovery from urine and digestate using transmembrane chemical absorption.",),
+              new Conf("11:15", "Emma Company Masó, LEQUIA-UdG", "2.2. Recovery of K-rich struvite after biological nitrogen removal.",),
+              new Conf("11:30", "Tommaso Lotti, Univ. of Florence", "2.3. Phosphorous recovery from waste aerobic granular sludge.",),
+              new Conf("11:45", "Sophie Banke. TU Delft", "2.4. Recovering vivianite from manure: opportunities and bottlenecks.",),
+              new Conf("12:00", "Chibambila Simbeye. Univ. of Cape Town", "2.5. Nutrient recovery from source separated human urine as vivianite.",),
+              new Conf("12:15", "Mengqi Cheng. Univ. Autonoma of Barcelona.", "2.6. A Comprehensive Assessment of The Opportunities of Integrating a SSSF Into EBPR Systems in view of P Recovery.",),
+              new Conf("12:30", "Haotian Wu. Univ.  Laval", "2.7. Nutrient recovery from hydrolysed urine by Na-chabazite adsorption integrated with ammonia stripping and (K-)struvite precipitation.",),
+              new Conf("12:45", "Kepa Olaciregui Arizmendi. Ceit-BRTA", "2.8. Development and experimental comparison of a precipitation model for struvite using a low-grade magnesium oxide (industrial by-product) as an alternative magnesium source.",),
+              new Conf("12:50", "Raquel Tamarit Coronado. FACSA", "2.9. BIOFERES: Advanced Recovery of Nutrients from sewage sludge to obtain value-added products for Agriculture: biostimulants and liquid fertilizers.",),
+              new Conf("12:55", "Zainab Ul. Univ. Autonoma de Barcelona", "2.10. Continuous bioelectrochemical nitrogen recovery from high N-loaded wastewaters.",),
+              new Conf("13:00","","Questions/discussion",),
+              new Conf("13:15","","Lunch"),
+            ],
+          ),
+          new Session(
+            "T3. Water Reuse (14:15-16:00)",
+            "Chairs: Jordi Raich (S::can Iberia) & Matia Mainardis (University of Udine)", [
+              new Conf("14:15","Anacleto Rizzo. IRIDRA Srl","3.1. Wall2Water, the NAWAMED pilot of living wall for greywater treatment and reuse in Mediterranean countries."),
+              new Conf("14:30","Luca Penserini. Politecnico di Milano","3.2. Feasibility assessment of reclaimed wastewater reuse in agriculture: how we do it."),
+              new Conf("14:45","Esther Mendoza. ICRA","3.3. Fertilizer drawn forward osmosis for greywater treatment and subsequent reuse in hydroponics."),
+              new Conf("15:00","RUBEN GARCIA TIRADO. Grupo Gimeno","3.4. LIFE AMIA. An innovative combination of wastewater technologies to promote water reuse and sustainable treatment."),
+              new Conf("15:15","Devi Bühler. Univ. Gent.","3.5. Towards water self-sufficiency: pilot operation of an off-grid water cycle based on rainwater harvesting and low-tech, biological greywater treatment in an inhabited demonstra on house in Switzerland."),
+              new Conf("15:30","Marta Bellver Catalá. Univ. Politecnica de Catalunya.","3.6. Tertiary wastewater treatment and natural pigment recovery by cyanobacteria: fate of organic microcontaminants."),
+              new Conf("15:35","Josephine Vosse. ICRA","3.7. Plant growth potential of hotel greywater reuse in hydroponic system."),
+              new Conf("15:40","Gaetan blandin. LEQUIA-UdG","3.8. Integration of forward osmosis into a granular anaerobic membrane bioreactor for low energy and high quality water reuse and energy production: potential and challenges."),
+              new Conf("15:45","","Questions/discussion"),
+              new Conf("16:00","","Coffee break"),
+            ]
+          ),
+          new Session(
+            "T4 name",
+            "chairs",[
+              new Conf("16:30","",""),
+              new Conf("16:45","",""),
+              new Conf("17:00","",""),
+              new Conf("17:15","",""),
+              new Conf("17:30","",""),
+              new Conf("17:45","",""),
+              new Conf("17:50","",""),
+              new Conf("17:55","",""),
+              new Conf("18:00","","Questions/discussion"),
+              new Conf("18:15","","Poster session"),
+            ]
+          ),
+        ]),
+
+        new Room('Room 2: "Sala Petita"',[
+          new Session(
+            "T5. Removal of recalcitrant and emerging pollutants I (08:45-10:30)",
+            "Chairs: Manuela Antonelli (Univ. Politec. Milano) & Sonia Suarez (USC)", [
+              new Conf("08:45","Paola Verlicchi, Univ. Ferrara", "5.1. Improvement in the pharmaceutical removal from hospital wastewater in a full-scale hybrid PAC- MBR."),
+              new Conf("09:00","Oriol Casabella, ICRA", "5.2. Long-term performance of an anaerobic membrane bioreactor amended with graphene oxide treating municipal wastewater."),
+              new Conf("09:15","Hafiz Muhammad Abd-ur-Rehman, Univ. New South Wales","5.3. Removal of emerging contaminants from greywater using green wall system."),
+              new Conf("09:30","Matias Rivadulla, Univ. Santiago de Compostela","5.4. Presence of Organic Micropollutants and Antibiotic Resistance Genes in an Anaerobic-MBR integrated system (SIAM) treating urban sewage."),
+              new Conf("09:45","Montserrat Sarra, Univ. Autonoma de Barcelona","5.5. Bioreactors for immobilized fungus: Application to long-term continuous pesticides removal by Trametes versicolor."),
+              new Conf("10:00","Lorena Gonzalez, Univ. Vigo","5.6. Effect of HRT and dissolved oxygen on the fate of pharmaceutical compounds and antibiotic resistance genes in a high-rate activated sludge reactor."),
+              new Conf("10:05","Yolaine Bessiere, INSA-Toulouse","5.7. Combining Thermophilic Aerobic Reactor (TAR) with Mesophilic Anaerobic digestion (MAD) to improve sludge reduction and pharmaceuticals degradation"),
+              new Conf("10:10","Muhammad Mukhlis Eshamuddin, Univ. Toulouse", "5.8. The Study of a Hybrid System - Moving Bed Biofilm Reactor and Nanofiltration for the Elimination of Micropollutants in Wastewater."),
+              new Conf("10:15","","Questions/discussion"),
+              new Conf("10:30","","Coffee break"),
+            ]),
+          new Session(
+            "T6. Removal of recalcitrant and emerging pollutants II (11:00-13:15)",
+            "Chairs: Paola Verlicchi (Univ. Ferrara) & Jelena Radjenovic (ICRA)", [
+              new Conf("11:00", "Nick Duinslaeger. ICRA", "6.1. Electrochemical degradation of per- and polyfluoroalkyl substances in real waste streams using boron- and borophene-doped graphene sponge electrode.",),
+              new Conf("11:15", "Nicola Lancioni. Marche Polytechnic University", "6.2. Assessment of PFAS pathways for environmental contamination during landfill leachate treatment.",),
+              new Conf("11:30", "Beatrice Cantoni. Politecnico di Milano", "6.3. PFAS in textile wastewater: an integrated approach to reduce the environmental risk for their mixture.",),
+              new Conf("11:45", "Nabil Mostefaqui. Univ. Gustave Eiffel", "6.4. Integration of electrochemical processes in a landfill leachate treatment system for removal of the recalcitrant organic load.",),
+              new Conf("12:00", "Paula Núñez-Tafalla. Univ. of Luxembourg", "6.5. Effective micropollutant depuration by a novel sustainable approach: coupling solar photo-Fenton with regenerated activated carbon.",),
+              new Conf("12:15", "Battuya Byambaa. Water Cycle Research Center", "6.6. Boosting active sites of municipal sludge-based biochar for Fenton-like degradation toward phenolic contaminants from water.",),
+              new Conf("12:30", "Manuela Antonelli. Politecnico di Milano", "6.7. Adsorption on activated carbon for PFAS removal: should we act at the source or before the discharge into the environment? ",),
+              new Conf("12:45", "Natalia Ormeño. ICRA", "6.8. Electrochemical removal of antibiotics and multidrug-resistance bacteria using graphene sponge electrodes.",),
+              new Conf("12:50", "Alba Martinez i Quer, Aarhus University", "6.9. Emerging contaminants in sludge treatment reed beds: degradation or accumulation?",),
+              new Conf("12:55", "Beatrice Cantoni,  University of Western Ontario ", "6.10. Developing innovative eco-efficient process for Contaminants of Emerging Concern removal in wastewater reuse applications.",),
+              new Conf("13:00","","Questions/discussion",),
+              new Conf("13:15","","Lunch"),
+            ]
+          ),
+          new Session("T7","chairs",[]),
+          new Session("Workshop 1","chairs",[]),
+        ]),
+        new Room('Room 3: "Sala Assaig"',[
+          new Session(
+            "T8. Digitalization (08:45-10:30)",
+            "Chairs: Rafael Gimenez (CETAQUA) & Paula Carrera (Univ. Ghent)", [
+              new Conf("08:45","Sanaz Mohebali. modelEAU - Université Laval", "8.1. Fault-tolerant Control in WRRFs: A Practical Approach Using Case-Based Reasoning for Fault Identification."),
+              new Conf("09:00","Paul Schütz. Kompetenzzentrum Wasser Berlin", "8.2. The use of a low-cost monitoring dataset for sewer model calibration."),
+              new Conf("09:15","Cecilia Bruni. Univ. Politecnica delle Marche", "8.3. Real-time monitoring of adsorption processes in wastewater by innovative spectroscopic sensors: a pilot-scale study."),
+              new Conf("09:30","Joaquim Comas. ICRA", "8.4. Water reuse on the move: decision support for reclaimed water network design solutions."),
+              new Conf("09:45","David Abert. LEQUIA, UdG.", "8.5. Development of a data-mining algorithm for energy cost reduction in a water distribution system."),
+              new Conf("10:00","Jordi Raich. s::can Iberia", "8.6. Design and Deployment of sewage Monitoring Stations to Mine Information from neighbourhoods."),
+              new Conf("10:05","Oscar Emilio Aponte Rengifo, University of Salamanca", "8.7. Intelligent control of wastewater treatment plants by agent reinforcement learning."),
+              new Conf("10:10","Marco Parlapiano, Polytechnic University of Ancona", "8.8. Sustainable technologies and real-time monitoring for treating industrial wastewater: the case study of Solvay chemical plant at Rosignano Maritimo."),
+              new Conf("10:15","","Questions/discussion"),
+              new Conf("10:30","","Coffee break"),
+            ]
+          ),
+          new Session(
+            "T9. Modelling (11:00-13:15)",
+            "Chairs: Joaquim Comas (ICRA) & Ruben Garcia (Grupo Gimeno)",[
+              new Conf("11:00","Nicole Arnaud, UdG","9.1. A novel methodology for modelling SUDS using SWMM and Giswater: Case study on Montjuic Girona/Spain."),
+              new Conf("11:15","Arianna Catenacci, Univ. Politecnico de Milano","9.2. Elucidating the field of application of 0D and 1D biofilm models integrated with the hydrodynamics of aerobic granular sludge reactors."),
+              new Conf("11:30","Konrad Koch, Tech.Univ.Munich","9.3. Successful strategies for improving energy self-sufficiency at Grüneck wastewater treatment plant in Germany by improved aeration and food waste codigestion"),
+              new Conf("11:45","David Ysebaert. U.Gent","9.4. Mass-balance-based approach in planning a measurement campaign for energy factory Tilburg."),
+              new Conf("12:00","Kepa Olaciregui Arizmendi, Ceit-BRTA","9.5. Development of a hydraulic and biological model for trickling filters.  Model-based assessment of the 6.6operational strategy."),
+              new Conf("12:15","Xavier Flores-Alsina, DTU","9.6. Model-based assessment of alternative modes of operation in a fullscale industrial wastewater treatment system."),
+              new Conf("12:30","Rhys Thomson, The Univ. of Queensland","9.7. Modelling the Metabolism and Population Dynamics of Fermentation-Enhanced EBPR Processes."),
+              new Conf("12:45","Eric Valdés, Univ.  Autonoma de Barcelona","9.8. Mathematical modeling of the long-term dynamics of a sulfate-reducing UASB bioreactor from methanogenic to sulfidogenic conditions."),
+              new Conf("12:50","Susan George, Instituto de la Grasa CSIC","9.9. Influence of substrate characterization on trace metal dosing to improve biogas yield during anaerobic digestion: a dynamic model-based study."),
+              new Conf("12:55","Hossein Norouzi Firouz, InsPyro","9.10. CFD modelling as an emerging digital tool for the design and optimization of WWTPs: Learnings from two case studies."),
+              new Conf("13:00","","Questions/discussion",),
+              new Conf("13:15","","Lunch"),
+            ]
+          ),
+          new Session("T10","chairs",[]),
+          new Session("Workshop 2","chairs",[]),
+        ]),
+      ],
+
+      /*
+      "28th June":[
+        new Room('Room 1: "Sala Cambra"',[]),
+        new Room("Room 2: 'Sala Petita'",[]),
+        new Room("Room 3: 'Sala Assaig'",[]),
+      ],
+      "29th June":[
+        new Room('Room 1: "Sala Cambra"',[]),
+        new Room("Room 2: 'Sala Petita'",[]),
+        new Room("Room 3: 'Sala Assaig'",[]),
+      ],
+      */
+    };
+  </script>
+</head><body>
+
+<div>
+  <div style="display:flex;flex-wrap:wrap;align-items:baseline">
+    <h1 style="margin:0">ecoSTP 2023</h1>
+    <b>&nbsp;26th-29th June 2023, Girona (Spain)</b>
+  </div>
+  <div>6th IWA International Conference on eco-Technologies for Wastewater Treatment</div>
+</div><hr>
+
+<b>Schedule, Abstracts and Posters</b><hr>
+
+<div id=app>
+  <details v-for="rooms,day in schedule" open>
+    <summary style="text-weight:bold;font-size:larger;white-space:nowrap">
+      {{day}}
+    </summary>
+    <table border=1 style="border-collapse:collapse;margin:10px 0">
+      <tr>
+        <td></td>
+        <td v-for="room,k in rooms" :style="{background:cell_color(k)}">
+          <button @click="room.visible^=1" style="padding:1em 2em;white-space:nowrap">{{room.name}}</button>
+        </td>
+      </tr>
+
+      <tbody v-for="s,i in rooms[0].sessions">
+        <tr>
+          <td style="font-family:monospace;color:#aaa">topic</td>
+          <td v-for="room,k in rooms" :style="{background:cell_color(k)}">
+            <div v-if="room.visible">
+              <b v-html="room.sessions[i].name"></b><br>
+              <small><i v-html="room.sessions[i].chairs"></i></small>
+            </div>
+          </td>
+        </tr>
+
+        <tr v-for="c,j in s.confs">
+          <td style="font-family:monospace">{{c.hora}}</td>
+          <td v-for="room,k in rooms" :style="{background:cell_color(k)}">
+            <div v-if="room.visible">
+              <div v-if="room.sessions[i] && room.sessions[i].confs[j]">
+                <div v-for="conf in [room.sessions[i].confs[j]]">
+                  <div>{{conf.titol}}</div>
+                  <div><i>{{conf.speaker}}</i></div>
+                  <div><a href=#>See abstract...</a></div>
+                  <div><a href=#>See Poster [PDF]...</a></div>
+                </div>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+</div>
+
+<script>
+  let app=Vue.createApp({
+    data(){return{
+      schedule,
+    }},
+    //methods
+    methods:{
+      cell_color(n){
+        return ['#bbd5aa','#d9e2f3','#f7caac'][n]||"";
+      }
+    },
+
+    //smart cached calculations
+    computed:{ },
+    //hooks
+    mounted(){ },
+    updated(){ },
+  }).mount("#app");
+</script>
