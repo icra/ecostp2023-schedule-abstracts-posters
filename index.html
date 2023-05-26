@@ -224,7 +224,7 @@
     <table border=1 style="border-collapse:collapse;margin:10px 0">
       <tr>
         <td></td>
-        <td v-for="room,k in rooms" :style="{background:cell_color(k),textAlign:'center'}">
+        <td v-for="room,k in rooms" :style="{background:'',textAlign:'center'}">
           <div v-html="room.name"></div>
         </td>
       </tr>
