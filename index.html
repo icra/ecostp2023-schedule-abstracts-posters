@@ -11,6 +11,14 @@
     td{
       vertical-align:top;
     }
+    td.nom_sessio{
+      color:darkblue;
+    }
+    td.nom_sessio:hover,
+    td.nom_room:hover {
+      cursor:pointer;
+      text-decoration:underline;
+    }
   </style>
   <script>
     class Conf{//conference class
@@ -25,11 +33,12 @@
     }
 
     class Session{//session class: group of conferences
-      constructor(name, chairs, confs){
+      constructor(name, chairs, confs, colspan){
         this.name   = name;  //string
         this.chairs = chairs;  //string
         this.confs  = confs; //array of Confs
         this.visible = 1;
+        this.colspan = colspan||1;
       }
     }
 
@@ -90,7 +99,7 @@
           ),
           new Session(
             "T3. Water Reuse (14:15-16:00)",
-            "Chairs: Jordi Raich (S::can Iberia) & Matia Mainardis (University of Udine)", [
+            "Chairs: Jordi Raich (s::can Iberia) & Matia Mainardis (University of Udine)", [
               new Conf("14:15","Anacleto Rizzo. IRIDRA Srl","3.1. Wall2Water, the NAWAMED pilot of living wall for greywater treatment and reuse in Mediterranean countries."),
               new Conf("14:30","Luca Penserini. Politecnico di Milano","3.2. Feasibility assessment of reclaimed wastewater reuse in agriculture: how we do it."),
               new Conf("14:45","Esther Mendoza. ICRA","3.3. Fertilizer drawn forward osmosis for greywater treatment and subsequent reuse in hydroponics."),
@@ -242,28 +251,173 @@
 
       "Wednesday 28th June":[
         new Room('Room 1<br>"Sala Cambra"',[
-          new Session("T11","chairs",[ ]),
-          new Session("T12","chairs",[ ]),
-          new Session("T13","chairs",[ ]),
+          new Session(
+            "T11. Recovery of added value chemicals (8:45-10:30)",
+            "Chairs: Albert Guisasola (UAB) & Tommaso Lotti (Univ. Florence)",[
+              new Conf("08:45","Alberto Maimone. CETIM Technological","11.1. An electrochemical strategy by Lithium recovery from waste battery and brine desalination."),
+              new Conf("09:00","Isaac Owusu-Agyeman. KTH-Royal Institute of Technology	","11.2. From Waste Streams to Platform Chemicals."),
+              new Conf("09:15","Ramon Ganigué. Ghent University	","11.3. High-rate production of carboxylic acids from carbohydrate-rich wastewaters."),
+              new Conf("09:30","Meritxell Romans Casas. LEQUIA-UdG	","11.4. CO2 bioelectrorecycling to butyric acid and its upgrade to butanol."),
+              new Conf("09:45","Elisa Huang-Lin. Univ. Valladolid.	","11.5. Innovative cell platforms to transform CO2 into fine chemicals for the pharmaceutical industry."),
+              new Conf("10:00","Ailén Maria Florencia Soto. Spanish National Research Council	","11.6. Recovery of Cu and Zn from liquid anaerobic digestates via S. pasteurii induced carbonate precipitation: influence of pH and volatile fatty acids on metals precipitation."),
+              new Conf("10:05","Jorge Rodríguez R. Khalifa University	","11.7. Inhibition limits by undissociated acids in mixed culture fermentation and strategies to increase process capacity."),
+              new Conf("10:10","Ander Castro. CETAQUA	","11.8. Thermal hydrolysis pre-treatment has no positive influence on VFA production from sewage sludge."),
+              new Conf("10:15","","Questions/discussion"),
+              new Conf("10:30","","Coffe break"),
+            ]
+          ),
+          new Session(
+            "T12. Recovery of PHA and SCP (11:00-13:15)",
+            "Chairs: Maria Reis (UNL) & Zeynep Cetecioglu (KTH)",[
+              new Conf("11:00","Noemí Pérez i Esteban. University of Barcelona", "12.1. Volatile fatty acids yield and profile during sludge and food waste co-fermentation at different temperatures."),
+              new Conf("11:15","Juliana Almeida. Institute for Health and Bioeconomy and UCIBIO", "12.2. Exploring the ammonia presence effect on PHA production of a phototrophic-chemotrophic consortium operated under Light-Feast/Dark-Aerated-Famine."),
+              new Conf("11:30","Eva Gonzalez Flo. Universitat Politècnica de Catalunya", "12.3. Top-down engineering of natural phototrophic microbiomes into stable and productive consortia for the production of bioplastics."),
+              new Conf("11:45","Maria del Rosario Rodero Raya. INRAE-LBE", "12.4. Bioconversion of H2 to Single Cell Protein by Purple Bacteria consortia: Influence of environmental conditions on microbial kinetics."),
+              new Conf("12:00","Vincenzo Pelagalli. Univ. of Cassino and Southern Lazio", "12.5. The potential of H2S- and CO-tolerant hydrogen-oxidizing bacteria to convert sewage sludge into microbial protein through aerobic syngas fermentation."),
+              new Conf("12:15","Silvia Bolognesi. LEQUIA-UdG", "12.6. Integration of heterotrophic microalgae beads bioreactor in microbial electrosynthesis for bioelectro-conversion of carbon dioxide into bio-oil and proteins"),
+              new Conf("12:30","Sandra Chacón. Universidad Rey Juan Carlos de Móstoles.", "12.7. Co-treatment of urban wastewater and municipal solid waste by mixed phototrophic cultures to generate PHA by varying organic carbon loads."),
+              new Conf("12:45","Alba Pedrouso. Univ. de Santiago de Compostela", "12.8. Maximising the production of composition-specific polyhydroxyalkanoates from volatile fatty acids."),
+              new Conf("12:50","Antonio Mineo. Palermo University", "12.9. Resources from wastewater: employment of an advanced strategy for polyhydroxyalkanoates (PHA) synthesis and recovery."),
+              new Conf("12:55","Ana Vázquez-Fernández. Univ. Autònoma de Barcelona", "12.10. Acidogenic fermentation of model carbohydrate/protein mixtures: how does substrate organic composition impact?"),
+              new Conf("13:00","","Questions/discussion"),
+              new Conf("13:15","","Lunch"),
+
+          ]),
+          new Session(
+            "T13. Energy Recovery (14:15-16:00)",
+            "Chairs: Frank Rogalla (AQUALIA-FCC) & Francisca Sousa Braga (DTU & Skanderborg Spildevand A/S)",[
+              new Conf("14:15","Ruben Asiain-Mira. AQUALIA-FCC", "13.1. Energy recovery from wastewater: ammonia and hydrogen production from nitrogen-containing waste streams."),
+              new Conf("14:30","Hari Ananda Rao. KAUST", "13.2. Anaerobic microbial electrochemical fluidized membrane bioreactor for domestic wastewater treatment and reuse with energy recovery."),
+              new Conf("14:45","Yadira Bajon Fernandez. Cranfield University", "13.3. Optimising anaerobic digesters with thermal pre-treatment by understanding sludge composition  full-scale and laboratory results on trace elements and enzyme supplementation."),
+              new Conf("15:00","Hector Monclus. LEQUIA-UdG", "13.4. High-rate Activated Sludge at very short SRT: key factors for process Stability and Performance of COD fractions removal."),
+              new Conf("15:15","Ander Castro. CETAQUA", "13.5. An integrated system to produce bio-based volatile fatty acids for the industry and biogas from sewage sludge."),
+              new Conf("15:30","Edwin Gilbert Hoyos. Univ. de Valladolid", "13.6. Influence of carbon-coated zero-valent iron-based nanoparticle concentration on continuous photosynthetic biogas upgrading."),
+              new Conf("15:35","Oscar Guerrero. Univ. Autònoma de Barcelona", "13.7. Enhancing bioelectrochemical hydrogen production from industrial wastewater in a 150 L microbial electrolysis cell pilot plant."),
+              new Conf("15:40","Jose Antonio Magdalena. LBE-INRAE", "13.8. Organic loading rate and pH as optimization parameters for biohydrogen production via dark fermentation coupled with microbial electrolysis cells."),
+              new Conf("15:45","","Questions/discussion"),
+              new Conf("16:00","","Coffee break"),
+          ]),
+          new Session(
+            "CLOSING CEREMONY - SALA SINFÒNICA",
+            "",[
+              new Conf("16:30","",`
+                Closing Plenary 1:<br>
+                Prof. Gustav Olson, Lund University (Sweeden):<br>
+                “Water - key indicator of global warming and basis for energy and food production”
+                <br><br>
+                Closing Plenary 2:<br>
+                Prof. Krishna Pagilla, Nevada Water Innovation Institute (USA):<br>
+                “Drivers and Strategies of Wastewater Reclamation for Potable Reuse”
+              `),
+              new Conf("17:45","",`
+                Chairs: Maite Pijuan (ICRA) & Ignasi Rodriguez-Roda (LEQUIA-UdG)<br><br>
+                Statement from the Director of the Catalan Water Agency (ACA), Mr. Samuel Reyes<br><br>
+                Closing remarks, Poster & Platform awards and announcement Next EcoSTP25.
+              `),
+            ],
+            3,
+          ),
         ]),
         new Room('Room 2<br>"Sala Petita"',[
-          new Session("T14","chairs",[ ]),
-          new Session("T15","chairs",[ ]),
-          new Session("T16","chairs",[ ]),
+          new Session(
+            "T14. Aerobic granulation (8:45-10:30)",
+            "Chairs: Liu Ye (UQ) & Damián Amador (FCC-AQUALIA)",[
+              new Conf("08:45","Laurence Strubbe. Ghent University	","14.1. Unravelling the alpha factor for aerobic granular sludge reactors."),
+              new Conf("09:00","Anuska Mosquera Corral. Univ. Santigao de Compostela	","14.2. Determining the causes of the deterioration of granules in an aerobic granular sludge continuous flow system."),
+              new Conf("09:15","Eirini Tsertou. University of Antwerp	","14.3. A Pilot-Scale Study on the Impact of Aerobic Granular Sludge on Membrane Filtration Performance."),
+              new Conf("09:30","Hari Ananda Rao. KAUST	","14.4. Combined Aerobic Granular Sludge and Gravity-Driven Membrane System for Energy-Efficient Wastewater Treatment and Reuse."),
+              new Conf("09:45","Nerea Uri Carreno. VCS Denmark	","14.5. Getting the most out of existing infrastructure: Denmark and Spain put MABR and AGS technology to the test."),
+              new Conf("10:00","David Correa-Galeote. Univ. of Granada	","14.6. Dynamics of antibiotic-resistant genes in aerobic granular systems in aerobic granular reactors treating real wastewater."),
+              new Conf("10:05","Anna Lanzetta. University of Naples	","14.7. Carbon and nitrogen removal from wastewater in a continuous upflow aerobic granular sludge blanket reactor."),
+              new Conf("10:10","Jan Pietro Czellnik. University of Florence	","14.8. Kinetic characterization of Phosphorus Accumulating Organisms (PAO) and Glycogen Accumulating Organisms (GAO) anaerobic metabolism in Aerobic Granular Sludge (AGS)."),
+              new Conf("10:15","","Questions/discussion"),
+              new Conf("10:30","","Coffe break"),
+          ]),
+          new Session(
+            "T15. Partial nitritation & anammox  (11:00-13:15)",
+            "Chairs: Jesús Colprim (LEQUIA-UdG) & Jan Dries (University of Antwerp)",[
+              new Conf("11:00","Michiel Van Tendeloo. University of Antwerp", "15.1. Energy-efficient nitrogen removal from sewage: achieving mainstream partial nitritation/anammox via recurrent multi-stressor floc treatments."),
+              new Conf("11:15","Sheldon Tarre. Technion", "15.2. Sustainable Mainstream Deammonification by Ion Exchange and Bioregeneration via Partial Nitritation/Anammox."),
+              new Conf("11:30","Lin Zeng. Ghent University.", "15.3. Kinetic and stoichiometric characterization of a new thermophilic anaerobic ammonium oxidation culture."),
+              new Conf("11:45","Oriol Carbó. GS-Inima", "15.4. Mainstream Aerobic Granular Sludge start-up from HRAS effluent targeting partial nitritation."),
+              new Conf("12:00","Alba Pedrouso. Univ. de Santiago de Compostela", "15.5. Sensitivity of anammox bacteria under mainstream conditions: combined effect of low temperature and pH with inhibitory concentrations of free ammonia/free nitrous acid."),
+              new Conf("12:15","Jesús Godifredo. IIAMA", "15.6. Nitrogen Removal/Recovery in the mainstream of a WWTP including ultrafiltration after the primary treatment: Partial Nitrification+Anammox vs. Ion Exchange+Hollow fiber membrane contactors"),
+              new Conf("12:30","Edyta Laskawiec. Silesian University of Technology", "15.7. Influence of free nitrous acid on nitrifiers to introduce shortcut nitrification in the mainstream of WWTP."),
+              new Conf("12:45","Àlex Gaona. Univ. Autònoma de Barcelona.", "15.8. When its worthwhile to include the nitrite pathway in a WWTP with C/N/P removal?"),
+              new Conf("12:50","Min Zheng, The University of Queensland.", "15.9. A novel wastewater treatment process incorporating acidophilic ammonia oxidation."),
+              new Conf("12:55","Laura Palli. GIDA spa", "15.10. Long-term effect of shortcut biological nitrogen removal as energy saving strategy for liquid waste treatment."),
+              new Conf("13:00","","Questions/discussion"),
+              new Conf("13:15","","Lunch"),
+          ]),
+          new Session(
+            "T16. GHG & Microbial community dynamics (14:15-16:00)",
+            "Chairs: Adrian Ohemen (UQ) & Evina Katsou (Brunel Univ.)",[
+              new Conf("14:15","Liu Ye, The Univ. of Queenslan", "16.1. The long-term full-scale monitoring of GHG from an Australian WWTP demonstrated the upstream carbon capture can stimulate downstream emissions."),
+              new Conf("14:30","Laura Flores. CETAQUA", "16.2. Real-time monitoring and data-driven management of N2O generation in biological reactors."),
+              new Conf("14:45","Ramon Ganigué. Ghent Univ", "16.3. Unraveling the N2O emissions from thermophilic nitrification reactors."),
+              new Conf("15:00","Sarah Aucote. Univ. of Queensland.", "16.4. A laboratory-scale study to mitigate greenhouse gas emissions from open sludge lagoons."),
+              new Conf("15:15","Lluc Olmo. Univ. Autònoma de Barcelona.", "16.5. Nitrous oxide production for nitrogen valorisation on side stream of an urban waste water treatment plant."),
+              new Conf("15:30","Haoran Duan. The Univ. of Queensland.", "16.6. Low nitrous oxide emissions and its mechanisms in a pilot-scale mainstream Partial Nitritation/Anammox process."),
+              new Conf("15:35","Manuel Fachal. Univ. Autònoma de Barcelona", "16.7. Characterization of hydrogenotrophic methanogenic cultures through a novel pressurized headspace-free Hydrogen Uptake Rate methodology."),
+              new Conf("15:40","Sergi Astals. Univ. de Barcelona.", "16.8. Seasonal microbial community dynamics at Lleida WWTP: filamentous bulking and nitrification deterioration events."),
+              new Conf("15:45","","Questions/discussion"),
+              new Conf("16:00","","Coffee break"),
+          ]),
         ]),
         new Room('Room 3<br>"Sala Assaig"',[
-          new Session("T17","chairs",[ ]),
-          new Session("T18","chairs",[ ]),
-          new Session("T19","chairs",[ ]),
+          new Session(
+            "T17. Nature based solutions (8:45-10:30)",
+            "Chairs: Blanca Antizar (Isle Utilities) & Silvia Bolognesi (LEQUIA-UdG)",[
+              new Conf("08:45","Bernhard Pucher. University of Lisbon","17.1. Framework for a quantification approach of resource streams utilized by nature-based solutions in circular cities."),
+              new Conf("09:00","Damian Amador Cabezali. AQUALIA-FCC. ","17.2. INTEXT Platforms: Innovative hybrid INTensive  EXTensive technologies for wastewater treatment in small communities."),
+              new Conf("09:15","Belén Fernández. IRTA.","17.3. Green solutions for treating nitrate and micropollutants in groundwater to meet drinking standards: one year overview."),
+              new Conf("09:30","Edward Jair Pastor López. CSIC-IDAEA","17.4. Nature-Based Solution (NBS) as a tertiary wastewater treatment to reduce antibiotics into the aquatic ecosystems."),
+              new Conf("09:45","Pedro Carvalho. Aarhus University","17.5. Organic micropollutant removal from urban waters by MULTISOURCE Enhanced Natural Treatment Solutions."),
+              new Conf("10:00","Alicia Cano López. IDAEA-CSIC","17.6. Assessment of intensified constructed wetlands for the attenuation of PMT compounds from groundwater and wastewater."),
+              new Conf("10:05","Taxiarchis Seintos. National Technical University of Athens","17.7. Application of novel filling materials in vertical subsurface flow constructed wetlands to treat the UASB effluent of domestic wastewater."),
+              new Conf("10:10","Ivan Blanco. AQUALIA- FCC","17.8. Challenges and implementation of Nature-based solutions in Southern European countries."),
+              new Conf("10:15","","Questions/discussion"),
+              new Conf("10:30","","Coffe break"),
+          ]),
+          new Session(
+            "T18. Environmental assessment (11:00-13:15)",
+            "Chairs: Bernhard Pucher (BOKU) & Mario Ruiz (Aigües de Barcelona)",[
+              new Conf("11:00","Brais Vázquez Vázquez. Univ. de Santiago de Compostela", "18.1. Are circular economy strategies environmentally sustainable? Including the end-of-life stage when assessing seafood plastic packaging."),
+              new Conf("11:15","Lucía González. CETAQUA", "18.2. Environmental assessment of bio  based Volatile Fatty Acids production from industrial wastewater."),
+              new Conf("11:30","João Ribeiro. Brunel University London", "18.3. Minimal liquid discharge desalination circularity and sustainability assessment."),
+              new Conf("11:45","Lori Manoukian. McGill University", "18.4. Analysis and comparison of life cycle assessment approaches in mineral and recovered phosphorus fertilizer production."),
+              new Conf("12:00","Ka Leung Lam. Duke Kunshan University", "18.5. End-user Perspective Life Cycle Environmental Impacts of Wastewater-derived Phosphorus Products"),
+              new Conf("12:15","Jueying Qian. University of Kassel", "18.6. How sustainable is the digitalization of treatment stages for micropollutant removal"),
+              new Conf("12:30","TBD", "18.7. TBD"),
+              new Conf("12:45","David Renfrew, Brunel University London", "18.8. Utilising sustainable value propositions to understand the value creation of circular actions in wastewater systems."),
+              new Conf("12:50","Natasa Atanasova. University of Ljubljana", "18.9. Life cycle assessment of on-site nature-based wastewater treatment and reuse systems."),
+              new Conf("12:55","Marta Behjat. Chalmers University of Technology", "18.10. Sustainability assessment at early stages of technology development: phosphorus recovery for fertiliser from dairy wastewater."),
+              new Conf("13:00","","Questions/discussion",),
+              new Conf("13:15","","Lunch"),
+          ]),
+          new Session(
+            "T19. Decentralized systems (14:15-16:00)",
+            "Chairs: Pedro Carvalho (DTU) & Laura Rovira (LEQUIA-UdG)",[
+              new Conf("14:15","Sophie Besnault. INRAE", "19.1. Lessons learned from phosphorus chemical precipitation in small wastewater treatment plants."),
+              new Conf("14:30","Alba Ceballos-Escalera. LEQUIA-UdG", "19.2. Nitrate electro-bioremediation as a decentralised water treatment: from the proof-of-concept to the on-site technology validation."),
+              new Conf("14:45","Bart De Gusseme. Ghent University", "19.3. Innovative decentralized wastewater treatment project for 400 households and local industry, combining water, nutrient and energy recovery."),
+              new Conf("15:00","Irene Barnosell. LEQUIA-UdG", "19.4. The third route: Techno-economic analysis of extreme water and wastewater decentralization."),
+              new Conf("15:15","Francisco Omil. Univ. Santiago de Compostels", "19.5. Occurrence and fate of Organic Micropollutants and Antibiotic Resistance Genes during Separated Decentralised Treatment of Black Water and Grey Water."),
+              new Conf("15:30","Queralt Plana Puig, EURECAT", "19.6. Decentralized hybrid wastewater treatment system for water reuse on a campsite at Costa Daurada."),
+              new Conf("15:35","Bing Wu. University of Iceland", "19.7. Biocarriers-facilitated Gravity-driven Membrane Reactor for Decentralized Wastewater Treatment under Cold Climate."),
+              new Conf("15:40","Lluis Bertrans Tubau. BETA Tech Center- Univ. Vic", "19.8. Freshwater microbial communities as a potential nature-based solution for wastewater tertiary treatment in small facilities."),
+              new Conf("15:45","","Questions/discussion"),
+              new Conf("16:00","","Coffee break"),
+          ]),
         ]),
       ],
 
       "Thursday 29th June":[
         new Room("Technical Visits",[
           new Session("Technical Visits","",[
-            new Conf("09:00-17:00","speaker name","Technical Visit 1 - The synergies between WWTP - Empuriabrava and protected coastal wetlands"),
-            new Conf("08:00-18:00","speaker name","Technical Visit 2 - The past and future of water in Barcelona"),
-            new Conf("09:00-17:00","speaker name","Technical Visit 3 - Besós River, from foam to otters: a successful story of restoring ecosystems"),
+            new Conf("09:00-17:00","","Technical Visit 1 - The synergies between WWTP - Empuriabrava and protected coastal wetlands"),
+            new Conf("08:00-18:00","","Technical Visit 2 - The past and future of water in Barcelona"),
+            new Conf("09:00-17:00","","Technical Visit 3 - Besós River, from foam to otters: a successful story of restoring ecosystems"),
           ]),
         ]),
       ],
@@ -290,7 +444,8 @@
         <td></td>
         <td
           v-for="room,k in rooms"
-          :style="{background:'',textAlign:'center'}"
+          class=nom_room
+          :style="{background:'',textAlign:'center',whiteSpace:'nowrap'}"
         >
           <div
             @click="room.visible^=1"
@@ -299,29 +454,51 @@
         </td>
       </tr>
 
+      <!--iterate sessions-->
       <tbody v-for="s,i in rooms[0].sessions">
-        <tr :rowspan="rooms[0].sessions[i].visible?1:s.confs.length">
+        <!--session name-->
+        <tr>
           <td style="font-family:monospace;color:#aaa">topic</td>
           <td
             v-for="room,k in rooms"
-            :style="{background:cell_color(k)}"
-            @click="room.sessions[i].visible^=1"
+            class=nom_sessio
+            :style="{background:cell_color(k),display:(room.sessions[i]?'':'none')}"
+            @click="room.sessions[i]?room.sessions[i].visible^=1:''"
+            :rowspan="room.sessions[i]?(room.sessions[i].visible?1:1+s.confs.length):1"
+            :colspan="room.sessions[i]?(room.sessions[i].colspan):0"
           >
-            <div v-if="room.visible" >
+            <div v-if="room.visible && room.sessions[i]" >
               <b v-html="room.sessions[i].name"></b><br>
               <small><i v-html="room.sessions[i].chairs"></i></small>
             </div>
           </td>
         </tr>
+
         <tr v-for="c,j in s.confs">
-          <td style="font-family:monospace">{{c.hora}}</td>
-          <td v-for="room,k in rooms" :style="{background:cell_color(k)}">
+          <td
+            style="font-family:monospace;font-size:smaller"
+            v-html="c.hora"
+          ></td>
+
+          <td
+            v-for="room,k in rooms"
+            :style="{
+              background:cell_color(k),
+              display:room.sessions[i]?(room.sessions[i].visible?'':'none'):'none',
+              fontSize:'smaller',
+            }"
+            :colspan="room.sessions[i]?(room.sessions[i].colspan):0"
+          >
             <div v-if="room.visible">
               <div v-if="room.sessions[i] && room.sessions[i].visible && room.sessions[i].confs[j]">
                 <div v-for="conf in [room.sessions[i].confs[j]]">
                   <div v-html="conf.titol"></div>
-                  <div><i>{{conf.speaker}}</i></div>
-                  <div style="font-size:normal;text-align:right" v-if="conf.speaker">
+
+                  <div style="margin-top:5px"><i>{{conf.speaker}}</i></div>
+
+                  <div v-if="conf.speaker"
+                    style="font-size:normal;text-align:right"
+                  >
                     <a href=#>View Abstract</a>
                   </div>
                 </div>
