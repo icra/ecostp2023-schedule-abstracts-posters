@@ -24,15 +24,16 @@
       }
     }
 
-    class Session{
+    class Session{//session class: group of conferences
       constructor(name, chairs, confs){
         this.name   = name;  //string
         this.chairs = chairs;  //string
         this.confs  = confs; //array of Confs
+        this.visible = 1;
       }
     }
 
-    class Room{
+    class Room{//room class: group of sessions
       constructor(name, sessions){
         this.name     = name;     //string
         this.sessions = sessions; //array of Sessions
@@ -287,27 +288,36 @@
     <table border=1 style="border-collapse:collapse;margin:10px 0">
       <tr>
         <td></td>
-        <td v-for="room,k in rooms" :style="{background:'',textAlign:'center'}">
-          <div v-html="room.name"></div>
+        <td
+          v-for="room,k in rooms"
+          :style="{background:'',textAlign:'center'}"
+        >
+          <div
+            @click="room.visible^=1"
+            v-html="room.name"
+          ></div>
         </td>
       </tr>
 
       <tbody v-for="s,i in rooms[0].sessions">
-        <tr>
+        <tr :rowspan="rooms[0].sessions[i].visible?1:s.confs.length">
           <td style="font-family:monospace;color:#aaa">topic</td>
-          <td v-for="room,k in rooms" :style="{background:cell_color(k)}">
-            <div v-if="room.visible">
+          <td
+            v-for="room,k in rooms"
+            :style="{background:cell_color(k)}"
+            @click="room.sessions[i].visible^=1"
+          >
+            <div v-if="room.visible" >
               <b v-html="room.sessions[i].name"></b><br>
               <small><i v-html="room.sessions[i].chairs"></i></small>
             </div>
           </td>
         </tr>
-
         <tr v-for="c,j in s.confs">
           <td style="font-family:monospace">{{c.hora}}</td>
           <td v-for="room,k in rooms" :style="{background:cell_color(k)}">
             <div v-if="room.visible">
-              <div v-if="room.sessions[i] && room.sessions[i].confs[j]">
+              <div v-if="room.sessions[i] && room.sessions[i].visible && room.sessions[i].confs[j]">
                 <div v-for="conf in [room.sessions[i].confs[j]]">
                   <div v-html="conf.titol"></div>
                   <div><i>{{conf.speaker}}</i></div>
