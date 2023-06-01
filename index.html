@@ -4,6 +4,9 @@
   <title>ecoSTP2023</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <style>
+    table{
+      max-width:100%;
+    }
     summary:hover{
       cursor:pointer;
       text-decoration:underline;
@@ -128,7 +131,6 @@
             ]
           ),
         ]),
-
         new Room('Room 2<br>"Sala Petita"',[
           new Session(
             "T5. Removal of recalcitrant and emerging pollutants I (08:45-10:30)",
@@ -264,8 +266,7 @@
               new Conf("10:10","Ander Castro. CETAQUA	","11.8. Thermal hydrolysis pre-treatment has no positive influence on VFA production from sewage sludge."),
               new Conf("10:15","","Questions/discussion"),
               new Conf("10:30","","Coffe break"),
-            ]
-          ),
+          ]),
           new Session(
             "T12. Recovery of PHA and SCP (11:00-13:15)",
             "Chairs: Maria Reis (UNL) & Zeynep Cetecioglu (KTH)",[
@@ -281,7 +282,6 @@
               new Conf("12:55","Ana Vázquez-Fernández. Univ. Autònoma de Barcelona", "12.10. Acidogenic fermentation of model carbohydrate/protein mixtures: how does substrate organic composition impact?"),
               new Conf("13:00","","Questions/discussion"),
               new Conf("13:15","","Lunch"),
-
           ]),
           new Session(
             "T13. Energy Recovery (14:15-16:00)",
@@ -315,8 +315,7 @@
                 Closing remarks, Poster & Platform awards and announcement Next EcoSTP25.
               `),
               new Conf("20:00","",`Gala dinner`),
-            ],
-            3,
+            ], 3,
           ),
         ]),
         new Room('Room 2<br>"Sala Petita"',[
