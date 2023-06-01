@@ -7,13 +7,16 @@
     body{
       margin:auto;
     }
+    a{
+      color:blue;
+    }
     hr{
       border:none;
       border-top:1px solid #ccc;
       width:100%;
     }
     table{
-      width:100%;
+      max-width:100%;
     }
     table#schedule > tbody > tr {
       border-left:none;
@@ -81,7 +84,7 @@
           new Session(
             "T1. N&P recovery I (08:45-10:30)",
             "Chairs: Mathieu Sperandio (INSA-Toulouse) & Juan Baeza (Univ. Autonoma of Barcelona)", [
-              new Conf("08:45","Queralt Farras, Eurecat","1.1 Towards a sustainable biorefinery: integrated treatment of the liquid fraction of digestate from the organic fraction of municipal solid waste scale up from laboratory to pilot-scale","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
+              new Conf("08:45","Queralt Farras, Eurecat","1.1 Towards a sustainable biorefinery: integrated treatment of the liquid fraction of digestate from the organic fraction of municipal solid waste scale up from laboratory to pilot-scale"),
               new Conf("09:00","TBD","1.2 TBD"),
               new Conf("09:15","Matias Vanotti, USDA","1.3 Recovery of ammonia and phosphate resources from wastewater using gas-permeable membranes"),
               new Conf("09:30","Ana Soares, Cranfield Univ.","1.4 Ammonia Removal and Recovery From Municipal Wastewater"),
@@ -519,8 +522,12 @@
 
                     <!--conf abstract-->
                     <div
-                      v-if="conf.speaker && conf.abstract"
-                      style="font-size:normal;text-align:left;margin-top:5px"
+                      v-if="conf.speaker"
+                      style="
+                        font-size:normal;
+                        text-align:center;
+                        margin:5px auto;
+                      "
                     >
                       <a
                         @click="current_conf=conf"
@@ -551,7 +558,18 @@
     </div>
     <h2>{{current_conf.titol}}</h2>
     <b>{{current_conf.speaker}}</b>
-    <p style="text-align:justify"><b>Abstract:</b> {{current_conf.abstract}}</p>
+    <p style="text-align:justify"><b>Abstract:</b>
+      <span v-if="current_conf.abstract">{{current_conf.abstract}}</span>
+      <span v-else>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.
+      </span>
+    </p>
   </div>
 </div>
 
