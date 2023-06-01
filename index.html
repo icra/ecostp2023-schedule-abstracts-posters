@@ -13,7 +13,10 @@
       width:100%;
     }
     table{
-      max-width:100%;
+      width:100%;
+    }
+    table#schedule > tbody > tr {
+      border-left:none;
     }
     summary:hover{
       cursor:pointer;
@@ -33,13 +36,12 @@
   </style>
   <script>
     class Conf{//conference class
-      constructor(hora,speaker,titol,lloc,link_pdf,abstract){
+      constructor(hora,speaker,titol,abstract,link_pdf){
         this.hora     = hora    ||"";
         this.speaker  = speaker ||"";
         this.titol    = titol   ||"";
-        this.lloc     = lloc    ||"";
-        this.link_pdf = link_pdf||false; //optional
         this.abstract = abstract||false; //optional
+        this.link_pdf = link_pdf||false; //optional
       }
     }
 
@@ -79,7 +81,7 @@
           new Session(
             "T1. N&P recovery I (08:45-10:30)",
             "Chairs: Mathieu Sperandio (INSA-Toulouse) & Juan Baeza (Univ. Autonoma of Barcelona)", [
-              new Conf("08:45","Queralt Farras, Eurecat","1.1 Towards a sustainable biorefinery: integrated treatment of the liquid fraction of digestate from the organic fraction of municipal solid waste scale up from laboratory to pilot-scale"),
+              new Conf("08:45","Queralt Farras, Eurecat","1.1 Towards a sustainable biorefinery: integrated treatment of the liquid fraction of digestate from the organic fraction of municipal solid waste scale up from laboratory to pilot-scale","Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."),
               new Conf("09:00","TBD","1.2 TBD"),
               new Conf("09:15","Matias Vanotti, USDA","1.3 Recovery of ammonia and phosphate resources from wastewater using gas-permeable membranes"),
               new Conf("09:30","Ana Soares, Cranfield Univ.","1.4 Ammonia Removal and Recovery From Municipal Wastewater"),
@@ -440,107 +442,137 @@
 <!--subtitle-->
 <div>
   <b>Schedule, Abstracts and Posters</b><br>
-  <b style=color:red>web work in progress</b>
+  <b style=color:red>web under construction</b>
 </div><hr>
 
 <!--table-->
 <div id=app>
-  <details v-for="rooms,day in schedule" open>
-    <summary
-      v-html="day"
-      style="text-weight:bold;font-size:larger;"
-    ></summary>
-    <table border=1 style="border-collapse:collapse;margin:10px 0">
-      <!--room names-->
-      <tr>
-        <td></td>
-        <td
-          v-for="room,k in rooms"
-          class=nom_room
-          :style="{background:'',textAlign:'center',whiteSpace:'nowrap'}"
-        >
-          <div
-            @click="room.visible^=1"
-            v-html="room.name"
-          ></div>
-        </td>
-      </tr>
-
-      <!--iterate sessions-->
-      <tbody v-for="s,i in rooms[0].sessions">
-        <!--session name-->
+  <div v-if="current_conf==null">
+    <details v-for="rooms,day in schedule" open>
+      <summary
+        v-html="day"
+        style="text-weight:bold;font-size:larger;"
+      ></summary>
+      <table id=schedule border=1 style="border-collapse:collapse;margin:10px 0">
+        <!--room names-->
         <tr>
-          <td style="font-family:monospace;color:#aaa;font-size:smaller">topic</td>
+          <td></td>
           <td
             v-for="room,k in rooms"
-            class=nom_sessio
-            :style="{background:cell_color(k),display:(room.sessions[i]?'':'none')}"
-            @click="room.sessions[i]?room.sessions[i].visible^=1:''"
-            :rowspan="room.sessions[i]?(room.sessions[i].visible?1:1+s.confs.length):1"
-            :colspan="room.sessions[i]?(room.sessions[i].colspan):0"
+            class=nom_room
+            :style="{background:'',textAlign:'center',whiteSpace:'nowrap'}"
           >
-            <div v-if="room.visible && room.sessions[i]" >
-              <b v-html="room.sessions[i].name"></b><br>
-              <small><i v-html="room.sessions[i].chairs"></i></small>
-            </div>
+            <div
+              @click="room.visible^=1"
+              v-html="room.name"
+            ></div>
           </td>
         </tr>
 
-        <!--iterate confs-->
-        <tr v-for="c,j in s.confs">
-          <!--hour-->
-          <td
-            style="font-family:monospace;font-size:smaller"
-            v-html="c.hora"
-          ></td>
+        <!--iterate sessions-->
+        <tbody v-for="s,i in rooms[0].sessions">
+          <!--session name-->
+          <tr>
+            <td style="font-family:monospace;color:#aaa;font-size:smaller">topic</td>
+            <td
+              v-for="room,k in rooms"
+              class=nom_sessio
+              :style="{background:cell_color(k),display:(room.sessions[i]?'':'none')}"
+              @click="room.sessions[i]?room.sessions[i].visible^=1:''"
+              :rowspan="room.sessions[i]?(room.sessions[i].visible?1:1+s.confs.length):1"
+              :colspan="room.sessions[i]?(room.sessions[i].colspan):0"
+            >
+              <div v-if="room.visible && room.sessions[i]" >
+                <b v-html="room.sessions[i].name"></b><br>
+                <small><i v-html="room.sessions[i].chairs"></i></small>
+              </div>
+            </td>
+          </tr>
 
-          <!--iterate rooms-->
-          <td
-            v-for="room,k in rooms"
-            :style="{
-              background:cell_color(k),
-              display:room.sessions[i]?(room.sessions[i].visible?'':'none'):'none',
-              fontSize:'smaller',
-            }"
-            :colspan="room.sessions[i]?(room.sessions[i].colspan):0"
-          >
-            <div v-if="room.visible">
-              <div v-if="room.sessions[i] && room.sessions[i].visible && room.sessions[i].confs[j]">
-                <!--conf-->
-                <div v-for="conf in [room.sessions[i].confs[j]]">
-                  <!--conf titol-->
-                  <div v-html="conf.titol"></div>
+          <!--iterate confs-->
+          <tr v-for="c,j in s.confs">
+            <!--hour-->
+            <td
+              style="font-family:monospace;font-size:smaller;"
+              v-html="c.hora"
+            ></td>
 
-                  <!--conf speaker-->
-                  <div style="margin-top:5px"><i>{{conf.speaker}}</i></div>
+            <!--iterate rooms-->
+            <td
+              v-for="room,k in rooms"
+              :style="{
+                background:cell_color(k),
+                display:room.sessions[i]?(room.sessions[i].visible?'':'none'):'none',
+                fontSize:'smaller',
+              }"
+              :colspan="room.sessions[i]?(room.sessions[i].colspan):0"
+            >
+              <div v-if="room.visible">
+                <div v-if="room.sessions[i] && room.sessions[i].visible && room.sessions[i].confs[j]">
+                  <!--conf-->
+                  <div v-for="conf in [room.sessions[i].confs[j]]">
+                    <!--conf titol-->
+                    <div v-html="conf.titol"></div>
 
-                  <!--conf abstract-->
-                  <div v-if="conf.speaker"
-                    style="font-size:normal;text-align:right"
-                  >
-                    <a href=#>View Abstract</a>
+                    <!--conf speaker-->
+                    <div style="margin-top:5px"><i>{{conf.speaker}}</i></div>
+
+                    <!--conf abstract-->
+                    <div
+                      v-if="conf.speaker && conf.abstract"
+                      style="font-size:normal;text-align:left;margin-top:5px"
+                    >
+                      <a
+                        @click="current_conf=conf"
+                        href=#
+                      >View Abstract</a>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </details>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </details>
+  </div>
+
+  <!--view_abstract-->
+  <div v-if="current_conf"
+    style="
+      margin-left:8px;
+    "
+  >
+    <div style="margin-bottom:1em">
+      <a href=#
+        @click="current_conf=null"
+        style="font-size:larger"
+      >&larr;back</a>
+    </div>
+    <h2>{{current_conf.titol}}</h2>
+    <b>{{current_conf.speaker}}</b>
+    <p style="text-align:justify"><b>Abstract:</b> {{current_conf.abstract}}</p>
+  </div>
 </div>
 
 <script>
   let app=Vue.createApp({
     data(){return{
       schedule,
+
+      //see detail
+      current_conf:null,
     }},
 
     //methods
     methods:{
       cell_color(n){
         return ['#bbd5aa','#d9e2f3','#f7caac'][n]||"";
-      }
+      },
+
+      view_abstract(conf){
+        console.log(conf);
+      },
     },
   }).mount("#app");
 </script>
