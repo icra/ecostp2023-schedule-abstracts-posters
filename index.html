@@ -1,11 +1,11 @@
 <!doctype html><html><head>
   <meta charset=utf8>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>ecoSTP2023</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <style>
     table{
-      max-width:100%;
+      width:100%;
     }
     summary:hover{
       cursor:pointer;
@@ -425,21 +425,25 @@
   </script>
 </head><body>
 
-<div>
-  <img src="img/ecostp23_1005.fw.png" style="height:100px">
+<!--logo--><div>
+<img src="img/ecostp23_1005.fw.png" style="height:100px">
 </div><hr>
 
+<!--subtitle-->
 <div>
-  <b>Schedule, Abstracts and Posters</b>
+  <b>Schedule, Abstracts and Posters</b><br>
   <b style=color:red>web work in progress</b>
 </div><hr>
 
+<!--table-->
 <div id=app>
   <details v-for="rooms,day in schedule" open>
-    <summary style="text-weight:bold;font-size:larger;">
-      {{day}}
-    </summary>
+    <summary
+      v-html="day"
+      style="text-weight:bold;font-size:larger;"
+    ></summary>
     <table border=1 style="border-collapse:collapse;margin:10px 0">
+      <!--room names-->
       <tr>
         <td></td>
         <td
@@ -474,12 +478,15 @@
           </td>
         </tr>
 
+        <!--iterate confs-->
         <tr v-for="c,j in s.confs">
+          <!--hour-->
           <td
             style="font-family:monospace;font-size:smaller"
             v-html="c.hora"
           ></td>
 
+          <!--iterate rooms-->
           <td
             v-for="room,k in rooms"
             :style="{
@@ -491,11 +498,15 @@
           >
             <div v-if="room.visible">
               <div v-if="room.sessions[i] && room.sessions[i].visible && room.sessions[i].confs[j]">
+                <!--conf-->
                 <div v-for="conf in [room.sessions[i].confs[j]]">
+                  <!--conf titol-->
                   <div v-html="conf.titol"></div>
 
+                  <!--conf speaker-->
                   <div style="margin-top:5px"><i>{{conf.speaker}}</i></div>
 
+                  <!--conf abstract-->
                   <div v-if="conf.speaker"
                     style="font-size:normal;text-align:right"
                   >
@@ -516,6 +527,7 @@
     data(){return{
       schedule,
     }},
+
     //methods
     methods:{
       cell_color(n){
