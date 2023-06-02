@@ -1,5 +1,5 @@
 //imports
-const express = require('express'); //js server
+const express = require('express'); //http server
 const socket  = require('socket.io'); //websockets
 
 //express setup
