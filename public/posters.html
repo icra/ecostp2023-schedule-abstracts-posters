@@ -19,7 +19,7 @@
       padding:0;
       border:1px solid #ccc;
     }
-    summary{
+    body > details > summary{
       font-size:larger;
       font-weight:bold;
     }
@@ -41,13 +41,16 @@
 >
 
 <!--nav-->
-<nav style="background:#eee">
-  <b>Menu</b>
-  <ul style="margin-top:0;padding-left:20px">
-    <li><a href="index.html">SCHEDULE &amp; ABSTRACTS</a>
-    <li><span>LIST OF POSTERS</span>
-    <li><a href="chat.html">LIVE CHAT</a>
-  </ul>
+<link rel="stylesheet" href="css/nav_menu.css">
+<nav id=nav_menu>
+  <details open>
+    <summary>Menu</summary>
+    <ul>
+      <li><a href="index.html">SCHEDULE &amp; ABSTRACTS</a>
+      <li class=current><span>LIST OF POSTERS</span>
+      <li><a href="chat.html">LIVE CHAT</a>
+    </ul>
+  </details>
 </nav>
 
 <!--title-->

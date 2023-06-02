@@ -25,8 +25,12 @@ class Usuari{
   constructor(nom,sock_id){
     this.nom     = nom;
     this.sock_id = sock_id;
+    this.room    = "General";
   }
 }
+
+//rooms TODO
+let rooms=["Room 1", "Room 2", "Room 3"];
 
 //SERVER SOCKET: ESCOLTA CLIENT EVENTS
 io.on('connection',function(sock){
@@ -45,9 +49,10 @@ io.on('connection',function(sock){
     //emet nou missatge a tothom
     io.emit('missatge',{
       sock_id:"server",
-      missatge:`"${nom}" has disconnected`,
+      text:`"${nom}" has disconnected`,
       data:(new Date()).toString(),
       color:"red",
+      room:usr.room,
     });
   });
 
@@ -69,13 +74,15 @@ io.on('connection',function(sock){
       usr.nom = nou_nom;
     }else{
       //si l'usuari no estava registrat registra'l
-      usuaris.push(new Usuari(nou_nom, sock.id));
+      let new_usr = new Usuari(nou_nom, sock.id);
+      usuaris.push(new_usr);
 
       //emet nou missatge a tothom
       io.emit('missatge',{
         sock_id:"server",
-        missatge:`"${nou_nom}" just entered the chat`,
+        text:`"${nou_nom}" just entered the chat`,
         data:(new Date()).toString(),
+        room:new_usr.room,
       });
     }
 
@@ -94,13 +101,25 @@ io.on('connection',function(sock){
   //missatge rebut del client
   sock.on('missatge',function(missatge){
     //missatge: string
-    console.log(`${sock.id} says: "${missatge}"`);
+    console.log(`${sock.id}@${missatge.room} says "${missatge.text}"`);
 
     //emet nou missatge a tothom
     io.emit('missatge',{
       sock_id:sock.id,
-      missatge,
+      room:missatge.room,
+      text:missatge.text,
       data:(new Date()).toString(),
     });
+  });
+
+  sock.on("change_room",new_room=>{
+    if(!new_room) return;
+    let usr = usuaris.find(u=>u.sock_id==sock.id);
+    if(!usr) return;
+    if(usr.room==new_room) return;
+    usr.room=new_room;
+    console.log(`${sock.id} joins ${new_room}`);
+    sock.emit("change_room",new_room); //server accepts
+    io.emit('refresca_usuaris',usuaris);
   });
 });

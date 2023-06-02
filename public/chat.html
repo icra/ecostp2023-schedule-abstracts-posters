@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="img/favi.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <title>live chat</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <script src="/socket.io/socket.io.js"></script>
   <style>
     body{
@@ -33,13 +33,16 @@
 >
 
 <!--nav-->
-<nav style="background:#eee">
-  <b>Menu</b>
-  <ul style="margin-top:0;padding-left:20px">
-    <li><a href="index.html">SCHEDULE &amp; ABSTRACTS</a>
-    <li><a href="posters.html">LIST OF POSTERS</a>
-    <li><span>LIVE CHAT</span>
-  </ul>
+<link rel="stylesheet" href="css/nav_menu.css">
+<nav id=nav_menu>
+  <details open>
+    <summary>Menu</summary>
+    <ul>
+      <li><a href="index.html">SCHEDULE &amp; ABSTRACTS</a>
+      <li><a href="posters.html">LIST OF POSTERS</a>
+      <li class=current><span>LIVE CHAT</span>
+    </ul>
+  </details>
 </nav>
 
 <!--title-->
@@ -47,17 +50,42 @@
   <h1>Live Chat</h1>
 
   <div v-if="!nom_usuari">
-    Enter your name:
-    <input
-      v-model="nom_placeholder"
-      @keyup.enter="set_name()"
-      placeholder="your name"
-      maxlength=30
-    >
-    <button @click="set_name()" :disabled="!nom_placeholder">go</button>
+    <div>Enter your name:</div>
+    <div>
+      <input
+        v-model="nom_placeholder"
+        @keyup.enter="set_name()"
+        placeholder="your name"
+        maxlength=30
+      >
+      <button @click="set_name()" :disabled="!nom_placeholder">go</button>
+    </div>
   </div>
 
   <div v-if="nom_usuari">
+
+    <!--select room-->
+    <div
+      style="
+        display:flex;
+        margin:1em 0;
+        border:1px solid #ccc;
+        padding:1px 0;
+        align-items:center;
+      "
+    >
+      <div>Select room:&nbsp;</div>
+      <div v-for="room in ['General','Room 1','Room 2','Room 3']">
+        <button
+          @click="change_room(room)"
+          :disabled="room==get_room_usuari(socket.id)"
+          style="
+            padding:1em 1.618em;
+          "
+        >{{room}}</button>
+      </div>
+    </div>
+
     <div
       style="
         display:grid;
@@ -67,7 +95,44 @@
       <div>
         <div>
           Hi <b>{{nom_usuari}}</b>!
-          <code style="color:blue">{{who_is_typing}}</code>
+          <span>
+            Current room: <b>{{get_room_usuari(socket.id)}}</b>.
+          </span>
+          <div v-if="welcome_message"
+            style="
+              padding:1em;
+              background:lightyellow;
+              border:1px solid #ccc;
+              font-family:monospace;
+              text-align:justify;
+              margin-bottom:5px;
+            "
+          >
+            <p>Welcome to our live chat! We appreciate your presence and are glad that
+            you've reached out. We kindly ask you to keep in mind the
+            importance of respect while engaging with others here.</p>
+
+            <p>Respect is the cornerstone of any healthy conversation. It fosters
+            understanding, empathy, and inclusivity. We encourage you to treat
+            everyone you encounter in this chat with kindness and courtesy,
+            regardless of their background, beliefs, or opinions.
+            Remember, behind every username is a real person with feelings and
+            experiences. It's important to listen attentively, be considerate
+            in your responses, and avoid offensive language or behavior that
+            may be hurtful to others. By embracing respect, we can create a
+            welcoming and supportive environment for everyone involved.</p>
+
+            <p>If you have any questions or need assistance, feel free to ask.
+            We're here to help and ensure that your chat experience is both
+            enjoyable and respectful. Thank you for joining us, and let's make
+            this a space where everyone can feel valued and heard.</p>
+            <button @click="welcome_message=false"
+              style="
+                font-size:larger;
+                padding:0.618em 1.618em;
+              "
+            >I agree!</button>
+          </div>
         </div>
 
         <!--all messages-->
@@ -80,7 +145,7 @@
             overflow-y:auto;
           "
         >
-          <div v-for="m in missatges">
+          <div v-for="m in missatges.filter(m=>m.room==current_room)">
             <div
               :class="m.sock_id=='server'?'server_message':''"
               :style="{color:m.color?m.color:''}"
@@ -90,9 +155,10 @@
                 <b :style="{color:m.sock_id==socket.id?'green':''}"
                 >{{get_nom_usuari(m.sock_id)}}</b>:
               </span>
-              <span>{{m.missatge}}</span>
+              <span>{{m.text}}</span>
             </div>
           </div>
+          <code style="color:blue">{{who_is_typing}}</code>
         </div>
 
         <!--new message-->
@@ -114,16 +180,22 @@
         </div>
       </div>
       <div>
-        <div><b>Online users ({{usuaris.length}})</b></div>
+        <div>
+          <b>[{{current_room}}]</b> has
+          <b>{{get_usuaris_same_room().length}}</b> online users
+        </div>
         <ul
           style="
-            padding-left:20px;
+            padding-left:15px;
             border:1px solid #ccc;
             border-left:none;
             margin-top:0;
           "
         >
-          <li v-for="u in usuaris">
+          <li
+            v-for="u in get_usuaris_same_room()"
+            style="font-size:smaller"
+          >
             <span :class="u.sock_id==socket.id?'nom_usuari':''">
               {{u.nom}}
             </span>
@@ -145,14 +217,14 @@
       missatges,
       socket,
 
-      nom_placeholder:`guest_${(Math.random()*10000).toFixed()}`,
+      nom_placeholder:`guest_user_${(Math.random()*10000).toFixed()}`,
       nom_usuari:null,
 
       missatge_placeholder:"Hi everyone!",
-
       who_is_typing:"",
-
       cache_noms_usuari:{},
+      welcome_message:true,
+      current_room:"General",
     }},
 
     //methods
@@ -160,6 +232,12 @@
       set_name(){
         if(!this.nom_placeholder) return
         socket.emit("nom_usuari",this.nom_placeholder);
+      },
+
+      get_room_usuari(sock_id){
+        let usr = this.usuaris.find(u=>u.sock_id==sock_id);
+        if(!usr) return "?";
+        return usr.room;
       },
 
       get_nom_usuari(sock_id){
@@ -179,11 +257,22 @@
 
       envia_missatge(){
         if(!this.missatge_placeholder) return;
-        socket.emit("missatge",this.missatge_placeholder);
+        socket.emit("missatge",{
+          text:this.missatge_placeholder,
+          room:this.current_room,
+        });
+
         this.missatge_placeholder="";
         document.querySelector("#missatge_placeholder").focus();
       },
 
+      change_room(new_room){
+        socket.emit("change_room",new_room);
+      },
+
+      get_usuaris_same_room(){
+        return this.usuaris.filter(u=>u.room==this.current_room);
+      },
     },
   }).mount("#app");
 
@@ -198,13 +287,15 @@
   socket.on("missatge",missatge=>{
     app.missatges.push(missatge);
 
-    app.$nextTick(function(){
-      let xat = document.querySelector("#xat");
-      if(xat){
-        xat.scrollTop=xat.scrollHeight+1;
-        app.who_is_typing="";
-      }
-    });
+    if(missatge.room==app.current_room){
+      app.$nextTick(function(){
+        let xat = document.querySelector("#xat");
+        if(xat){
+          xat.scrollTop=xat.scrollHeight+1;
+          app.who_is_typing="";
+        }
+      });
+    }
   });
 
   socket.on("refresca_usuaris",arr=>{
@@ -214,6 +305,10 @@
   let timeout_id;
   socket.on("typing",sock_id=>{
     if(sock_id==socket.id) return;
+    let room = app.get_room_usuari(sock_id);
+    if(!room) return;
+    if(room!=app.current_room) return;
+
     let nom = app.get_nom_usuari(sock_id);
     app.who_is_typing=`${nom} is typing...`;
 
@@ -221,5 +316,10 @@
     timeout_id = setTimeout(function(){
       app.who_is_typing="";
     },5000);
+  });
+
+  //server accepts room change
+  socket.on("change_room",new_room=>{
+    app.current_room=new_room;
   });
 </script>

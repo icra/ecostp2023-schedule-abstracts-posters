@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="img/favi.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <title>ecoSTP2023</title>
-  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <style>
     body{
       margin:auto;
@@ -430,13 +430,16 @@
 >
 
 <!--nav-->
-<nav style="background:#eee">
-  <b>Menu</b>
-  <ul style="margin-top:0;padding-left:20px">
-    <li><span>SCHEDULE &amp; ABSTRACTS</span>
-    <li><a href="posters.html">LIST OF POSTERS</a>
-    <li><a href="chat.html">LIVE CHAT</a>
-  </ul>
+<link rel="stylesheet" href="css/nav_menu.css">
+<nav id=nav_menu>
+  <details open>
+    <summary>Menu</summary>
+    <ul>
+      <li class=current><span>SCHEDULE &amp; ABSTRACTS</span>
+      <li><a href="posters.html">LIST OF POSTERS</a>
+      <li><a href="chat.html">LIVE CHAT</a>
+    </ul>
+  </details>
 </nav>
 
 <!--title-->

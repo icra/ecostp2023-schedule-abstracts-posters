@@ -1,0 +1,33 @@
+#nav_menu {
+  background:#eee;
+}
+#nav_menu summary {
+  font-weight:bold;
+  cursor:pointer;
+}
+#nav_menu summary:hover {
+  text-decoration:underline;
+}
+
+#nav_menu ul {
+  margin-top:0;
+  padding-left:0;
+  display:grid;
+}
+
+#nav_menu ul li {
+  padding:0.618em 1.618em;
+  border:2px solid transparent;
+  border-radius:5px;
+  margin-bottom:1px;
+  color:white;
+  background:#0c567c;
+  font-weight:bold;
+}
+#nav_menu ul li.current {
+  background:transparent;
+  color:#666;
+}
+#nav_menu ul li a{
+  color:white;
+}
