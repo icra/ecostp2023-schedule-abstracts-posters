@@ -25,6 +25,7 @@
     summary:hover{
       cursor:pointer;
       text-decoration:underline;
+      background:#eee;
     }
     td{
       vertical-align:top;
@@ -40,12 +41,11 @@
   </style>
   <script>
     class Conf{//conference class
-      constructor(hora,speaker,titol,abstract,link_pdf){
+      constructor(hora,speaker,titol,abstract){
         this.hora     = hora    ||"";
         this.speaker  = speaker ||"";
         this.titol    = titol   ||"";
         this.abstract = abstract||false; //optional
-        this.link_pdf = link_pdf||false; //optional
       }
     }
 
@@ -420,17 +420,27 @@
   </script>
 </head><body>
 
-<!--logo--><div>
-<img src="img/ecostp23_1005.fw.png" style="height:100px">
-</div><hr>
+<!--logo-->
+<img
+  src="img/ecostp23_1005.fw.png"
+  style="
+    max-height:100px;
+    max-width:100vw;
+  "
+>
 
-<!--subtitle-->
-<div style="margin-left:8px">
-  <b>Schedule, Abstracts and Posters</b><br>
-  <b style=color:red>web under construction</b>
-</div><hr>
+<!--nav-->
+<nav style="background:#eee">
+  <ul style="margin-top:0;padding-left:20px">
+    <li><span>SCHEDULE &amp; ABSTRACTS</span>
+    <li><a href="posters.html">LIST OF POSTERS</a>
+  </ul>
+</nav>
 
-<!--table-->
+<!--title-->
+<h1>Schedule &amp; Abstracts</h1>
+
+<!--content-->
 <div id=app>
   <div :style="{display:current_conf?'none':''}">
     <details v-for="rooms,day in schedule" open>
