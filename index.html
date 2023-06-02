@@ -432,7 +432,7 @@
 
 <!--table-->
 <div id=app>
-  <div v-if="current_conf==null">
+  <div :style="{display:current_conf?'none':''}">
     <details v-for="rooms,day in schedule" open>
       <summary
         v-html="day"
