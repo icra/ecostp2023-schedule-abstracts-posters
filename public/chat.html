@@ -172,6 +172,7 @@
             @keydown="socket.emit('typing')"
             placeholder="your message"
             style="font-size:larger;width:80%"
+            maxlength=140
           >
           <button @click="envia_missatge()"
             style="width:20%"
