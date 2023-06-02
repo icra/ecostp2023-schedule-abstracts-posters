@@ -10,4 +10,6 @@ git push
 # -P  mostra progrés
 # -vv incrementa verbositat
 # -r  actua recursivament
-rsync -hPvr . root@icra.loading.net:/var/www/vhosts/icradev.cat/ecostp2023.icradev.cat
+rsync -hPvr \
+  --exclude "node_modules" \
+  . root@icra.loading.net:/var/www/vhosts/icradev.cat/ecostp2023.icradev.cat
