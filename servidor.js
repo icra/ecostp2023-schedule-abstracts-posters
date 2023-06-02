@@ -29,9 +29,6 @@ class Usuari{
   }
 }
 
-//rooms TODO
-let rooms=["Room 1", "Room 2", "Room 3"];
-
 //SERVER SOCKET: ESCOLTA CLIENT EVENTS
 io.on('connection',function(sock){
   console.log(`nou usuari anònim: ${sock.id}`);
