@@ -47,7 +47,11 @@
 
 <!--title-->
 <div id=app>
-  <h1>Live Chat</h1>
+  <h1>Live Chat
+    <span v-if="nom_usuari">
+      @ {{get_room_usuari(socket.id)}}
+    </span>
+  </h1>
 
   <div v-if="!nom_usuari">
     <div>Enter your name:</div>
@@ -63,6 +67,43 @@
   </div>
 
   <div v-if="nom_usuari">
+    <!--welcome message-->
+    <div
+      v-if="welcome_message"
+      style="
+        padding:0 1em 1em 1em;
+        background:lightyellow;
+        border:1px solid #ccc;
+        box-shadow:0px 0px 5px;
+        font-family:monospace;
+        text-align:justify;
+        margin:5px;
+      "
+    >
+      <p>Welcome to our live chat! We appreciate your presence and are
+      glad that you've reached out. We kindly ask you to keep in mind the
+      importance of respect while engaging with others here.  Respect is
+      the cornerstone of any healthy conversation. It fosters
+      understanding, empathy, and inclusivity. We encourage you to treat
+      everyone you encounter in this chat with kindness and courtesy,
+      regardless of their background, beliefs, or opinions.  Remember,
+      behind every username is a real person with feelings and
+      experiences. It's important to listen attentively, be considerate
+      in your responses, and avoid offensive language or behavior that
+      may be hurtful to others. By embracing respect, we can create a
+      welcoming and supportive environment for everyone involved.</p>
+
+      <p>If you have any questions or need assistance, feel free to ask.
+      We're here to help and ensure that your chat experience is both
+      enjoyable and respectful. Thank you for joining us, and let's make
+      this a space where everyone can feel valued and heard.</p>
+      <button @click="welcome_message=false"
+        style="
+          font-size:larger;
+          padding:0.618em 1.618em;
+        "
+      >I agree</button>
+    </div>
 
     <!--select room-->
     <div
@@ -70,7 +111,9 @@
         display:flex;
         margin:1em 0;
         border:1px solid #ccc;
-        padding:1px 0;
+        border-left:none;
+        border-right:none;
+        padding:5px 0;
         align-items:center;
       "
     >
@@ -80,61 +123,22 @@
           @click="change_room(room)"
           :disabled="room==get_room_usuari(socket.id)"
           style="
-            padding:1em 1.618em;
+            white-space:nowrap;
           "
         >{{room}}</button>
       </div>
     </div>
 
+    <!--grid 80 20-->
     <div
       style="
         display:grid;
         grid-template-columns:80% 20%;
+        max-width:100vw;
       "
     >
       <div>
-        <div>
-          Hi <b>{{nom_usuari}}</b>!
-          <span>
-            Current room: <b>{{get_room_usuari(socket.id)}}</b>.
-          </span>
-          <div v-if="welcome_message"
-            style="
-              padding:1em;
-              background:lightyellow;
-              border:1px solid #ccc;
-              font-family:monospace;
-              text-align:justify;
-              margin-bottom:5px;
-            "
-          >
-            <p>Welcome to our live chat! We appreciate your presence and are glad that
-            you've reached out. We kindly ask you to keep in mind the
-            importance of respect while engaging with others here.</p>
-
-            <p>Respect is the cornerstone of any healthy conversation. It fosters
-            understanding, empathy, and inclusivity. We encourage you to treat
-            everyone you encounter in this chat with kindness and courtesy,
-            regardless of their background, beliefs, or opinions.
-            Remember, behind every username is a real person with feelings and
-            experiences. It's important to listen attentively, be considerate
-            in your responses, and avoid offensive language or behavior that
-            may be hurtful to others. By embracing respect, we can create a
-            welcoming and supportive environment for everyone involved.</p>
-
-            <p>If you have any questions or need assistance, feel free to ask.
-            We're here to help and ensure that your chat experience is both
-            enjoyable and respectful. Thank you for joining us, and let's make
-            this a space where everyone can feel valued and heard.</p>
-            <button @click="welcome_message=false"
-              style="
-                font-size:larger;
-                padding:0.618em 1.618em;
-              "
-            >I agree!</button>
-          </div>
-        </div>
-
+        <div>Hi <b>{{nom_usuari}}</b>!</div>
         <!--all messages-->
         <div
           id=xat
@@ -151,6 +155,7 @@
               :style="{color:m.color?m.color:''}"
             >
               <code>[{{get_hora(m.data)}}] </code>
+
               <span v-if="m.sock_id!='server'">
                 <b :style="{color:m.sock_id==socket.id?'green':''}"
                 >{{get_nom_usuari(m.sock_id)}}</b>:
@@ -182,26 +187,28 @@
       </div>
       <div>
         <div>
-          <b>[{{current_room}}]</b> has
-          <b>{{get_usuaris_same_room().length}}</b> online users
+          <b>Users ({{get_usuaris_same_room().length}})</b>
         </div>
-        <ul
+        <div
           style="
-            padding-left:15px;
             border:1px solid #ccc;
             border-left:none;
-            margin-top:0;
+            border-right:none;
           "
         >
-          <li
+          <div
             v-for="u in get_usuaris_same_room()"
-            style="font-size:smaller"
+            style="
+              font-size:smaller;
+              white-space:nowrap;
+              font-family:monospace;
+            "
           >
             <span :class="u.sock_id==socket.id?'nom_usuari':''">
               {{u.nom}}
             </span>
-          </li>
-        </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -218,7 +225,7 @@
       missatges,
       socket,
 
-      nom_placeholder:`guest_user_${(Math.random()*10000).toFixed()}`,
+      nom_placeholder:`user${(Math.random()*10000).toFixed()}`,
       nom_usuari:null,
 
       missatge_placeholder:"Hi everyone!",
@@ -231,8 +238,22 @@
     //methods
     methods:{
       set_name(){
-        if(!this.nom_placeholder) return
-        socket.emit("nom_usuari",this.nom_placeholder);
+        if(!this.nom_placeholder) return;
+        let nom = this.nom_placeholder;
+
+        //strip spaces at the beggining
+        while(nom[0]==" "){nom=nom.substring(1)}
+
+        //strip spaces at the end
+        let length=nom.length;
+        while(nom[length-1]==" "){
+          nom=nom.substring(0,length-1);
+          length=nom.length;
+        }
+
+        if(!nom) return;
+
+        socket.emit("nom_usuari",nom);
       },
 
       get_room_usuari(sock_id){
