@@ -1,0 +1,225 @@
+<!doctype html><html><head>
+  <meta charset=utf8>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link href="img/favi.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
+  <title>live chat</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+  <style>
+    body{
+      margin:auto;
+    }
+    a{
+      color:blue;
+    }
+    div.server_message{
+      font-family:monospace;
+      font-size:smaller;
+      color:darkgreen;
+    }
+    span.nom_usuari{
+      font-weight:bold;
+      color:darkgreen;
+    }
+  </style>
+</head><body>
+<!--logo-->
+<img
+  src="img/ecostp23_1005.fw.png"
+  style="
+    max-height:100px;
+    max-width:100vw;
+  "
+>
+
+<!--nav-->
+<nav style="background:#eee">
+  <b>Menu</b>
+  <ul style="margin-top:0;padding-left:20px">
+    <li><a href="index.html">SCHEDULE &amp; ABSTRACTS</a>
+    <li><a href="posters.html">LIST OF POSTERS</a>
+    <li><span>LIVE CHAT</span>
+  </ul>
+</nav>
+
+<!--title-->
+<div id=app>
+  <h1>Live Chat</h1>
+
+  <div v-if="!nom_usuari">
+    Enter your name:
+    <input
+      v-model="nom_placeholder"
+      @keyup.enter="set_name()"
+      placeholder="your name"
+      maxlength=30
+    >
+    <button @click="set_name()" :disabled="!nom_placeholder">go</button>
+  </div>
+
+  <div v-if="nom_usuari">
+    <div
+      style="
+        display:grid;
+        grid-template-columns:80% 20%;
+      "
+    >
+      <div>
+        <div>
+          Hi <b>{{nom_usuari}}</b>!
+          <code style="color:blue">{{who_is_typing}}</code>
+        </div>
+
+        <!--all messages-->
+        <div
+          id=xat
+          style="
+            border:1px solid #ccc;
+            background:#eee;
+            height:200px;
+            overflow-y:auto;
+          "
+        >
+          <div v-for="m in missatges">
+            <div
+              :class="m.sock_id=='server'?'server_message':''"
+              :style="{color:m.color?m.color:''}"
+            >
+              <code>[{{get_hora(m.data)}}] </code>
+              <span v-if="m.sock_id!='server'">
+                <b :style="{color:m.sock_id==socket.id?'green':''}"
+                >{{get_nom_usuari(m.sock_id)}}</b>:
+              </span>
+              <span>{{m.missatge}}</span>
+            </div>
+          </div>
+        </div>
+
+        <!--new message-->
+        <div style="
+          display:flex;
+        ">
+          <input
+            id=missatge_placeholder
+            v-model="missatge_placeholder"
+            @keyup.enter="envia_missatge()"
+            @keydown="socket.emit('typing')"
+            placeholder="your message"
+            style="font-size:larger;width:80%"
+          >
+          <button @click="envia_missatge()"
+            style="width:20%"
+            :disabled="!this.missatge_placeholder"
+          >send</button>
+        </div>
+      </div>
+      <div>
+        <div><b>Online users ({{usuaris.length}})</b></div>
+        <ul
+          style="
+            padding-left:20px;
+            border:1px solid #ccc;
+            border-left:none;
+            margin-top:0;
+          "
+        >
+          <li v-for="u in usuaris">
+            <span :class="u.sock_id==socket.id?'nom_usuari':''">
+              {{u.nom}}
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  let socket = io();
+
+  let usuaris=[];
+  let missatges=[];
+  let app = Vue.createApp({
+    data(){return{
+      usuaris,
+      missatges,
+      socket,
+
+      nom_placeholder:"joan",
+      nom_usuari:null,
+
+      missatge_placeholder:"Hi everyone!",
+
+      who_is_typing:"",
+
+      cache_noms_usuari:{},
+    }},
+
+    //methods
+    methods:{
+      set_name(){
+        if(!this.nom_placeholder) return
+        socket.emit("nom_usuari",this.nom_placeholder);
+      },
+
+      get_nom_usuari(sock_id){
+        let nom = this.cache_noms_usuari[sock_id];
+        if(nom) return nom;
+
+        let usr = this.usuaris.find(u=>u.sock_id==sock_id);
+        if(!usr) return "?";
+        this.cache_noms_usuari[sock_id] = usr.nom;
+        return usr.nom;
+      },
+
+      get_hora(data_str){
+        let d = new Date(data_str);
+        return d.toLocaleTimeString().substring(0,5);
+      },
+
+      envia_missatge(){
+        if(!this.missatge_placeholder) return;
+        socket.emit("missatge",this.missatge_placeholder);
+        this.missatge_placeholder="";
+        document.querySelector("#missatge_placeholder").focus();
+      },
+
+    },
+  }).mount("#app");
+
+</script>
+
+<script>
+  //el servidor confirma el nom d'usuari
+  socket.on("nom_usuari",nou_nom=>{
+    app.nom_usuari = nou_nom;
+  });
+
+  socket.on("missatge",missatge=>{
+    app.missatges.push(missatge);
+
+    app.$nextTick(function(){
+      let xat = document.querySelector("#xat");
+      if(xat){
+        xat.scrollTop=xat.scrollHeight+1;
+        app.who_is_typing="";
+      }
+    });
+  });
+
+  socket.on("refresca_usuaris",arr=>{
+    app.usuaris = arr;
+  });
+
+  let timeout_id;
+  socket.on("typing",sock_id=>{
+    if(sock_id==socket.id) return;
+    let nom = app.get_nom_usuari(sock_id);
+    app.who_is_typing=`${nom} is typing...`;
+
+    clearTimeout(timeout_id);
+    timeout_id = setTimeout(function(){
+      app.who_is_typing="";
+    },5000);
+  });
+</script>
