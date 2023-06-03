@@ -27,6 +27,7 @@
 #nav_menu ul li.current {
   background:transparent;
   color:#666;
+  border:2px solid #ccc;
 }
 #nav_menu ul li a{
   color:white;

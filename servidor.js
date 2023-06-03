@@ -1,6 +1,7 @@
 //imports
 const express = require('express'); //http server
 const socket  = require('socket.io'); //websockets
+const fs      = require("fs"); //filesystem read and write
 
 //express setup
 const PORT = process.env.port || 4000;
@@ -99,6 +100,12 @@ io.on('connection',function(sock){
   sock.on('missatge',function(missatge){
     //missatge: string
     console.log(`${sock.id}@${missatge.room} says "${missatge.text}"`);
+
+    //guardar el missatge a disc dur
+    const content = `${(new Date()).toISOString()} ${sock.id} @ ${missatge.room}: "${missatge.text}"\n`
+    fs.writeFile('log.txt',content,{flag:'a'},err=>{
+      if(err) console.error(err);
+    });
 
     //emet nou missatge a tothom
     io.emit('missatge',{
