@@ -3,6 +3,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <link href="img/favi.png" rel="shortcut icon" type="image/vnd.microsoft.icon">
   <title>ecoSTP2023</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
   <style>
     body{
       margin:auto;
@@ -19,7 +20,7 @@
       padding:0;
       border:1px solid #ccc;
     }
-    body > details > summary{
+    #app > details > summary{
       font-size:larger;
       font-weight:bold;
     }
@@ -56,1519 +57,1164 @@
 <!--title-->
 <h1>List of Posters</h1>
 
-<!--content-->
-<details open>
-  <summary>1. Emerging Technologies and Processes</summary>
-  <table>
-    <tr>
-      <td>1.1</td>
-      <td>CFD analysis for membrane distillation optimization for wastewater treatment</td>
-      <td>Morgan Abily</td>
-      <td>ICRA</td>
-    </tr>
-    <tr>
-      <td>1.2</td>
-      <td>Activated Sludge Model No.1 Calibration and Data Analysis for a Paper Mill Wastewater Treatment Plant</td>
-      <td>Hussain Ahmed</td>
-      <td>Tampere University</td>
-    </tr>
-    <tr>
-      <td>1.3</td>
-      <td>In-situ production of H2O2 to enhance electrochemical advanced oxidation efficiency for treatment of pharmaceutical compounds</td>
-      <td>Izba Ali</td>
-      <td>Inopsys</td>
-    </tr>
-    <tr>
-      <td>1.4</td>
-      <td>The status of urine recycling as a niche and pathways for development</td>
-      <td>Abdulhamid Aliahmad</td>
-      <td>Swedish University of Agricultural Sciences</td>
-    </tr>
-    <tr>
-      <td>1.5</td>
-      <td>Assessing the biodegradability of monoethanolamine for industrial wastewater treatment applications</td>
-      <td>Tomas Allegue Martinez</td>
-      <td>Khalifa University</td>
-    </tr>
-    <tr>
-      <td>1.6</td>
-      <td>Pre-enrichment of electrodes with acetoclastic electroactive bacteria and hydrogenotrophic methanogens and external voltage application promotes the performance of anaerobic digestion</td>
-      <td>Hari Ananda Rao</td>
-      <td>KAUST</td>
-    </tr>
-    <tr>
-      <td>1.7</td>
-      <td>Photocatalysts for Chemical-free PFOA Degradation - What we know and where we go from here?</td>
-      <td>Jan Max Arana Juve</td>
-      <td>Aarhus University</td>
-    </tr>
-    <tr>
-      <td>1.8</td>
-      <td>EPC-EqTech: an innovative turnkey solution to process spent caustic in the Oil &amp; Gas industry</td>
-      <td>Oscar Arumi Arderiu</td>
-      <td>CETAQUA</td>
-    </tr>
-    <tr>
-      <td>1.9</td>
-      <td>Cost-effective sorption materials for the removal of pharmaceuticals from aqueous medium</td>
-      <td>Tomasz Bajda</td>
-      <td>AGH University of Science and Technology in Krakow</td>
-    </tr>
-    <tr>
-      <td>1.10</td>
-      <td>Activated biochar from rice husk for the removal of micropollutants: Characterization and application in real wastewater</td>
-      <td>Bernardí Bayarri Ferrer</td>
-      <td>Universitat de Barcelona</td>
-    </tr>
-    <tr>
-      <td>1.11</td>
-      <td>LIFE Zero Waste Water: from the WWTP to the WRRF treating UWW and bio-waste</td>
-      <td>Alberto Bouzas</td>
-      <td>University Of Valencia</td>
-    </tr>
-    <tr>
-      <td>1.12</td>
-      <td>Development of a continuous flow MEC-AD system with autonomous feeding control and performance optimisation.</td>
-      <td>Kyle Bowman</td>
-      <td>WASE &amp; University of Westminster</td>
-    </tr>
-    <tr>
-      <td>1.13</td>
-      <td>Natural Clay-Based Materials for the Removal of Antibiotics from Contaminated Water</td>
-      <td>Monica Brienza</td>
-      <td>University of Basilicata</td>
-    </tr>
-    <tr>
-      <td>1.14</td>
-      <td>Towards next generation LUCAS® technology for cost-efficient municipal wastewater treatment plants</td>
-      <td>Michel Caluwé</td>
-      <td>Waterleau Group NV</td>
-    </tr>
-    <tr>
-      <td>1.15</td>
-      <td>Industrial scale-up, automatization and validation of high-performance multi-stage anaerobic reactor for treatment of wastewater from food and drink SMEs</td>
-      <td>Jose B. Carbajo</td>
-      <td>AEMA</td>
-    </tr>
-    <tr>
-      <td>1.16</td>
-      <td>Phase separation in anaerobic fixed-film reactor for wastewater treatment: biomethane production and pharmaceutical compounds removal</td>
-      <td>Rodrigo Carneiro</td>
-      <td>Univeristy of Sao Paulo</td>
-    </tr>
-    <tr>
-      <td>1.17</td>
-      <td>Can graphene oxide enhance methane production and pharmaceutical removal under anaerobic digestion?</td>
-      <td>Oriol Casabella</td>
-      <td>Catalan Institute for Water Research</td>
-    </tr>
-    <tr>
-      <td>1.18</td>
-      <td>Partially saturated vertical surface flow constructed wetland for emerging contaminants and antibiotic resistance genes removal from wastewater: The effect of bioaugmentation with Trichoderma fungus</td>
-      <td>Serge Chiron</td>
-      <td>University of Montpellier</td>
-    </tr>
-    <tr>
-      <td>1.19</td>
-      <td>Treatment of polymer-containing oilfield wastewater by ionizing radiation: demulsification, sterilization and enhancement to oil removal</td>
-      <td>Libing Chu</td>
-      <td>Tsinghua University</td>
-    </tr>
-    <tr>
-      <td>1.20</td>
-      <td>Cyanobacteria for heavy metals removal: from pure metal solutions to electroplating industry wastewaters</td>
-      <td>Matilde Ciani</td>
-      <td>University of Florence</td>
-    </tr>
-    <tr>
-      <td>1.21</td>
-      <td>Reusability of cyanobacteria-based biosorbents through consecutive adsorption-desorption cycles of bivalent metals</td>
-      <td>Matilde Ciani</td>
-      <td>University of Florence</td>
-    </tr>
-    <tr>
-      <td>1.22</td>
-      <td>Pulsed light degradation of pesticides: optimisation &amp; metabolites</td>
-      <td>François Clavero</td>
-      <td>Sanodev / Université de Bordeaux</td>
-    </tr>
-    <tr>
-      <td>1.23</td>
-      <td>Simplified design approach supports avenue for selection of complementary P removal mechanisms in return sludge sidestream processes</td>
-      <td>Kylie Close</td>
-      <td>The University of Queensland</td>
-    </tr>
-    <tr>
-      <td>1.24</td>
-      <td>Fate of PPCPs within biofilters based on hazelnut shell/sawdust and fed with domestic wastewater</td>
-      <td>Kennedy Costa da Conceicao</td>
-      <td>Universidad de Santiago de Chile</td>
-    </tr>
-    <tr>
-      <td>1.25</td>
-      <td>Fabrication of Fouling Resistant and Operationally Stable Nanocomposite Membranes for Refinery Wastewater Treatment</td>
-      <td>Ngozi Enemuo</td>
-      <td>University of the Witwatersrand</td>
-    </tr>
-    <tr>
-      <td>1.26</td>
-      <td>Fenton pre-treatment combined with an activated sludge system for carbamazepine removal</td>
-      <td>Chihhao Fan</td>
-      <td>National Taiwan University</td>
-    </tr>
-    <tr>
-      <td>1.27</td>
-      <td>Metabolic Modelling of a Designed Bacterial Consortium to Evaluate its Capability for In-situ Removal of Contaminants from Biogas</td>
-      <td>David Gabriel Buguña</td>
-      <td>Universitat Autonoma Barcelona</td>
-    </tr>
-    <tr>
-      <td>1.28</td>
-      <td>Anticancer Drugs Affect the Performance and Microbiome in an Aerobic Granular Sludge System Operated in Sequential Batch Reactor</td>
-      <td>Manuel Jesús Gallardo Altamirano</td>
-      <td>University of Granada</td>
-    </tr>
-    <tr>
-      <td>1.29</td>
-      <td>Microbial Fuel Cells for Energy Production and Treatment of Industrial Saline Wastewater: Effect of Hydraulic Retention Time</td>
-      <td>Manuel Jesús Gallardo Altamirano</td>
-      <td>University of Granada</td>
-    </tr>
-    <tr>
-      <td>1.30</td>
-      <td>Tertiary treatment of nitrite-containing wastewater in a denitrification filter - preliminary studies</td>
-      <td>Filip Gamo?</td>
-      <td>Silesian University of Technology</td>
-    </tr>
-    <tr>
-      <td>1.31</td>
-      <td>Performance, resilience and energetic balance in ElectroStimulated Anaerobic Reactor (ELSAR®) vs. anaerobic fluidized bed reactor</td>
-      <td>Antonio Giménez Lorang</td>
-      <td>FCC Aqualia</td>
-    </tr>
-    <tr>
-      <td>1.32</td>
-      <td>Implementing Ozone/Ultrasound for Trimethoprim and Sulfamethoxazole removal and reducing antibiotic resistance in Finnish reject waters.</td>
-      <td>Ksenija Golovko</td>
-      <td>Aalto University</td>
-    </tr>
-    <tr>
-      <td>1.33</td>
-      <td>Microalgal photobioreactor systems for urban wastewater treatment and removal of emerging contaminants</td>
-      <td>FÉLIX GONZALO IBRAHIM</td>
-      <td>University of Valladolid</td>
-    </tr>
-    <tr>
-      <td>1.34</td>
-      <td>Anaerobic valorisation of process water from waste sludge hydrothermal carbonization: insights into volatile fatty acids and biomethane production</td>
-      <td>Matteo Grana</td>
-      <td>Politecnico di Milano</td>
-    </tr>
-    <tr>
-      <td>1.35</td>
-      <td>Low Cost, Zero Chemical and Energy Efficient Municipal Wastewater (Pre-)Treatment with Electrocoagulation-Floatation</td>
-      <td>Nazia Hassan</td>
-      <td>Ghent University</td>
-    </tr>
-    <tr>
-      <td>1.36</td>
-      <td>On-site Regeneration of A modified Activated Carbon by Ozone</td>
-      <td>Chihpin Huang</td>
-      <td>National Yang Ming Chiao Tung University</td>
-    </tr>
-    <tr>
-      <td>1.37</td>
-      <td>Flotation and Fenton Process Pilot Technology for the treatment of Real Olive Mill Waste Water</td>
-      <td>Inês Inocêncio</td>
-      <td>ADVENTECH</td>
-    </tr>
-    <tr>
-      <td>1.38</td>
-      <td>Isolation of acid tolerant bacteria capable of metal adsorption from acid mine drainage without neutralization</td>
-      <td>Sohei Iwama</td>
-      <td>Hokkaido university</td>
-    </tr>
-    <tr>
-      <td>1.39</td>
-      <td>Characterization of iron-rich particles assisted anammox granules: Extracellular Polymeric Substance (EPS) tell the story</td>
-      <td>Sohee Jeong</td>
-      <td>Chungnam National University</td>
-    </tr>
-    <tr>
-      <td>1.40</td>
-      <td>Granulation characteristics of the high saline anammox bacteria.</td>
-      <td>Sohee Jeong</td>
-      <td>Chungnam National University</td>
-    </tr>
-    <tr>
-      <td>1.41</td>
-      <td>Algal-Bacterial Biofilms to Purify Wastewater, Reduce Power Consumption, and Minimize Carbon footprint.</td>
-      <td>Daniel Johnson</td>
-      <td>Algaewheel</td>
-    </tr>
-    <tr>
-      <td>1.42</td>
-      <td>Analyzing the impact of salt concentration on the activity of enriched N-damo bacteria biomass</td>
-      <td>Garrido Juan M.</td>
-      <td>Universidade de Santiago de Compostela</td>
-    </tr>
-    <tr>
-      <td>1.43</td>
-      <td>Photo-Membrane Reactor (PMR) for Removal of Per- and Polyfluoroalkyl Substances (PFAS)</td>
-      <td>Allyson Junker</td>
-      <td>Aarhus University</td>
-    </tr>
-    <tr>
-      <td>1.44</td>
-      <td>Electrochemical degradation of amoxicillin: Operational parameters optimization and degradation mechanism</td>
-      <td>Bhavana Kanwar</td>
-      <td>Indian Institute of Technology Bombay</td>
-    </tr>
-    <tr>
-      <td>1.45</td>
-      <td>Investigating nutrient removal capacity of nature-based solutions (NbS) for eutrophic brackish water</td>
-      <td>Ece Kendir Cakmak</td>
-      <td>KTH</td>
-    </tr>
-    <tr>
-      <td>1.46</td>
-      <td>Performance of In-house Photocatalytic Membrane on Hormone Removal</td>
-      <td>Watsa Khongnakorn</td>
-      <td>Prince of Songkla University</td>
-    </tr>
-    <tr>
-      <td>1.47</td>
-      <td>Functionalized CNTs-coated carbon electrodes to improve desalination battery performance: Comparison with thermally oxidized carbon electrode</td>
-      <td>SANGGYUN KIM</td>
-      <td>Pusan National University</td>
-    </tr>
-    <tr>
-      <td>1.48</td>
-      <td>Removal of Organic Dyes Through Polymer Inclusion Membrane Based on Perbenzylated-&#946;-Cyclodextrin</td>
-      <td>Jakub Lagiewka</td>
-      <td>Jan Dlugosz University in Czestochowa</td>
-    </tr>
-    <tr>
-      <td>1.49</td>
-      <td>Feammox biofilm formation to enhance ammonium removal from wastewater</td>
-      <td>Eduardo Leiva</td>
-      <td>Pontificia Universidad Católica de Chile</td>
-    </tr>
-    <tr>
-      <td>1.50</td>
-      <td>Fe- and Zn-biochar mediated carbamazepine removal via heterogeneous Fenton process</td>
-      <td>Anita Leovac Macerak</td>
-      <td>University of Novi Sad, Faculty of Sciences</td>
-    </tr>
-    <tr>
-      <td>1.51</td>
-      <td>WATER QUALITY AND QUANITY, FRESH WATER SOURCES SUITABLE FOR CREEK RIDGE INFILTRATION IN THE BRAAKMAN ZUID REGION (NL)</td>
-      <td>Bart Letterie</td>
-      <td>HZ University of Applied Sciences</td>
-    </tr>
-    <tr>
-      <td>1.52</td>
-      <td>Use of a packed-bed biofilm reactor to achieve rapid formation of anammox biofilms for high-rate nitrogen removal</td>
-      <td>Yingyu LI</td>
-      <td>The University of Hong Kong</td>
-    </tr>
-    <tr>
-      <td>1.53</td>
-      <td>Implementing the use of pure oxygen to expand the Integrated Fixed-film Activated Sludge (IFAS) at the Monteagudo (Navarra) Waste Water Treatment Plant (WWTP)</td>
-      <td>Andrea Lopez</td>
-      <td>NILSA</td>
-    </tr>
-    <tr>
-      <td>1.54</td>
-      <td>OPFRs degradation by White Rot Fungi: Screening of degraders and approach to the degradation mechanism</td>
-      <td>Diana Losantos</td>
-      <td>Universidad Autónoma de Barcelona</td>
-    </tr>
-    <tr>
-      <td>1.55</td>
-      <td>Removal of paracetamol, amoxicillin and triclosan through hazelnut shell biochar used as support medium in filtration processes</td>
-      <td>Paula Madariaga</td>
-      <td>University of Santiago of Chile</td>
-    </tr>
-    <tr>
-      <td>1.56</td>
-      <td>Overview of methodologies for evaluating the energy efficiency of the wastewater treatment plant.</td>
-      <td>Desara Malluta</td>
-      <td>University of Genova</td>
-    </tr>
-    <tr>
-      <td>1.57</td>
-      <td>Reduction of high concentrations of ammonium nitrogen on a laboratory scale using the activated sludge method.</td>
-      <td>Kinga Marek</td>
-      <td>Wroclaw University of Environmental and Life Sciences</td>
-    </tr>
-    <tr>
-      <td>1.58</td>
-      <td>Simultaneous Removal of Zinc and Tetracycline Using Low Methoxyl Pectin Cross-linked by Calcium and Europium</td>
-      <td>Javier Martinez Sabando</td>
-      <td>Centro de Física de Materiales (CSIC-UPV/EHU)-Material Physics Centre (MPC)</td>
-    </tr>
-    <tr>
-      <td>1.59</td>
-      <td>Investigation of potential synergistic effect between three different UV wavelengths in water photodisinfection</td>
-      <td>JAVIER MARUGAN</td>
-      <td>UNIVERSIDAD REY JUAN CARLOS</td>
-    </tr>
-    <tr>
-      <td>1.60</td>
-      <td>Nature-based solutions to reduce antibiotics and antimicrobial resistance in aquatic ecosystems</td>
-      <td>Víctor Matamoros</td>
-      <td>IDAEA-CSIC</td>
-    </tr>
-    <tr>
-      <td>1.61</td>
-      <td>Circular Water Management Opportunities for Wineries Using Novel Thermal Process</td>
-      <td>Václav Miklas</td>
-      <td>Brno University of Technology</td>
-    </tr>
-    <tr>
-      <td>1.62</td>
-      <td>Lab Scale Study of Wastewater Treatment using Nano-bubble Aeration in the Activated Sludge Process</td>
-      <td>Mohamed Mohamed</td>
-      <td>United Arab Emirate University</td>
-    </tr>
-    <tr>
-      <td>1.63</td>
-      <td>Removal of pharmaceutical compounds from food-processing digestate</td>
-      <td>Nazanin Moradi</td>
-      <td>IHE-Delft Institute for water education</td>
-    </tr>
-    <tr>
-      <td>1.64</td>
-      <td>Assessing the feasibility of different membrane technologies for dissolved methane capture from AnMBR effluents</td>
-      <td>Kristel Moyano</td>
-      <td>Universitat de Valencia</td>
-    </tr>
-    <tr>
-      <td>1.65</td>
-      <td>The emerging concern of hospital wastewaters: their treatment using aerobic granular sludge technology</td>
-      <td>Bárbara Muñoz Palazón</td>
-      <td>Universidad de Granada</td>
-    </tr>
-    <tr>
-      <td>1.66</td>
-      <td>Development and characterization of a new sol-gel coating for anti-scaling properties</td>
-      <td>Soumaya NOUIGUES</td>
-      <td>SORBONNE UNIVERSITE</td>
-    </tr>
-    <tr>
-      <td>1.67</td>
-      <td>Characterization of biochar obtained from recovered cellulose and its potential for the removal of pollutants in water</td>
-      <td>Paula Núñez-Tafalla</td>
-      <td>University of Luxembourg</td>
-    </tr>
-    <tr>
-      <td>1.68</td>
-      <td>Seasonal changes of waste activated sludge methane potential and its susceptibility to mid-temperature alkaline disintegration</td>
-      <td>Piotr Oleskowicz-Popiel</td>
-      <td>Poznan University of Technology</td>
-    </tr>
-    <tr>
-      <td>1.69</td>
-      <td>Impact of Polyethylene terephthalate (PET) degradation products on Mixed Purple Phototrophic Bacteria (PPB) metabolism</td>
-      <td>Miguel Palhas</td>
-      <td>NOVA School of Science and Technology - UCIBIO/i4HB</td>
-    </tr>
-    <tr>
-      <td>1.70</td>
-      <td>Valorisation of saline wastewater to produce added-value organic acids of industrial interest</td>
-      <td>Lidia Paredes</td>
-      <td>Fundació Universitaria Balmes</td>
-    </tr>
-    <tr>
-      <td>1.71</td>
-      <td>Activated carbon from banana peel: an emerging biobased material for adsorption of diclofenac</td>
-      <td>SIVCHHENG PHAL</td>
-      <td>INSA Toulouse</td>
-    </tr>
-    <tr>
-      <td>1.72</td>
-      <td>CFD Modelling of CP in Roto-dynamic RO System at Seawater Salinity During Turbulent Cross Flow.</td>
-      <td>NITIKESH PRAKASH</td>
-      <td>Indian Institute of Technology, Madras</td>
-    </tr>
-    <tr>
-      <td>1.73</td>
-      <td>Industrial wastewater treatment by integrated processes: coupling Fenton with biological</td>
-      <td>João Ribeiro</td>
-      <td>Centre for Environmental and Marine Studies - University of Aveiro</td>
-    </tr>
-    <tr>
-      <td>1.74</td>
-      <td>Recovery and valorisation of iron sludge from Fenton processes</td>
-      <td>João Ribeiro</td>
-      <td>Centre for Environmental and Marine Studies - University of Aveiro</td>
-    </tr>
-    <tr>
-      <td>1.75</td>
-      <td>Upscaling Anaerobic Reactors using Purple Phototrophic Bacteria for low-cost wastewater reuse and resource recovery</td>
-      <td>Frank Rogalla</td>
-      <td>Aqualia</td>
-    </tr>
-    <tr>
-      <td>1.76</td>
-      <td>Mechanisms involved in veterinary antibiotics removal by microalgae-bacteria consortia</td>
-      <td>Elena M. Rojo</td>
-      <td>University of Valladolid</td>
-    </tr>
-    <tr>
-      <td>1.77</td>
-      <td>Evaluation of a single-chamber continuous-flow bioreactor to treat urban wastewater with aerobic granular sludge</td>
-      <td>Aurora Rosa Masegosa</td>
-      <td>University of Granada</td>
-    </tr>
-    <tr>
-      <td>1.78</td>
-      <td>Use of Atmospheric Dissolved Air Flotation (DAF) in Removal of Surfactants</td>
-      <td>Ali Rostamiiranagh</td>
-      <td>Azarbaijan Shahid madani university</td>
-    </tr>
-    <tr>
-      <td>1.79</td>
-      <td>Use of wetlands for wastewater treatment in iran</td>
-      <td>Ali Rostamiiranagh</td>
-      <td>Azarbaijan Shahid madani university</td>
-    </tr>
-    <tr>
-      <td>1.80</td>
-      <td>The fate of microplastics in mesophilic anaerobic digestion combined with ultrafiltration membrane.</td>
-      <td>Patricia Ruiz Barriga</td>
-      <td>IIAMA (Universitat Politècnica de València)</td>
-    </tr>
-    <tr>
-      <td>1.81</td>
-      <td>BIODAPH2O: Eco-efficient system for wastewater tertiary treatment and water reuse in the Mediterranean region</td>
-      <td>Victoria Salvadó</td>
-      <td>University of Girona</td>
-    </tr>
-    <tr>
-      <td>1.82</td>
-      <td>Specific Hydrogenotrophic Methanogenic Activity test: the role of operating conditions</td>
-      <td>Anna Santus</td>
-      <td>Politecnico di Milano</td>
-    </tr>
-    <tr>
-      <td>1.83</td>
-      <td>Study of the key parameters influencing ammonium removal from wastewaters by Fe(III)-mediated anaerobic ammonium oxidation (Feammox) microbial communities.</td>
-      <td>Jennyfer Serrano</td>
-      <td>Universidad Mayor</td>
-    </tr>
-    <tr>
-      <td>1.84</td>
-      <td>Metal Biosorption from Wastewater under Acidic Environment</td>
-      <td>Chikara Takano</td>
-      <td>Hokkaido University</td>
-    </tr>
-    <tr>
-      <td>1.85</td>
-      <td>Application of MABR to Japanese Municipal Sewage Treatment</td>
-      <td>Hideharu Tanaka</td>
-      <td>Sanki Engineering Co.,Ltd</td>
-    </tr>
-    <tr>
-      <td>1.86</td>
-      <td>Evapotranspiration toilet: a safe and sustainable treatment for black water</td>
-      <td>Adriano Luiz Tonetti</td>
-      <td>Unicamp</td>
-    </tr>
-    <tr>
-      <td>1.87</td>
-      <td>Prospecting Microbial Consortia for high yield Polyhydroxyalkanoates production</td>
-      <td>Cristiana Torres</td>
-      <td>UCIBIO-i4HB/ FCT NOVA</td>
-    </tr>
-    <tr>
-      <td>1.88</td>
-      <td>Transformation products generated by oxidation of carbamazepine during various wastewater treatment processes - review and modelling</td>
-      <td>Jeanne TROGNON</td>
-      <td>Laboratoire de Génie Chimique</td>
-    </tr>
-    <tr>
-      <td>1.89</td>
-      <td>The impact of high and low temperatures on Candidatus Competibacter fed with industrial wastewater</td>
-      <td>EIRINI TSERTOU</td>
-      <td>University of Antwerp</td>
-    </tr>
-    <tr>
-      <td>1.90</td>
-      <td>Phosphorus extraction from sewage sludge ashes and subsequent co-precipitation with other nutrients: insight into factors favouring a beneficial recovery</td>
-      <td>Andrea Turolla</td>
-      <td>Politecnico di Milano</td>
-    </tr>
-    <tr>
-      <td>1.91</td>
-      <td>Aquafarm: Biological sludge degradation, nutrient removal and greenhouse gas reduction by macroinvertebrates and macrophytes</td>
-      <td>Tom van der Meer</td>
-      <td>Wageningen Environmental Research</td>
-    </tr>
-    <tr>
-      <td>1.92</td>
-      <td>Removal of nanomaterials from wastewater by Microbial Fuel cell  Current knowledge and future direction</td>
-      <td>Divya Vempati</td>
-      <td>Indian Institute of Technology Delhi</td>
-    </tr>
-    <tr>
-      <td>1.93</td>
-      <td>Microbial-Mediated Biological Treatment of Wastewater Containing Arsenic (III) and Arsenic (V)</td>
-      <td>Manoj Kumar Verma</td>
-      <td>Indian Institute of Technology (BHU)</td>
-    </tr>
-    <tr>
-      <td>1.94</td>
-      <td>Innovative solutions to minimize brine discharges in the mining &amp; metallurgy industry</td>
-      <td>Alejandro Vilar</td>
-      <td>Cetaqua</td>
-    </tr>
-    <tr>
-      <td>1.95</td>
-      <td>Atmospheric water harvesting: a case study in South Africa</td>
-      <td>Frans Waanders</td>
-      <td>North-West University</td>
-    </tr>
-    <tr>
-      <td>1.96</td>
-      <td>Coal derived PAH removal from various water sources using photo catalytic degradation</td>
-      <td>Frans Waanders</td>
-      <td>North-West University</td>
-    </tr>
-    <tr>
-      <td>1.97</td>
-      <td>Chemical-free vacuum UV processes for PFAS abatement</td>
-      <td>Yicheng Wang</td>
-      <td>Wetsus</td>
-    </tr>
-    <tr>
-      <td>1.98</td>
-      <td>Fenton self-cleaning MOF and MOF-derived porous carbons modified ceramic membrane towards highly efficient for oil/water emulsion separation</td>
-      <td>Pei Wang</td>
-      <td>The University of Hong Kong</td>
-    </tr>
-    <tr>
-      <td>1.99</td>
-      <td>BioPhree: Reversible phosphate adsorption for phosphate removal to ultra-low levels and recovery. Demonstrations and perspectives</td>
-      <td>Wokke Wijdeveld</td>
-      <td>Wetsus</td>
-    </tr>
-    <tr>
-      <td>1.100</td>
-      <td>Reactor designs to increase photocatalytic degradation of organic trace substances for improved water protection</td>
-      <td>Julia Wolters</td>
-      <td>RWTH Aachen University</td>
-    </tr>
-    <tr>
-      <td>1.101</td>
-      <td>Biochar-nano zero-valent iron composite membrane for the degradation of carbamazepine by activation of persulfate</td>
-      <td>Yongtao Xue</td>
-      <td>Ku Leuven</td>
-    </tr>
-    <tr>
-      <td>1.102</td>
-      <td>Convergence of bioreduction process and ICT for practical use of biosorption technology</td>
-      <td>Hanui Yang</td>
-      <td>Yonsei University</td>
-    </tr>
-    <tr>
-      <td>1.103</td>
-      <td>Development of a new bioreduction process for the treatment of chromium wastewater</td>
-      <td>Hanui Yang</td>
-      <td>Yonsei University</td>
-    </tr>
-    <tr>
-      <td>1.104</td>
-      <td>Novel ceramic SnO2 electrocatalytic membrane for advanced wastewater treatment and water reuse</td>
-      <td>Chao Yang</td>
-      <td>The university of Hong Kong</td>
-    </tr>
-    <tr>
-      <td>1.105</td>
-      <td>High-Rate Post-treatment of Sewage from Residential Community by the Down-flow Hanging Sponge System</td>
-      <td>WILASINEE YOOCHATCHAVAL</td>
-      <td>Kasetsart University</td>
-    </tr>
-    <tr>
-      <td>1.106</td>
-      <td>Microbial-fuel-cell driven intermitted aeration enhanced the removal of organic matter and nitrogenous compounds</td>
-      <td>Naoko Yoshida</td>
-      <td>Nagoya Institute of Technology</td>
-    </tr>
-    <tr>
-      <td>1.107</td>
-      <td>Giving four lives to osmotic membranes with innovative recycling processes (Osmo4Lives)</td>
-      <td>Bianca Zappulla Sabio</td>
-      <td>Lequia</td>
-    </tr>
-    <tr>
-      <td>1.108</td>
-      <td>Photocatalysis as a Remediation Technology for Wastewaters Containing Organic Dye Compounds</td>
-      <td>Elnaz Zehtab Lotfi</td>
-      <td>East azarbaijan Shahid madani university</td>
-    </tr>
-    <tr>
-      <td>1.109</td>
-      <td>Periodate activation with copper oxide nanomaterials for the degradation of ciprofloxacin-A new insight into the efficiency and mechanisms</td>
-      <td>Xi Zhang</td>
-      <td>KU Leuven</td>
-    </tr>
-  </table>
-</details>
+<div id=app>
+  <p>
+    PDF files received: {{count_files}}/{{count_posters}}
+  </p>
 
-<details open>
-  <summary>2. Decentralized Strategies</summary>
-  <table>
-    <tr>
-      <td>2.1</td>
-      <td>Light greywater quality consistency: challenge for their treatment and reuse. Study case: Colombia</td>
-      <td>Jessica Burgos Arias</td>
-      <td>Universidad Industrial de Santander</td>
-    </tr>
-    <tr>
-      <td>2.2</td>
-      <td>Organic micropollutants in a Euro-Mediterranean resort: occurrence in the water cycle</td>
-      <td>Gianluigi Buttiglieri</td>
-      <td>ICRA</td>
-    </tr>
-    <tr>
-      <td>2.3</td>
-      <td>Earthworms influence on macroporosity and biofilm in constructed wetland</td>
-      <td>Siriane Cazaux</td>
-      <td>Laboratoire Écologie Fonctionnelle et Environnement</td>
-    </tr>
-    <tr>
-      <td>2.4</td>
-      <td>Microalgal photobioreactor systems for urban wastewater treatment and removal of emerging contaminants</td>
-      <td>FÉLIX GONZALO IBRAHIM</td>
-      <td>University of Valladolid</td>
-    </tr>
-    <tr>
-      <td>2.5</td>
-      <td>Identifying substrates for greywater treatment in a novel green wall system based on trickling filters</td>
-      <td>Maximilian Grau</td>
-      <td>Zurich University of Applied Sciences</td>
-    </tr>
-    <tr>
-      <td>2.6</td>
-      <td>Fuzzy Risk Assessment for Hydraulic Detention Time in UASB Reactors</td>
-      <td>DAYANE LIMA</td>
-      <td>Universidade de Aveiro</td>
-    </tr>
-    <tr>
-      <td>2.7</td>
-      <td>Evaluation of a low-tech, passively solar-driven pilot plant for nutrients recovery from source-separated urine on household level</td>
-      <td>Laila Lüthi</td>
-      <td>Zurich University of Aplied Science</td>
-    </tr>
-    <tr>
-      <td>2.8</td>
-      <td>Multidimensional assessment of a Nature-based Solution for decentralized small-scale greywater treatment in Costa Rica</td>
-      <td>Maria Perez Rubi</td>
-      <td>Leibniz Universität Hannover(LUH)</td>
-    </tr>
-    <tr>
-      <td>2.9</td>
-      <td>Anaerobic digestion effluent treatment in constructed wetlands for agricultural reuse</td>
-      <td>Pau Porras i Socias</td>
-      <td>Universidade do Porto</td>
-    </tr>
-    <tr>
-      <td>2.10</td>
-      <td>Comparison of engineered, natural and hybrid wastewater treatment schemes for the removal of nanoparticles from wastewater</td>
-      <td>Radhika</td>
-      <td>Indian Institute of Technology, Delhi</td>
-    </tr>
-    <tr>
-      <td>2.11</td>
-      <td>Performance of Multi-module Biochar Filter for Onsite Wastewater Treatment System</td>
-      <td>Makoto Shigei</td>
-      <td>Uppsala University</td>
-    </tr>
-    <tr>
-      <td>2.12</td>
-      <td>Potential of integrated membrane and TiO?-based advanced oxidation processes for greywater reclamation</td>
-      <td>Haruka Takeuchi</td>
-      <td>Kyoto University</td>
-    </tr>
-    <tr>
-      <td>2.13</td>
-      <td>Nutrients and characterization of greywater from rural households</td>
-      <td>Adriano Luiz Tonetti</td>
-      <td>Unicamp</td>
-    </tr>
-    <tr>
-      <td>2.14</td>
-      <td>Adsorption of cadmium on raw and base treated Bolivian natural zeolite</td>
-      <td>Lisbania Velarde Arnez</td>
-      <td>Luleå University of Technology</td>
-    </tr>
-  </table>
-</details>
-
-<details open>
-  <summary>3. Resource recovery and safe reuse</summary>
-  <table>
-    <tr>
-      <td>3.1</td>
-      <td>Seasonal accumulation of pharmaceuticals in soils from a full-scale horticultural system irrigated with reclaimed water.</td>
-      <td>Lucas Alonso</td>
-      <td>ICRA</td>
-    </tr>
-    <tr>
-      <td>3.2</td>
-      <td>Effective radiation transfer as a major element for the optimized design and operation of purple phototrophic bacteria photobioreactors</td>
-      <td>Ali Amini</td>
-      <td>Politecnico di Milano</td>
-    </tr>
-    <tr>
-      <td>3.3</td>
-      <td>Bioelimination of different arsenic species by microalgae and bacteria grown in wastewater treatment plants</td>
-      <td>Beatriz Antolín Puebla</td>
-      <td>Institute of Sustainable Processes</td>
-    </tr>
-    <tr>
-      <td>3.4</td>
-      <td>Protein recovery from algal biomass grown in piggery wastewater using deep eutectic solvents</td>
-      <td>Beatriz Antolín Puebla</td>
-      <td>Institute of Sustainable Processes</td>
-    </tr>
-    <tr>
-      <td>3.5</td>
-      <td>Use of Industrial Magnetite in Wastewater Treatment</td>
-      <td>Yara Arbid</td>
-      <td>Ecole Nationale Supérieure de Chimie de Rennes</td>
-    </tr>
-    <tr>
-      <td>3.6</td>
-      <td>FlashPhos: The complete thermochemical recycling of sewage sludge</td>
-      <td>Sander Arnout</td>
-      <td>InsPyro</td>
-    </tr>
-    <tr>
-      <td>3.7</td>
-      <td>Study of struvite precipitation in a fluidised bed reactor using synthetic supernatant</td>
-      <td>Sergi Astals Garcia</td>
-      <td>Universitat de Barcelona</td>
-    </tr>
-    <tr>
-      <td>3.8</td>
-      <td>Integrated Resource Recovery from Aerobic Granular Sludge Plants</td>
-      <td>Nouran Bahgat</td>
-      <td>Wetsus/TU Delft</td>
-    </tr>
-    <tr>
-      <td>3.9</td>
-      <td>Design of a decision support system for wastewater sanitation in small population centers in the Besòs-Tordera Consortium</td>
-      <td>Aldo Barahona</td>
-      <td>Universidad de Barcelona</td>
-    </tr>
-    <tr>
-      <td>3.10</td>
-      <td>Assessment of the role of the solubilization time in the P-recovery process in the Murcia-Este WWTP</td>
-      <td>Ramon Barat</td>
-      <td>Polytechnic University of Valencia</td>
-    </tr>
-    <tr>
-      <td>3.11</td>
-      <td>FORWARD-FACTORY: Integrating forward osmosis and advanced biological reactor for water reuse and resource recovery factory</td>
-      <td>Gaetan Blandin</td>
-      <td>University of Girona</td>
-    </tr>
-    <tr>
-      <td>3.12</td>
-      <td>Novel concentration process based on membranes for volatile fatty acids concentration (ConcentrA)</td>
-      <td>Gaetan Blandin</td>
-      <td>University of Girona</td>
-    </tr>
-    <tr>
-      <td>3.13</td>
-      <td>Resource recovery from aerobic granular sludges: Gel-forming biopolymers extraction, fractionation and gelling capacity</td>
-      <td>Abdo BOU SARKIS</td>
-      <td>Laboratoire de Biotechnologies Agroalimentaire et Environnementale</td>
-    </tr>
-    <tr>
-      <td>3.14</td>
-      <td>Stabilization of sewage sludge in constructed wetlands for reuse in agriculture</td>
-      <td>Ana Cano</td>
-      <td>Universitat Politècnica de Catalunya</td>
-    </tr>
-    <tr>
-      <td>3.15</td>
-      <td>Toluene valorization into PHA by Rhodococcus opacus</td>
-      <td>Sara Cantera</td>
-      <td>Valladolid University</td>
-    </tr>
-    <tr>
-      <td>3.16</td>
-      <td>Modelling H2 conversion by purple bacteria enriched cultures: evaluating kinetics of gas-fed processes to assess feasibility</td>
-      <td>Gabriel Capson Tojo</td>
-      <td>INRAE</td>
-    </tr>
-    <tr>
-      <td>3.17</td>
-      <td>Biological Methanation of WWTP biogas with green H2 for sustainable mobility</td>
-      <td>Oriol Casal</td>
-      <td>Cetaqua Centro Tecnológico del Agua</td>
-    </tr>
-    <tr>
-      <td>3.18</td>
-      <td>Nitrogen recovery to produce Smart Fertilisers from wastewater</td>
-      <td>Oriol Casal</td>
-      <td>Cetaqua Centro Tecnológico del Agua</td>
-    </tr>
-    <tr>
-      <td>3.19</td>
-      <td>Pharmaceuticals occurrence in water bodies of Catalonia in the last decade, which are the most ubiquitous compounds?</td>
-      <td>Marc Castaño</td>
-      <td>ICRA</td>
-    </tr>
-    <tr>
-      <td>3.20</td>
-      <td>Enhancing reactive species exposure in a dielectric barrier discharge plasma reactor through lava rock packing in view of phosphonate-contaminated wastewater treatment and subsequent phosphorous recovery</td>
-      <td>Changtao Chen</td>
-      <td>Ghent university</td>
-    </tr>
-    <tr>
-      <td>3.21</td>
-      <td>Analysis of the enrichment in PHA-accumulating bacteria in mixed microbial communities fed with fish-canning waste</td>
-      <td>David Correa-Galeote</td>
-      <td>University of Granada</td>
-    </tr>
-    <tr>
-      <td>3.22</td>
-      <td>WATER-MINING Project: La Llagosta Case Study, a flexible fit-for-use wastewater treatment scheme for resource recovery</td>
-      <td>Teresa de la Torre</td>
-      <td>Sorigué</td>
-    </tr>
-    <tr>
-      <td>3.23</td>
-      <td>Development of methodologies and tools of risk assessment for wastewater and stormwater reuse</td>
-      <td>Lucia De Simoni</td>
-      <td>Polytechnic University of Marche (UNIVPM)</td>
-    </tr>
-    <tr>
-      <td>3.24</td>
-      <td>Degradation and erosion of polymers in alkalised fresh human urine collected in source-separating sanitation systems</td>
-      <td>Anuron Deka</td>
-      <td>Swedish University Of Agricultural Sciences</td>
-    </tr>
-    <tr>
-      <td>3.25</td>
-      <td>Drinking Water Treatment Residuals: from waste to a new promising adsorbent of emergent compounds</td>
-      <td>Rita Dias Santos</td>
-      <td>CENSE - Center for Environmental and Sustainability Research, School of Science and Technology, NOVA University Lisbon</td>
-    </tr>
-    <tr>
-      <td>3.26</td>
-      <td>Valorisation of the liquid waste of distilled gin production through high rate anaerobic co-digestion and biogas production</td>
-      <td>Rubén Díez Montero</td>
-      <td>Universidad de Cantabria</td>
-    </tr>
-    <tr>
-      <td>3.27</td>
-      <td>Enhancing Carbon recovery compromises low N2O emissions: example of a new municipal wastewater treatment.</td>
-      <td>Carlos Domingo Felez</td>
-      <td>University of Glasgow</td>
-    </tr>
-    <tr>
-      <td>3.28</td>
-      <td>Sustainability assessment framework and circular diagnosis of water treatment plants</td>
-      <td>Sofía Estévez Rivadulla</td>
-      <td>University of Santiago de Compostela</td>
-    </tr>
-    <tr>
-      <td>3.29</td>
-      <td>Exploiting the DO Profile for the Mathematical Modelling of a Mixed PHA-accumulating Microbial Community</td>
-      <td>Serena Falcioni</td>
-      <td>Universitat Autonoma de Barcelona</td>
-    </tr>
-    <tr>
-      <td>3.30</td>
-      <td>Improvement of activated sludge systems: should we pay more attention to the role of EPS?</td>
-      <td>Zoé FAU</td>
-      <td>INRAE</td>
-    </tr>
-    <tr>
-      <td>3.31</td>
-      <td>BIOUP: Biomethane production through the integration of renewable energy surpluses in WWTP</td>
-      <td>Federico Ferrari</td>
-      <td>Acciona Agua</td>
-    </tr>
-    <tr>
-      <td>3.32</td>
-      <td>Energy recovery from olive mill waste streams</td>
-      <td>Ivet Ferrer</td>
-      <td>Universitat Politècnica de Catalunya</td>
-    </tr>
-    <tr>
-      <td>3.33</td>
-      <td>From removal to recovery: opportunities for bioelectrochemical ammonia recovery from wastewater</td>
-      <td>Mariella Belén Galeano López</td>
-      <td>Universitat Autònoma de Barcelona</td>
-    </tr>
-    <tr>
-      <td>3.34</td>
-      <td>Effects of direct filtration of wastewater in anaerobic digestion</td>
-      <td>Jesús GODIFREDO CALVO</td>
-      <td>IIAMA (Universitat Politécnica De Valencia)</td>
-    </tr>
-    <tr>
-      <td>3.35</td>
-      <td>Simulation of outdoor conditions for the cultivation of microalgae in a small-scale photobioreactor for wastewater treatment</td>
-      <td>Félix Gonzalo Ibrahim</td>
-      <td>University of Valladolid</td>
-    </tr>
-    <tr>
-      <td>3.36</td>
-      <td>Polyhydroxyalkanoates production by mixed microbial cultures from fermented cheese whey under high salinity conditions</td>
-      <td>Matteo Grana</td>
-      <td>Politecnico di Milano</td>
-    </tr>
-    <tr>
-      <td>3.37</td>
-      <td>New modelling methodogy to improve phosphorus recovery in WWTPs</td>
-      <td>Tamara Guijarro</td>
-      <td>Depuración de Aguas del Mediterraneo</td>
-    </tr>
-    <tr>
-      <td>3.38</td>
-      <td>Upgrading of biogas produced from anaerobic digestion of sewage sludge through in-situ biological hydrogen methanation in mesophilic CSTR system</td>
-      <td>Mohamed Hellal</td>
-      <td>Silesian University of Technology</td>
-    </tr>
-    <tr>
-      <td>3.39</td>
-      <td>Development of copper-substituted Prussian blue analog immobilized ion exchange resins for high-performance ammonium recovery from wastewater</td>
-      <td>Seongwon Im</td>
-      <td>Korea institute of civil engineering and building technology</td>
-    </tr>
-    <tr>
-      <td>3.40</td>
-      <td>Effect of enhanced hydrolysis of a lipidrich wastewater on the acidogenic fermentation</td>
-      <td>Montserrat Jiménez Urpí</td>
-      <td>VEnvirotech Biotechnology</td>
-    </tr>
-    <tr>
-      <td>3.41</td>
-      <td>Heavy metals uptake with energy crops biomass depending on soil amendment</td>
-      <td>Mykola Kharytonov</td>
-      <td>Dnipro State Agrarian and Economic University</td>
-    </tr>
-    <tr>
-      <td>3.42</td>
-      <td>Is bioaugmentation a successful strategy to manipulate biopolymer production from wastewater?</td>
-      <td>Kasra Khatami</td>
-      <td>KTH Royal Institute of Technology</td>
-    </tr>
-    <tr>
-      <td>3.43</td>
-      <td>Fate of pollutants in overloaded Wastewater Stabilization Pond (WSP) system</td>
-      <td>Szymon Kilian</td>
-      <td>Wroclaw University of Environmental and Life Sciences</td>
-    </tr>
-    <tr>
-      <td>3.44</td>
-      <td>Effect of extracellular polymeric substances (EPS) content on sludge dewaterability using filter-press</td>
-      <td>Sujin Lee</td>
-      <td>Pusan National University</td>
-    </tr>
-    <tr>
-      <td>3.45</td>
-      <td>Pilot Study for Recovery of Phosphate and Ammonia as Struvite from Semiconductor Wastewater</td>
-      <td>Jhy-Chern Liu</td>
-      <td>National Taiwan University of Science and Technology</td>
-    </tr>
-    <tr>
-      <td>3.46</td>
-      <td>Temperature effect over the PHA:TAG accumulation ratio with mixed microbial cultures and oily substrates</td>
-      <td>José Ramón Lorenzo Llarena</td>
-      <td>Universidade de Santiago de Compostela</td>
-    </tr>
-    <tr>
-      <td>3.47</td>
-      <td>Impact of high-rate activated sludge system on WWTP energy balance: Effect of HRT and dissolved oxygen</td>
-      <td>Cinta Martín Medrano</td>
-      <td>USC</td>
-    </tr>
-    <tr>
-      <td>3.48</td>
-      <td>Evaluation of the potential of carbon recovery from sewage sludge plus organic wastes by anaerobic co-fermentation in a region</td>
-      <td>Miguel Mauricio-Iglesias</td>
-      <td>Universidade de Santiago de Compostela</td>
-    </tr>
-    <tr>
-      <td>3.49</td>
-      <td>Mechanisms of Hexavalent Chromium Reduction by Rhodococcus qingshengii strain SC26</td>
-      <td>Alice Melzi</td>
-      <td>University of Milan</td>
-    </tr>
-    <tr>
-      <td>3.50</td>
-      <td>Vinyl Chloride Biodegradation In Contaminated Aquifer Undergoing Stimulation Treatment</td>
-      <td>Alice Melzi</td>
-      <td>University of Milan</td>
-    </tr>
-    <tr>
-      <td>3.51</td>
-      <td>Thermal treatment assessment to improve the phosphorus recovery as struvite from olive mill wastes</td>
-      <td>Marlene Del Mar Mendoza</td>
-      <td>IRTA</td>
-    </tr>
-    <tr>
-      <td>3.52</td>
-      <td>Starting points for the management of sewage sludges digestate for phosphorus recovery in the concept of a circular economy</td>
-      <td>Vesna Mislej</td>
-      <td>JP VODOVOD KANALIZACIJA SNAGA d.o.o.</td>
-    </tr>
-    <tr>
-      <td>3.53</td>
-      <td>Gas-permeable membranes for the reduction of ammonia emissions in pig farms: A global approach.</td>
-      <td>Beatriz Molinuevo Salces</td>
-      <td>Agricultural Technological Institute of Castilla y Léon.</td>
-    </tr>
-    <tr>
-      <td>3.54</td>
-      <td>Production of Volatile Fatty Acids and Kinetic Study of the Anaerobic Digestion of Cheese whey</td>
-      <td>Beatriz Molinuevo Salces</td>
-      <td>Agricultural Technological Institute of Castilla y Léon.</td>
-    </tr>
-    <tr>
-      <td>3.55</td>
-      <td>Treatment of pickling waste liquors using a thraustochytrid for removal of organic carbon and nitrogen and simultaneous production of polyunsaturated fatty acids</td>
-      <td>Satoshi Nakai</td>
-      <td>Hiroshima University</td>
-    </tr>
-    <tr>
-      <td>3.56</td>
-      <td>Metabolic network reconstruction providing insights into the metabolism relevant for resource recovery in Rhodobacter sphaeroides</td>
-      <td>Adrian Oehmen</td>
-      <td>The University of Queensland</td>
-    </tr>
-    <tr>
-      <td>3.57</td>
-      <td>Onsite Sanitation Disinfection: A Modeling Approach for Lime Treatment of Fecal Matter Containing Viruses</td>
-      <td>Wakana Kaneko</td>
-      <td>Tohoku University</td>
-    </tr>
-    <tr>
-      <td>3.58</td>
-      <td>Insights on the Agronomic Potential of Structural Extracellular Polymeric Substances (sEPS) from Aerobic Granular Sludge</td>
-      <td>Benedetta Pagliaccia</td>
-      <td>University of Florence</td>
-    </tr>
-    <tr>
-      <td>3.59</td>
-      <td>Influence of system geometry and substrate on the removal of linalool and geraniol in zero-liquid discharge unplanted-NBS</td>
-      <td>Paula Paulo</td>
-      <td>UFMS</td>
-    </tr>
-    <tr>
-      <td>3.60</td>
-      <td>Reclaimed wastewater reuse impacts: from literature data gaps to integrated risk modelling</td>
-      <td>Luca Penserini</td>
-      <td>Politecnico of Milan</td>
-    </tr>
-    <tr>
-      <td>3.61</td>
-      <td>LIFE HIDAQUA: Sustainable water management in high water demanding industries</td>
-      <td>Queralt Plana</td>
-      <td>Fundació Eurecat</td>
-    </tr>
-    <tr>
-      <td>3.62</td>
-      <td>Valorizing Methane: Methanotrophs based Biorefinery for Extracellular Biopolymers Production (CH4-BIOPOL)</td>
-      <td>David Primo Catalunya</td>
-      <td>Institut Català de Recerca de l'Aigua</td>
-    </tr>
-    <tr>
-      <td>3.63</td>
-      <td>Monitoring and thorough behaviour of volatile methylsiloxanes through a wastewater treatment plant</td>
-      <td>Nuno Ratola</td>
-      <td>ALICE - LEPABE - Faculty of Engineering of the University of Porto</td>
-    </tr>
-    <tr>
-      <td>3.64</td>
-      <td>Volatile methylsiloxanes (VMSs) in biogas generation in WWTPs  a mass balance</td>
-      <td>Nuno Ratola</td>
-      <td>ALICE - LEPABE - Faculty of Engineering of the University of Porto</td>
-    </tr>
-    <tr>
-      <td>3.65</td>
-      <td>Green roofs and green walls for greywater treatment and reuse: a review of design and operational conditions</td>
-      <td>Anacleto Rizzo</td>
-      <td>IRIDRA Srl</td>
-    </tr>
-    <tr>
-      <td>3.66</td>
-      <td>Protein and carbohydrate recovery from secondary sludge biomass generated in wastewater treatment plant</td>
-      <td>Elena M. Rojo</td>
-      <td>University of Valladolid</td>
-    </tr>
-    <tr>
-      <td>3.67</td>
-      <td>Towards a more sustainable water treatment and reuse through brines valorisation</td>
-      <td>Adriana Romero</td>
-      <td>Cetaqua, Water Technology Center</td>
-    </tr>
-    <tr>
-      <td>3.68</td>
-      <td>Proteins: How electrochemistry can drive the food future of Microbial Protein production</td>
-      <td>Laura Rovira Alsina</td>
-      <td>LEQUiA / University of Girona</td>
-    </tr>
-    <tr>
-      <td>3.69</td>
-      <td>Low-cost natural by-products: an efficient way to improve emerging contaminants removal in Nature-based Solutions</td>
-      <td>Daiane Ruwer</td>
-      <td>CETIM</td>
-    </tr>
-    <tr>
-      <td>3.70</td>
-      <td>Preliminary study of anaerobic digestion of olive oil industry wastewaters in a conical spouted bed digester</td>
-      <td>Maria J San Jose</td>
-      <td>University of the Basque Country UPV/EHU</td>
-    </tr>
-    <tr>
-      <td>3.71</td>
-      <td>Dietary exposure and human health risk assessment of wastewater-derived organic contaminants in leafy vegetables irrigated with treated wastewater under real agricultural field conditions</td>
-      <td>Lúcia Santos</td>
-      <td>Catalan Institute for Water Research (ICRA)</td>
-    </tr>
-    <tr>
-      <td>3.72</td>
-      <td>Biofiltration of odorous emissions in WWTPs through the reuse of by-products of the integral water cycle</td>
-      <td>Lidia Saúco Bozic</td>
-      <td>DAM Aguas</td>
-    </tr>
-    <tr>
-      <td>3.73</td>
-      <td>LIFE REPTES - Renewable bio-hydrogen production technologies from lignocellulosic waste and sewage sludge co-fermentation</td>
-      <td>Lidia Saúco Bozic</td>
-      <td>DAM Aguas</td>
-    </tr>
-    <tr>
-      <td>3.74</td>
-      <td>New advanced applications of compost from sewage sludge. Compost-UP! Project</td>
-      <td>Lidia Saúco Bozic</td>
-      <td>DAM Aguas</td>
-    </tr>
-    <tr>
-      <td>3.75</td>
-      <td>Micropollutant uptake in lettuce irrigated with UASB-CW reclaimed wastewater in a water scarce area</td>
-      <td>Sofia Semitsoglou Tsiapou</td>
-      <td>ICRA</td>
-    </tr>
-    <tr>
-      <td>3.76</td>
-      <td>Soil contamination due to reuse of ZnO nanoparticles contaminated wastewater effluent</td>
-      <td>Radhika</td>
-      <td>Indian Institute of Technology, Delhi</td>
-    </tr>
-    <tr>
-      <td>3.77</td>
-      <td>Innovative and versatile integrated solution to remove contaminants of emerging concern in water treatment systems</td>
-      <td>Aina Soler-Jofra</td>
-      <td>Acciona</td>
-    </tr>
-    <tr>
-      <td>3.78</td>
-      <td>Can Peracetic Acid disinfect wastewater? A Portuguese pilot installation in a WWTP says it can</td>
-      <td>Diogo Sousa</td>
-      <td>CENSE - Center for Environmental and Sustainability Research, School of Science and Technology, NOVA University Lisbon</td>
-    </tr>
-    <tr>
-      <td>3.79</td>
-      <td>Enhancing purple phototrophic bacteria granulation by size classification</td>
-      <td>Samuel Stegman</td>
-      <td>The University of Queensland</td>
-    </tr>
-    <tr>
-      <td>3.80</td>
-      <td>Evaluation of emerging micropollutants presence in laundry greywater facilities for recycling</td>
-      <td>Marta Turull</td>
-      <td>Catalan Institute for Water Research (ICRA)</td>
-    </tr>
-    <tr>
-      <td>3.81</td>
-      <td>Aerobic biodegradability of fat, oil and grease wastes</td>
-      <td>Carlota Ucha</td>
-      <td>Universidade de Santiago de Compostela</td>
-    </tr>
-    <tr>
-      <td>3.82</td>
-      <td>Optimization of high rate algal ponds design and operation to enhance biomass production for biofertilizer application</td>
-      <td>Enrica Uggetti</td>
-      <td>Universitat Politècnica de Catalunya</td>
-    </tr>
-    <tr>
-      <td>3.83</td>
-      <td>The GAIA project: Bioelectroconversion of orGAnic waste streams and CO2 into sustaInAble fuels</td>
-      <td>Maria Vega</td>
-      <td>Leitat Technological Center</td>
-    </tr>
-    <tr>
-      <td>3.84</td>
-      <td>Determination of microplastics in three wastewater treatment plants in north-western Spain</td>
-      <td>Carlota Vijande</td>
-      <td>Universidade de Santiago de Compostela</td>
-    </tr>
-    <tr>
-      <td>3.85</td>
-      <td>Synergistic cytotoxicity of specific combination of water disinfection by-products assessed by bacterial reverse mutation tests</td>
-      <td>Laura Vinardell</td>
-      <td>Eurecat</td>
-    </tr>
-    <tr>
-      <td>3.86</td>
-      <td>Enantioselective uptake, distribution, and biotransformation of chiral pharmaceuticals venlafaxine and O-desmethylvenlafaxine in hydroponic lettuces</td>
-      <td>Zhen Wang</td>
-      <td>Catalan Institute for Water Research</td>
-    </tr>
-    <tr>
-      <td>3.87</td>
-      <td>Contactless membrane distillation for effective ammonia recovery from waste sludge</td>
-      <td>Lei WEN</td>
-      <td>The University of Hong Kong</td>
-    </tr>
-    <tr>
-      <td>3.88</td>
-      <td>Gravity-driven Membrane Filtration Primary Wastewater Effluent for Irrigating Soil-plants and Hydroponic-plants</td>
-      <td>Bing Wu</td>
-      <td>University of Iceland</td>
-    </tr>
-    <tr>
-      <td>3.89</td>
-      <td>Regeneration of high-quality water for reuse by forward osmosis-reverse osmosis system treating urban wastewater</td>
-      <td>Xuefei Yang</td>
-      <td>CETIM Technological Centre</td>
-    </tr>
-    <tr>
-      <td>3.90</td>
-      <td>Exploring the potential of olive by-products: antioxidants, sugars, contaminants and energy</td>
-      <td>Soraya Zahedi Diaz</td>
-      <td>Instituto Grasa CSIC</td>
-    </tr>
-    <tr>
-      <td>3.91</td>
-      <td>Exploring veterinary drug and resistance genes in livestock manure and their removal by biomethanisation</td>
-      <td>Soraya Zahedi Diaz</td>
-      <td>Instituto Grasa CSIC</td>
-    </tr>
-    <tr>
-      <td>3.92</td>
-      <td>Implementation of a municipal wastewater treatment technology to eutrophic environments: Ammonium nitrogen dosing strategy for developing phosphorus recovery from marine sediments</td>
-      <td>Fengyi Zhu</td>
-      <td>KTH Royal Institute of Technology</td>
-    </tr>
-    <tr>
-      <td>3.93</td>
-      <td>Evaluation of waste stabilization pond in Atibie Hospital, Ghana</td>
-      <td>Gilbert Hymans</td>
-      <td>OHAKK 2 CONSULTS LTD</td>
-    </tr>
-    <tr>
-      <td>3.94</td>
-      <td>Applying helium within a hot-bubble pilot plant to enhance the recovery of pure water from supersaturated air</td>
-      <td>Thi Thuy Nguyen</td>
-      <td>University of New South Wales</td>
-    </tr>
-    <tr>
-      <td>3.95</td>
-      <td>Use of Engineered Nanoparticles in Nitrogen and Phosphorus Recovery from Aqueous Solutions</td>
-      <td>Neslihan Semerci</td>
-      <td>Marmara University</td>
-    </tr>
-  </table>
-</details>
-
-<details open>
-  <summary>4. Digitalization</summary>
-  <table>
-    <tr>
-      <td>4.1</td>
-      <td>Modelling salinity effects on aerobic granular sludge treating fish-canning wastewater</td>
-      <td>Paula Carrera Fernández</td>
-      <td>Ghent University</td>
-    </tr>
-    <tr>
-      <td>4.2</td>
-      <td>SADAR: a digital predictive system with photonic pathogen biosensors for safe water reclamation in WWTP</td>
-      <td>Ruben Garcia Tirado</td>
-      <td>FACSA</td>
-    </tr>
-    <tr>
-      <td>4.3</td>
-      <td>Real-time, in-situ nitrite and nitrate analyser for process control within wastewater treatment facilities</td>
-      <td>Meritxell Grau Butinyac</td>
-      <td>TE Laboratories</td>
-    </tr>
-    <tr>
-      <td>4.4</td>
-      <td>Prediction of methane production of co-digestion of pig manure in WWTP based on metabolic and machine learning models</td>
-      <td>Carlos Lafita</td>
-      <td>Global Omnium</td>
-    </tr>
-    <tr>
-      <td>4.5</td>
-      <td>Aerial Mapping of Pollution and Odour in a Wastewater Treatment Plant: the SNIFFIRDRONE project</td>
-      <td>Lidia Saúco Bozic</td>
-      <td>DAM Aguas</td>
-    </tr>
-    <tr>
-      <td>4.6</td>
-      <td>Study of atmospheric pollutants generated in wastewater treatment plants using Artificial Intelligence</td>
-      <td>Lidia Saúco Bozic</td>
-      <td>DAM Aguas</td>
-    </tr>
-    <tr>
-      <td>4.7</td>
-      <td>Effect of temperature on the kinetics of methane production in the co-digestion of manure and agri-food waste in WWTP</td>
-      <td>Mª Jose tarrega Marti</td>
-      <td>GLOBAL OMNIUM MEDIOAMBIENTE, S.L.</td>
-    </tr>
-    <tr>
-      <td>4.8</td>
-      <td>Digital Water at Consorci Besòs Tordera</td>
-      <td>Jackson Tellez Alvarez</td>
-      <td>Consorci Besós Tordera 7 Ccb Serveis Mediambientals, Sau</td>
-    </tr>
-    <tr>
-      <td>4.9</td>
-      <td>Quantitative Image Analysis of Biosolids: Evaluating morphological parameters versus visual features</td>
-      <td>Sebastian Topalian</td>
-      <td>Technical University of Denmark</td>
-    </tr>
-    <tr>
-      <td>4.10</td>
-      <td>Comparative modeling of SMP product/utilization on membrane fouling in submerged membrane bioreactor system using MES, PLS, MLR, PCA and ANN techniques</td>
-      <td>hana benaliouche</td>
-      <td>University of Constantine</td>
-    </tr>
-  </table>
-</details>
-
-<details open>
-  <summary>5. Economics and environmental/social footprint</summary>
-  <table>
-    <tr>
-      <td>5.1</td>
-      <td>Lowering of groundwater levels and their effect on Water, Sanitation and Hygiene services in the Savelugu District, Northern Region of Ghana</td>
-      <td>Albert Acheampong</td>
-      <td>KNUST (WORLD VISION GHANA)</td>
-    </tr>
-    <tr>
-      <td>5.2</td>
-      <td>Theoretical feasibility assessment of water loops in the Balearic Islands of Mallorca, Cabrera, and Formentera</td>
-      <td>Gianluigi Buttiglieri</td>
-      <td>ICRA</td>
-    </tr>
-    <tr>
-      <td>5.3</td>
-      <td>The uncertainty of N2O emissions is underestimated and hampers accurate comparison of WWT technologies.</td>
-      <td>Carlos Domingo Felez</td>
-      <td>University of Glasgow</td>
-    </tr>
-    <tr>
-      <td>5.4</td>
-      <td>Re-thinking industrial wastewater treatment using advanced mathematical modelling.</td>
-      <td>Xavier Flores-Alsina</td>
-      <td>Danmarks Tekniske Universitet</td>
-    </tr>
-    <tr>
-      <td>5.5</td>
-      <td>Distinct characteristic pollution and systematical ecological risk assessment of microplastic in the Yangtze River</td>
-      <td>Qianen Huang</td>
-      <td>Northwest A&amp;F University</td>
-    </tr>
-    <tr>
-      <td>5.6</td>
-      <td>Case Study of Climate Change Countermeasures (Jeju Island in South Korea)</td>
-      <td>Jinkeun Kim</td>
-      <td>Jeju National Univ.</td>
-    </tr>
-    <tr>
-      <td>5.7</td>
-      <td>Social footprint evaluated within Chilean rural wastewater treatment plants</td>
-      <td>Paula Madariaga</td>
-      <td>University of Santiago of Chile</td>
-    </tr>
-    <tr>
-      <td>5.8</td>
-      <td>Stakeholders' attitudes towards acceptance in the use of nutrient reuse technologies and decentralised systems in four case studies in Europe</td>
-      <td>Beatriz Medina</td>
-      <td>WE&amp;B</td>
-    </tr>
-    <tr>
-      <td>5.9</td>
-      <td>Monitoring of odorous emissions in WWTPs: proposal for a simple procedure</td>
-      <td>Laura Palli</td>
-      <td>GIDA spa</td>
-    </tr>
-    <tr>
-      <td>5.10</td>
-      <td>The effect of liquid wastes on a full-scale WWTP nitrogen removal performance</td>
-      <td>Laura Palli</td>
-      <td>GIDA spa</td>
-    </tr>
-    <tr>
-      <td>5.11</td>
-      <td>Nature-based solutions in Europe and Latin America: A comparative analysis of regional situation and addressed challenges</td>
-      <td>Yarima Recalde</td>
-      <td>University of Girona</td>
-    </tr>
-    <tr>
-      <td>5.12</td>
-      <td>Emerging contaminants occurrence in an urban wastewater impacted aquifer: The Onyar River basin study case</td>
-      <td>Nonito Ros Berja</td>
-      <td>ICRA</td>
-    </tr>
-    <tr>
-      <td>5.13</td>
-      <td>Effects of Environmental and Social Factors on Eutrophication in Tonle Sap Lake</td>
-      <td>Vouchlay Theng</td>
-      <td>Institute of Technology of Cambodia</td>
-    </tr>
-    <tr>
-      <td>5.14</td>
-      <td>Monitoring and study of specified metals behaviour in a large Italian wastewater treatment plant</td>
-      <td>Francesca Tuci</td>
-      <td>Università degli Studi di Firenze</td>
-    </tr>
-    <tr>
-      <td>5.15</td>
-      <td>The challenges of the indigenous perspective on water security in the Amazon region</td>
-      <td>Antonina Torrens</td>
-      <td>Universitat de Barcelona</td>
-    </tr>
-    <tr>
-      <td>5.16</td>
-      <td>Bioplastics accelerated degradation under simulated conditions: generating data for including their end-of-life in LCA studies</td>
-      <td>Brais Vázquez Vázquez</td>
-      <td>Universidade de Santiago de Compostela</td>
-    </tr>
-    <tr>
-      <td>5.17</td>
-      <td>Development of an integrated framework for life-cycle economic, environmental, and human health impact assessment for urban water systems</td>
-      <td>Yuyao Wang</td>
-      <td>The University of Hong Kong</td>
-    </tr>
-  </table>
-</details>
+  <details v-for="topic,i in posters" open>
+    <summary>
+      {{i+1}}. {{topic.title}} ({{topic.list.length}} posters)
+    </summary>
+    <table>
+      <tr v-for="p,j in topic.list">
+        <td style="font-family:monospacefont-family:monospace">{{i+1}}.{{j+1}}
+        <td>
+          <div v-if="p[2]">
+            <a :href="p[2]" target=_blank>{{p[0]}}</a>
+          </div>
+          <div v-else>{{p[0]}}</div>
+        </td>
+        <td>{{p[1]}}
+      </tr>
+    </table>
+  </details>
+</div>
 
 <script>
-  //iterate tables
-  document.querySelectorAll("table").forEach(table=>{
-    let n = table.rows.length;
-    //iterate rows
-    for(let i=0;i<n;i++){
-      let row = table.rows[i];
-      let cell = row.cells[0];
-      let poster_num = cell.innerHTML;
-      cell.innerHTML+=`<br>
-        <a href="pdf/${poster_num}.pdf">PDF</a>
-      `;
-    }
-  });
+  let posters=[
+    {
+      title:"Emerging Technologies and Processes",
+      list:[
+        [
+          "CFD analysis for membrane distillation optimization for wastewater treatment",
+          "Morgan Abily (ICRA)",
+        ],
+        [
+          "Activated Sludge Model No.1 Calibration and Data Analysis for a Paper Mill Wastewater Treatment Plant",
+          "Hussain Ahmed (Tampere University)",
+          "https://drive.google.com/open?id=17oVc-tVvDMdC2kiC3UG2bbeQDO25Fpdv",
+        ],
+        [
+          "In-situ production of H2O2 to enhance electrochemical advanced oxidation efficiency for treatment of pharmaceutical compounds",
+          "Izba Ali (Inopsys)",
+        ],
+        [
+          "The status of urine recycling as a niche and pathways for development",
+          "Abdulhamid Aliahmad (Swedish University of Agricultural Sciences)",
+        ],
+        [
+          "Assessing the biodegradability of monoethanolamine for industrial wastewater treatment applications",
+          "Tomas Allegue Martinez (Khalifa University)",
+        ],
+        [
+          "Pre-enrichment of electrodes with acetoclastic electroactive bacteria and hydrogenotrophic methanogens and external voltage application promotes the performance of anaerobic digestion",
+          "Hari Ananda Rao (KAUST)",
+        ],
+        [
+          "Photocatalysts for Chemical-free PFOA Degradation - What we know and where we go from here?",
+          "Jan Max Arana Juve (Aarhus University)",
+        ],
+
+        [
+          "EPC-EqTech: an innovative turnkey solution to process spent caustic in the Oil & Gas industry",
+          "Oscar Arumi Arderiu (CETAQUA)",
+          "https://drive.google.com/open?id=15Ba4YWvdvJK2kNDAgWttCzLrL1NsIhlj",
+        ],
+        [
+          "Cost-effective sorption materials for the removal of pharmaceuticals from aqueous medium",
+          "Tomasz Bajda (AGH University of Science and Technology in Krakow)",
+          "https://drive.google.com/open?id=1EZfXrkkKcrmT-TuBctQB5DcGEqqIFZdL",
+        ],
+        [
+          "Activated biochar from rice husk for the removal of micropollutants: Characterization and application in real wastewater",
+          "Bernardí Bayarri Ferrer (Universitat de Barcelona)",
+        ],
+        [
+          "LIFE Zero Waste Water: from the WWTP to the WRRF treating UWW and bio-waste",
+          "Alberto Bouzas (University Of Valencia)",
+        ],
+        [
+          "Development of a continuous flow MEC-AD system with autonomous feeding control and performance optimisation.",
+          "Kyle Bowman (WASE & University of Westminster)",
+        ],
+        [
+          "Natural Clay-Based Materials for the Removal of Antibiotics from Contaminated Water",
+          "Monica Brienza (University of Basilicata)",
+        ],
+        [
+          "Towards next generation LUCAS® technology for cost-efficient municipal wastewater treatment plants",
+          "Michel Caluwé (Waterleau Group NV)",
+        ],
+        [
+          "Industrial scale-up, automatization and validation of high-performance multi-stage anaerobic reactor for treatment of wastewater from food and drink SMEs",
+          "Jose B. Carbajo (AEMA)",
+        ],
+        [
+          "Phase separation in anaerobic fixed-film reactor for wastewater treatment: biomethane production and pharmaceutical compounds removal",
+          "Rodrigo Carneiro (Univeristy of Sao Paulo)",
+          "https://drive.google.com/open?id=1hsLmqTS7l5RcHCrvgJQEHqH-Qp33Z_O-",
+        ],
+        [
+          "Can graphene oxide enhance methane production and pharmaceutical removal under anaerobic digestion?",
+          "Oriol Casabella (Catalan Institute for Water Research)",
+        ],
+        [
+          "Partially saturated vertical surface flow constructed wetland for emerging contaminants and antibiotic resistance genes removal from wastewater: The effect of bioaugmentation with Trichoderma fungus",
+          "Serge Chiron (University of Montpellier)",
+        ],
+        [
+          "Treatment of polymer-containing oilfield wastewater by ionizing radiation: demulsification, sterilization and enhancement to oil removal",
+          "Libing Chu (Tsinghua University)",
+        ],
+        [
+          "Cyanobacteria for heavy metals removal: from pure metal solutions to electroplating industry wastewaters",
+          "Matilde Ciani (University of Florence)",
+          "https://drive.google.com/open?id=1jtWBQchTG72d0U6MUz2pCgiAkiF0zl0U",
+        ],
+        [
+          "Reusability of cyanobacteria-based biosorbents through consecutive adsorption-desorption cycles of bivalent metals",
+          "Matilde Ciani (University of Florence)",
+          "https://drive.google.com/open?id=1_ab6iiZI9P3KfY8HQo1_7pLGYhrNtmi7",
+        ],
+        [
+          "Pulsed light degradation of pesticides: optimisation & metabolites",
+          "François Clavero (Sanodev / Université de Bordeaux)",
+        ],
+        [
+          "Simplified design approach supports avenue for selection of complementary P removal mechanisms in return sludge sidestream processes",
+          "Kylie Close (The University of Queensland)",
+          "https://drive.google.com/open?id=1TuumfQDzqEifUHHgRA7BlZXiEAZ6XJ2a",
+        ],
+        [
+          "Fate of PPCPs within biofilters based on hazelnut shell/sawdust and fed with domestic wastewater",
+          "Kennedy Costa da Conceicao (Universidad de Santiago de Chile)",
+        ],
+        [
+          "Fabrication of Fouling Resistant and Operationally Stable Nanocomposite Membranes for Refinery Wastewater Treatment",
+          "Ngozi Enemuo (University of the Witwatersrand)",
+        ],
+        [
+          "Fenton pre-treatment combined with an activated sludge system for carbamazepine removal",
+          "Chihhao Fan (National Taiwan University)",
+        ],
+        [
+          "Metabolic Modelling of a Designed Bacterial Consortium to Evaluate its Capability for In-situ Removal of Contaminants from Biogas",
+          "David Gabriel Buguña (Universitat Autonoma Barcelona)",
+          "https://drive.google.com/open?id=1GwTtDVReTpH8TXL-c0-uvkO2Im7XyGiM",
+        ],
+        [
+          "Anticancer Drugs Affect the Performance and Microbiome in an Aerobic Granular Sludge System Operated in Sequential Batch Reactor",
+          "Manuel Jesús Gallardo Altamirano (University of Granada)",
+        ],
+        [
+          "Microbial Fuel Cells for Energy Production and Treatment of Industrial Saline Wastewater: Effect of Hydraulic Retention Time",
+          "Manuel Jesús Gallardo Altamirano (University of Granada)",
+        ],
+        [
+          "Tertiary treatment of nitrite-containing wastewater in a denitrification filter - preliminary studies",
+          "Filip Gamo? (Silesian University of Technology)",
+        ],
+        [
+          "Performance, resilience and energetic balance in ElectroStimulated Anaerobic Reactor (ELSAR®) vs. anaerobic fluidized bed reactor",
+          "Antonio Giménez Lorang (FCC Aqualia)",
+        ],
+        [
+          "Implementing Ozone/Ultrasound for Trimethoprim and Sulfamethoxazole removal and reducing antibiotic resistance in Finnish reject waters.",
+          "Ksenija Golovko (Aalto University)",
+          "https://drive.google.com/open?id=1pMCcPXWk84dyIuitI9qgaU-gnJXTt5sL",
+        ],
+        [
+          "Microalgal photobioreactor systems for urban wastewater treatment and removal of emerging contaminants",
+          "FÉLIX GONZALO IBRAHIM (University of Valladolid)",
+          "https://drive.google.com/open?id=141hPDEni9qUWNE0AE7wTzDFfUEm5OrE3",
+        ],
+        [
+          "Anaerobic valorisation of process water from waste sludge hydrothermal carbonization: insights into volatile fatty acids and biomethane production",
+          "Matteo Grana (Politecnico di Milano)",
+        ],
+        [
+          "Low Cost, Zero Chemical and Energy Efficient Municipal Wastewater (Pre-)Treatment with Electrocoagulation-Floatation",
+          "Nazia Hassan (Ghent University)",
+          "https://drive.google.com/open?id=1iop5hrhZJErgG6g1F-WhayI5ZaMu9xKm",
+        ],
+        [
+          "On-site Regeneration of A modified Activated Carbon by Ozone",
+          "Chihpin Huang (National Yang Ming Chiao Tung University)",
+        ],
+        [
+          "Flotation and Fenton Process Pilot Technology for the treatment of Real Olive Mill Waste Water",
+          "Inês Inocêncio (ADVENTECH)",
+        ],
+        [
+          "Isolation of acid tolerant bacteria capable of metal adsorption from acid mine drainage without neutralization",
+          "Sohei Iwama (Hokkaido university)",
+        ],
+        [
+          "Characterization of iron-rich particles assisted anammox granules: Extracellular Polymeric Substance (EPS) tell the story",
+          "Sohee Jeong (Chungnam National University)",
+        ],
+        [
+          "Granulation characteristics of the high saline anammox bacteria.",
+          "Sohee Jeong (Chungnam National University)",
+          "https://drive.google.com/open?id=18Meu-rjpIQUHDVx2Atz4WuIxf3sGqQ2Z",
+        ],
+        [
+          "Algal-Bacterial Biofilms to Purify Wastewater, Reduce Power Consumption, and Minimize Carbon footprint.",
+          "Daniel Johnson (Algaewheel)",
+        ],
+        [
+          "Analyzing the impact of salt concentration on the activity of enriched N-damo bacteria biomass",
+          "Garrido Juan M. (Universidad de Santiago de Compostela)",
+        ],
+        [
+          "Photo-Membrane Reactor (PMR) for Removal of Per- and Polyfluoroalkyl Substances (PFAS)",
+          "Allyson Junker (Aarhus University)",
+          "https://drive.google.com/open?id=1euvNL5cIKW8CvkPc2OhROO_ryIep1FxA",
+        ],
+        [
+          "Electrochemical degradation of amoxicillin: Operational parameters optimization and degradation mechanism",
+          "Bhavana Kanwar (Indian Institute of Technology Bombay)",
+        ],
+        [
+          "Investigating nutrient removal capacity of nature-based solutions (NbS) for eutrophic brackish water",
+          "Ece Kendir Cakmak (KTH)",
+        ],
+        [
+          "Performance of In-house Photocatalytic Membrane on Hormone Removal",
+          "Watsa Khongnakorn (Prince of Songkla University)",
+          "https://drive.google.com/open?id=10_tHK0oAJcuSxMAvhoHutA4PzDmh9V4S",
+        ],
+        [
+          "Functionalized CNTs-coated carbon electrodes to improve desalination battery performance: Comparison with thermally oxidized carbon electrode",
+          "SANGGYUN KIM (Pusan National University)",
+        ],
+        [
+          "Removal of Organic Dyes Through Polymer Inclusion Membrane Based on Perbenzylated-&#946;-Cyclodextrin",
+          "Jakub Lagiewka (Jan Dlugosz University in Czestochowa)",
+        ],
+        [
+          "Feammox biofilm formation to enhance ammonium removal from wastewater",
+          "Eduardo Leiva (Pontificia Universidad Católica de Chile)",
+        ],
+        [
+          "Fe- and Zn-biochar mediated carbamazepine removal via heterogeneous Fenton process",
+          "Anita Leovac Macerak (University of Novi Sad, Faculty of Sciences)",
+        ],
+        [
+          "WATER QUALITY AND QUANITY, FRESH WATER SOURCES SUITABLE FOR CREEK RIDGE INFILTRATION IN THE BRAAKMAN ZUID REGION (NL)",
+          "Bart Letterie (HZ University of Applied Sciences)",
+        ],
+        [
+          "Use of a packed-bed biofilm reactor to achieve rapid formation of anammox biofilms for high-rate nitrogen removal",
+          "Yingyu LI (The University of Hong Kong)",
+          "https://drive.google.com/open?id=1e0N5RqvQPKReoP21GjVBfR4QKTolD7IS",
+        ],
+        [
+          "Implementing the use of pure oxygen to expand the Integrated Fixed-film Activated Sludge (IFAS) at the Monteagudo (Navarra) Waste Water Treatment Plant (WWTP)",
+          "Andrea Lopez (NILSA)",
+          "https://drive.google.com/open?id=1dybZ6YwquK7jJqaCb4WZYfgFqXzal9LC",
+        ],
+        [
+          "OPFRs degradation by White Rot Fungi: Screening of degraders and approach to the degradation mechanism",
+          "Diana Losantos (Universidad Autónoma de Barcelona)",
+          "https://drive.google.com/open?id=1BjuGTLhiGz_Ssw37KHyuTa_clCG72zCp",
+        ],
+        [
+          "Removal of paracetamol, amoxicillin and triclosan through hazelnut shell biochar used as support medium in filtration processes",
+          "Paula Madariaga (University of Santiago of Chile)",
+        ],
+        [
+          "Overview of methodologies for evaluating the energy efficiency of the wastewater treatment plant.",
+          "Desara Malluta (University of Genova)",
+        ],
+        [
+          "Reduction of high concentrations of ammonium nitrogen on a laboratory scale using the activated sludge method.",
+          "Kinga Marek (Wroclaw University of Environmental and Life Sciences)",
+          "https://drive.google.com/open?id=14Tq6dtnkf1qZTZUEdOVt_u9W6OIrMxUp",
+        ],
+        [
+          "Simultaneous Removal of Zinc and Tetracycline Using Low Methoxyl Pectin Cross-linked by Calcium and Europium",
+          "Javier Martinez Sabando (Centro de Física de Materiales (CSIC-UPV/EHU)-Material Physics Centre (MPC))",
+        ],
+        [
+          "Investigation of potential synergistic effect between three different UV wavelengths in water photodisinfection",
+          "JAVIER MARUGAN (UNIVERSIDAD REY JUAN CARLOS)",
+        ],
+        [
+          "Nature-based solutions to reduce antibiotics and antimicrobial resistance in aquatic ecosystems",
+          "Víctor Matamoros (IDAEA-CSIC)",
+        ],
+        [
+          "Circular Water Management Opportunities for Wineries Using Novel Thermal Process",
+          "Václav Miklas (Brno University of Technology)",
+        ],
+        [
+          "Lab Scale Study of Wastewater Treatment using Nano-bubble Aeration in the Activated Sludge Process",
+          "Mohamed Mohamed (United Arab Emirate University)",
+        ],
+        [
+          "Removal of pharmaceutical compounds from food-processing digestate",
+          "Nazanin Moradi (IHE-Delft Institute for water education)",
+        ],
+        [
+          "Assessing the feasibility of different membrane technologies for dissolved methane capture from AnMBR effluents",
+          "Kristel Moyano (Universitat de Valencia)",
+        ],
+        [
+          "The emerging concern of hospital wastewaters: their treatment using aerobic granular sludge technology",
+          "Bárbara Muñoz Palazón (Universidad de Granada)",
+        ],
+        [
+          "Development and characterization of a new sol-gel coating for anti-scaling properties",
+          "Soumaya NOUIGUES (SORBONNE UNIVERSITE)",
+        ],
+        [
+          "Characterization of biochar obtained from recovered cellulose and its potential for the removal of pollutants in water",
+          "Paula Núñez-Tafalla (University of Luxembourg)",
+        ],
+        [
+          "Seasonal changes of waste activated sludge methane potential and its susceptibility to mid-temperature alkaline disintegration",
+          "Piotr Oleskowicz-Popiel (Poznan University of Technology)",
+        ],
+        [
+          "Impact of Polyethylene terephthalate (PET) degradation products on Mixed Purple Phototrophic Bacteria (PPB) metabolism",
+          "Miguel Palhas (NOVA School of Science and Technology - UCIBIO/i4HB)",
+        ],
+        [
+          "Valorisation of saline wastewater to produce added-value organic acids of industrial interest",
+          "Lidia Paredes (Fundació Universitaria Balmes)",
+        ],
+        [
+          "Activated carbon from banana peel: an emerging biobased material for adsorption of diclofenac",
+          "SIVCHHENG PHAL (INSA Toulouse)",
+        ],
+        [
+          "CFD Modelling of CP in Roto-dynamic RO System at Seawater Salinity During Turbulent Cross Flow.",
+          "NITIKESH PRAKASH (Indian Institute of Technology, Madras)",
+        ],
+        [
+          "Industrial wastewater treatment by integrated processes: coupling Fenton with biological",
+          "João Ribeiro (Centre for Environmental and Marine Studies - University of Aveiro)",
+        ],
+        [
+          "Recovery and valorisation of iron sludge from Fenton processes",
+          "João Ribeiro (Centre for Environmental and Marine Studies - University of Aveiro)",
+        ],
+        [
+          "Upscaling Anaerobic Reactors using Purple Phototrophic Bacteria for low-cost wastewater reuse and resource recovery",
+          "Frank Rogalla (Aqualia)",
+        ],
+        [
+          "Mechanisms involved in veterinary antibiotics removal by microalgae-bacteria consortia",
+          "Elena M. Rojo (University of Valladolid)",
+          "https://drive.google.com/open?id=1U1c26nSwiqzNL2iERrU1AGvqTqqoBlmn",
+        ],
+        [
+          "Evaluation of a single-chamber continuous-flow bioreactor to treat urban wastewater with aerobic granular sludge",
+          "Aurora Rosa Masegosa (University of Granada)",
+        ],
+        [
+          "Use of Atmospheric Dissolved Air Flotation (DAF) in Removal of Surfactants",
+          "Ali Rostamiiranagh (Azarbaijan Shahid madani university)",
+        ],
+        [
+          "Use of wetlands for wastewater treatment in iran",
+          "Ali Rostamiiranagh (Azarbaijan Shahid madani university)",
+        ],
+        [
+          "The fate of microplastics in mesophilic anaerobic digestion combined with ultrafiltration membrane.",
+          "Patricia Ruiz Barriga (IIAMA (Universitat Politècnica de València))",
+        ],
+        [
+          "BIODAPH2O: Eco-efficient system for wastewater tertiary treatment and water reuse in the Mediterranean region",
+          "Victoria Salvadó (University of Girona)",
+        ],
+        [
+          "Specific Hydrogenotrophic Methanogenic Activity test: the role of operating conditions",
+          "Anna Santus (Politecnico di Milano)",
+        ],
+        [
+          "Study of the key parameters influencing ammonium removal from wastewaters by Fe(III)-mediated anaerobic ammonium oxidation (Feammox) microbial communities.",
+          "Jennyfer Serrano (Universidad Mayor)",
+        ],
+        [
+          "Metal Biosorption from Wastewater under Acidic Environment",
+          "Chikara Takano (Hokkaido University)",
+          "https://drive.google.com/open?id=1JT8_IIL6rk6-DorB0XRoFuI1jrrsc5re",
+        ],
+        [
+          "Application of MABR to Japanese Municipal Sewage Treatment",
+          "Hideharu Tanaka (Sanki Engineering Co.,Ltd)",
+          "https://drive.google.com/open?id=13Nc1C6Xu_qat49LO0YjHg_EAbMhck--F",
+        ],
+        [
+          "Evapotranspiration toilet: a safe and sustainable treatment for black water",
+          "Adriano Luiz Tonetti (Unicamp)",
+        ],
+        [
+          "Prospecting Microbial Consortia for high yield Polyhydroxyalkanoates production",
+          "Cristiana Torres (UCIBIO-i4HB/ FCT NOVA)",
+        ],
+        [
+          "Transformation products generated by oxidation of carbamazepine during various wastewater treatment processes - review and modelling",
+          "Jeanne TROGNON (Laboratoire de Génie Chimique)",
+          "https://drive.google.com/open?id=1cf3tvY53WA2VpCUmr8u4iLV-VZ-lz49z",
+        ],
+        [
+          "The impact of high and low temperatures on Candidatus Competibacter fed with industrial wastewater",
+          "EIRINI TSERTOU (University of Antwerp)",
+        ],
+        [
+          "Phosphorus extraction from sewage sludge ashes and subsequent co-precipitation with other nutrients: insight into factors favouring a beneficial recovery",
+          "Andrea Turolla (Politecnico di Milano)",
+        ],
+        [
+          "Aquafarm: Biological sludge degradation, nutrient removal and greenhouse gas reduction by macroinvertebrates and macrophytes",
+          "Tom van der Meer (Wageningen Environmental Research)",
+        ],
+        [
+          "Removal of nanomaterials from wastewater by Microbial Fuel cell. Current knowledge and future direction",
+          "Divya Vempati (Indian Institute of Technology Delhi)",
+          "https://drive.google.com/open?id=104OCUb0zlvr1uDI0UoDOOwVOSvkubSou",
+        ],
+        [
+          "Microbial-Mediated Biological Treatment of Wastewater Containing Arsenic (III) and Arsenic (V)",
+          "Manoj Kumar Verma (Indian Institute of Technology (BHU))",
+          "https://drive.google.com/open?id=1prLaLhYK8xaB9PLTJC-OhtxgMd4VhIwt",
+        ],
+        [
+          "Innovative solutions to minimize brine discharges in the mining & metallurgy industry",
+          "Alejandro Vilar (Cetaqua)",
+        ],
+        [
+          "Atmospheric water harvesting: a case study in South Africa",
+          "Frans Waanders (North-West University)",
+          "https://drive.google.com/open?id=1HzELm5V9ikykCqLAy0GKS21YxIh4ZaLZ",	
+        ],
+        [
+          "Coal derived PAH removal from various water sources using photo catalytic degradation",
+          "Frans Waanders (North-West University)",
+          "https://drive.google.com/open?id=17yrO9OPVJGh6NYP5Hx-z6OeLx2dj86Km"
+        ],
+        [
+          "Chemical-free vacuum UV processes for PFAS abatement",
+          "Yicheng Wang (Wetsus)",
+        ],
+        [
+          "Fenton self-cleaning MOF and MOF-derived porous carbons modified ceramic membrane towards highly efficient for oil/water emulsion separation",
+          "Pei Wang (The University of Hong Kong)",
+          "https://drive.google.com/open?id=1PqdH84xpguYr31cPNzmS29b5P4Y5le-y",
+        ],
+        [
+          "BioPhree: Reversible phosphate adsorption for phosphate removal to ultra-low levels and recovery. Demonstrations and perspectives",
+          "Wokke Wijdeveld (Wetsus)",
+        ],
+        [
+          "Reactor designs to increase photocatalytic degradation of organic trace substances for improved water protection",
+          "Julia Wolters (RWTH Aachen University)",
+        ],
+        [
+          "Biochar-nano zero-valent iron composite membrane for the degradation of carbamazepine by activation of persulfate",
+          "Yongtao Xue (Ku Leuven)",
+          "https://drive.google.com/open?id=1tWKUHebRyJSFExzABHGxtR6hyM--EOoL",
+        ],
+        [
+          "Convergence of bioreduction process and ICT for practical use of biosorption technology",
+          "Hanui Yang (Yonsei University)",
+          "https://drive.google.com/open?id=1I27g6x2SSk1jv_OfziEYfkCGDek6ciVQ",
+        ],
+        [
+          "Development of a new bioreduction process for the treatment of chromium wastewater",
+          "Hanui Yang (Yonsei University)",
+          "https://drive.google.com/open?id=1u5QC8f24CLuA7wJybH9ePHBrSOvHIeZl",
+        ],
+        [
+          "Novel ceramic SnO2 electrocatalytic membrane for advanced wastewater treatment and water reuse",
+          "Chao Yang (The university of Hong Kong)",
+          "https://drive.google.com/open?id=1Jgr1KgO6EO99qxtXoPkaGapJKIlZSLuL",
+        ],
+        [
+          "High-Rate Post-treatment of Sewage from Residential Community by the Down-flow Hanging Sponge System",
+          "WILASINEE YOOCHATCHAVAL (Kasetsart University)",
+        ],
+        [
+          "Microbial-fuel-cell driven intermitted aeration enhanced the removal of organic matter and nitrogenous compounds",
+          "Naoko Yoshida (Nagoya Institute of Technology)",
+        ],
+        [
+          "Giving four lives to osmotic membranes with innovative recycling processes (Osmo4Lives)",
+          "Bianca Zappulla Sabio (Lequia)",
+        ],
+        [
+          "Photocatalysis as a Remediation Technology for Wastewaters Containing Organic Dye Compounds",
+          "Elnaz Zehtab Lotfi (East azarbaijan Shahid madani university)",
+        ],
+        [
+          "Periodate activation with copper oxide nanomaterials for the degradation of ciprofloxacin-A new insight into the efficiency and mechanisms",
+          "Xi Zhang (KU Leuven)",
+          "https://drive.google.com/open?id=1xeSJGRw3ZIYSm5M-LcGJZKEQS9oP_BCp",
+        ],
+        [
+          "In-situ Fabrication of Titanium Suboxide-Laser Induced Graphene Composites with Enhanced Electrochemical Activity for Environmental Remediation",
+          "Ashish Kumar (Indian Institute of Technology Bombay)",
+        ],
+        [
+          "The new Hot Bubble Pilot Plant (HBPP) for water sterilisation and desalination.",
+          "Adrian Garrido Sanchis (University of New South Wales)",
+          "https://drive.google.com/open?id=1iBWUKcE1-n8qCLvrznkAZNgRlY7qXXeb",
+        ],
+      ],
+    },
+
+    {
+      title:"Decentralized Strategies",
+      list:[
+        [
+          "Light greywater quality consistency: challenge for their treatment and reuse. Study case: Colombia",
+          "Jessica Burgos Arias (Universidad Industrial de Santander)",
+          "https://drive.google.com/open?id=16-wBRZFaq8l8xr2RcqVpXpM40QMY9FuS",
+        ],
+        [
+          "Organic micropollutants in a Euro-Mediterranean resort: occurrence in the water cycle",
+          "Gianluigi Buttiglieri (ICRA)",
+        ],
+        [
+          "Earthworms influence on macroporosity and biofilm in constructed wetland",
+          "Siriane Cazaux (Laboratoire Écologie Fonctionnelle et Environnement)",
+          "https://drive.google.com/open?id=1U8hNmKJxv-jLvRZFiPTC1hZH_IQC0pF6",
+        ],
+        [
+          "Microalgal photobioreactor systems for urban wastewater treatment and removal of emerging contaminants",
+          "FÉLIX GONZALO IBRAHIM (University of Valladolid)",
+        ],
+        [
+          "Identifying substrates for greywater treatment in a novel green wall system based on trickling filters",
+          "Maximilian Grau (Zurich University of Applied Sciences)",
+          "https://drive.google.com/open?id=1rh31aYXLQonnwKyQpghjCVMexe4G9ASX",
+        ],
+        [
+          "Fuzzy Risk Assessment for Hydraulic Detention Time in UASB Reactors",
+          "DAYANE LIMA (Universidade de Aveiro)",
+        ],
+        [
+          "Evaluation of a low-tech, passively solar-driven pilot plant. Nutrients recovery from source-separated urine on household level",
+          "Laila Lüthi (Zurich University of Aplied Science)",
+          "https://drive.google.com/open?id=1vhlK1gwt2IjCom3IXBNCYE_nuDVnr7y9",
+        ],
+        [
+          "Multidimensional assessment of a Nature-based Solution for decentralized small-scale greywater treatment in Costa Rica",
+          "Maria Perez Rubi (Leibniz Universität Hannover (LUH))",
+        ],
+        [
+          "Anaerobic digestion effluent treatment in constructed wetlands for agricultural reuse",
+          "Pau Porras i Socias (Universidade do Porto)",
+        ],
+        [
+          "Comparison of engineered, natural and hybrid wastewater treatment schemes for the removal of nanoparticles from wastewater",
+          "Radhika Sharma (Indian Institute of Technology, Delhi)",
+          "https://drive.google.com/open?id=1jEWf67V0SYguWGGlIpq_9Nzs-oMSBkpf",
+        ],
+        [
+          "Performance of Multi-module Biochar Filter for Onsite Wastewater Treatment System",
+          "Makoto Shigei (Uppsala University)",
+        ],
+        [
+          "Potential of integrated membrane and TiO?-based advanced oxidation processes for greywater reclamation",
+          "Haruka Takeuchi (Kyoto University)",
+        ],
+        [
+          "Nutrients and characterization of greywater from rural households",
+          "Adriano Luiz Tonetti (Unicamp)",
+        ],
+        [
+          "Adsorption of cadmium on raw and base treated Bolivian natural zeolite",
+          "Lisbania Velarde Arnez (Luleå University of Technology)",
+        ],
+        [
+          "Surfactant elimination in horizontal and vertical-flow constructed wetlands for greywater treatment",
+          "Karen Midori Takahashi (Federal University of Mato Grosso do Sul)",
+        ],
+      ],
+    },
+
+    {
+      title:"Resource recovery and safe reuse",
+      list:[
+        [
+          "Seasonal accumulation of pharmaceuticals in soils from a full-scale horticultural system irrigated with reclaimed water.",
+          "Lucas Alonso (ICRA)",
+        ],
+        [
+          "Effective radiation transfer as a major element for the optimized design and operation of purple phototrophic bacteria photobioreactors",
+          "Ali Amini (Politecnico di Milano)",
+          "https://drive.google.com/open?id=1wr1q2CnpDFYqipORjPj4GL7122dZTDoR",
+        ],
+        [
+          "Bioelimination of different arsenic species by microalgae and bacteria grown in wastewater treatment plants",
+          "Beatriz Antolín Puebla (Institute of Sustainable Processes)",
+          "https://drive.google.com/open?id=172l_6r9J6j9M1u_1sehFDyoDS2ehlaIj",
+        ],
+        [
+          "Protein recovery from algal biomass grown in piggery wastewater using deep eutectic solvents",
+          "Beatriz Antolín Puebla (Institute of Sustainable Processes)",
+        ],
+        [
+          "Use of Industrial Magnetite in Wastewater Treatment",
+          "Yara Arbid (Ecole Nationale Supérieure de Chimie de Rennes)",
+        ],
+        [
+          "FlashPhos: The complete thermochemical recycling of sewage sludge",
+          "Sander Arnout (InsPyro)",
+        ],
+        [
+          "Study of struvite precipitation in a fluidised bed reactor using synthetic supernatant",
+          "Sergi Astals Garcia (Universitat de Barcelona)",
+        ],
+        [
+          "Integrated Resource Recovery from Aerobic Granular Sludge Plants",
+          "Nouran Bahgat (Wetsus/TU Delft)",
+        ],
+        [
+          "Design of a decision support system for wastewater sanitation in small population centers in the Besòs-Tordera Consortium",
+          "Aldo Barahona (Universidad de Barcelona)",
+          "https://drive.google.com/open?id=1U_z3UWhP9SHo2KmStNHPJeqYPt3VbQIM",
+        ],
+        [
+          "Assessment of the role of the solubilization time in the P-recovery process in the Murcia-Este WWTP",
+          "Ramon Barat (Polytechnic University of Valencia)",
+        ],
+        [
+          "FORWARD-FACTORY: Integrating forward osmosis and advanced biological reactor for water reuse and resource recovery factory",
+          "Gaetan Blandin (University of Girona)",
+        ],
+        [
+          "Novel concentration process based on membranes for volatile fatty acids concentration (ConcentrA)",
+          "Gaetan Blandin (University of Girona)",
+          "https://drive.google.com/open?id=1mzGBgdsgmg-y7utarrzi-wMf3AIXb9qQ",
+        ],
+        [
+          "Resource recovery from aerobic granular sludges: Gel-forming biopolymers extraction, fractionation and gelling capacity",
+          "Abdo BOU SARKIS (Laboratoire de Biotechnologies Agroalimentaire et Environnementale)",
+        ],
+        [
+          "Stabilization of sewage sludge in constructed wetlands for reuse in agriculture",
+          "Ana Cano (Universitat Politècnica de Catalunya)",
+        ],
+        [
+          "Toluene valorization into PHA by Rhodococcus opacus",
+          "Sara Cantera (Valladolid University)",
+          "https://drive.google.com/open?id=1CJLNKs-hBTndncUOWuxlO7Y9FAgV7sW5",
+        ],
+        [
+          "Modelling H2 conversion by purple bacteria enriched cultures: evaluating kinetics of gas-fed processes to assess feasibility",
+          "Gabriel Capson Tojo (INRAE)",
+          "https://drive.google.com/open?id=1cOmke3LL2n4PR1mRK4Z1n3JQhnmHqRJk",
+        ],
+        [
+          "Biological Methanation of WWTP biogas with green H2 for sustainable mobility",
+          "Oriol Casal (Cetaqua Centro Tecnológico del Agua)",
+        ],
+        [
+          "Nitrogen recovery to produce Smart Fertilisers from wastewater",
+          "Oriol Casal (Cetaqua Centro Tecnológico del Agua)",
+        ],
+        [
+          "Pharmaceuticals occurrence in water bodies of Catalonia in the last decade, which are the most ubiquitous compounds?",
+          "Marc Castaño (ICRA)",
+          "https://drive.google.com/open?id=1y7Y0zQPAdEwTDxb7TkvmW-gMjTfMIEUC",
+        ],
+        [
+          "Enhancing reactive species exposure in a dielectric barrier discharge plasma reactor through lava rock packing in view of phosphonate-contaminated wastewater treatment and subsequent phosphorous recovery",
+          "Changtao Chen (Ghent university)",
+        ],
+        [
+          "Analysis of the enrichment in PHA-accumulating bacteria in mixed microbial communities fed with fish-canning waste",
+          "David Correa-Galeote (University of Granada)",
+        ],
+        [
+          "WATER-MINING Project: La Llagosta Case Study, a flexible fit-for-use wastewater treatment scheme for resource recovery",
+          "Teresa de la Torre (Sorigué)",
+        ],
+        [
+          "Development of methodologies and tools of risk assessment for wastewater and stormwater reuse",
+          "Lucia De Simoni (Polytechnic University of Marche (UNIVPM))",
+          "https://drive.google.com/open?id=1Hd98jjEvLA4eqVCRKIUeVy8DGzNlfA2A",
+        ],
+        [
+          "Degradation and erosion of polymers in alkalised fresh human urine collected in source-separating sanitation systems",
+          "Anuron Deka (Swedish University Of Agricultural Sciences)",
+        ],
+        [
+          "Drinking Water Treatment Residuals: from waste to a new promising adsorbent of emergent compounds",
+          "Rita Dias Santos (CENSE - Center for Environmental and Sustainability Research, School of Science and Technology, NOVA University Lisbon)",
+          "https://drive.google.com/open?id=1zdQJIDHlsQfmHL4hSgvLsgrIl_cJ2Lnt",
+        ],
+        [
+          "Valorisation of the liquid waste of distilled gin production through high rate anaerobic co-digestion and biogas production",
+          "Rubén Díez Montero (Universidad de Cantabria)",
+        ],
+        [
+          "Enhancing Carbon recovery compromises low N2O emissions: example of a new municipal wastewater treatment.",
+          "Carlos Domingo Felez (University of Glasgow)",
+        ],
+        [
+          "Sustainability assessment framework and circular diagnosis of water treatment plants",
+          "Sofía Estévez Rivadulla (University of Santiago de Compostela)",
+          "https://drive.google.com/open?id=136HhEQ_OQrZWHsVJwAUdBvPEULqcl28X",
+        ],
+        [
+          "Exploiting the DO Profile for the Mathematical Modelling of a Mixed PHA-accumulating Microbial Community",
+          "Serena Falcioni (Universitat Autonoma de Barcelona)",
+        ],
+        [
+          "Improvement of activated sludge systems: should we pay more attention to the role of EPS?",
+          "Zoé FAU (INRAE)",
+        ],
+        [
+          "BIOUP: Biomethane production through the integration of renewable energy surpluses in WWTP",
+          "Federico Ferrari (Acciona Agua)",
+        ],
+        [
+          "Energy recovery from olive mill waste streams",
+          "Ivet Ferrer (Universitat Politècnica de Catalunya)",
+        ],
+        [
+          "From removal to recovery: opportunities for bioelectrochemical ammonia recovery from wastewater",
+          "Mariella Belén Galeano López (Universitat Autònoma de Barcelona)",
+        ],
+        [
+          "Effects of direct filtration of wastewater in anaerobic digestion",
+          "Jesús GODIFREDO CALVO (IIAMA (Universitat Politécnica De Valencia))",
+        ],
+        [
+          "Simulation of outdoor conditions for the cultivation of microalgae in a small-scale photobioreactor for wastewater treatment",
+          "Félix Gonzalo Ibrahim (University of Valladolid)",
+          "https://drive.google.com/open?id=1jw23lsRdAOsIkfnCxtetXJVNqknM7bxi",
+        ],
+        [
+          "Polyhydroxyalkanoates production by mixed microbial cultures from fermented cheese whey under high salinity conditions",
+          "Matteo Grana (Politecnico di Milano)",
+        ],
+        [
+          "New modelling methodogy to improve phosphorus recovery in WWTPs",
+          "Tamara Guijarro (Depuración de Aguas del Mediterraneo)",
+        ],
+        [
+          "Upgrading of biogas produced from anaerobic digestion of sewage sludge through in-situ biological hydrogen methanation in mesophilic CSTR system",
+          "Mohamed Hellal (Silesian University of Technology)",
+        ],
+        [
+          "Development of copper-substituted Prussian blue analog immobilized ion exchange resins for high-performance ammonium recovery from wastewater",
+          "Seongwon Im (Korea institute of civil engineering and building technology)",
+        ],
+        [
+          "Effect of enhanced hydrolysis of a lipid-rich wastewater on the acidogenic fermentation",
+          "Montserrat Jiménez Urpí (VEnvirotech Biotechnology)",
+          "https://drive.google.com/open?id=1G_bG69dPrYSFjBZKyeBNGUn6iDOvOyVg",
+        ],
+        [
+          "Heavy metals uptake with energy crops biomass depending on soil amendment",
+          "Mykola Kharytonov (Dnipro State Agrarian and Economic University)",
+        ],
+        [
+          "Is bioaugmentation a successful strategy to manipulate biopolymer production from wastewater?",
+          "Kasra Khatami (KTH Royal Institute of Technology)",
+        ],
+        [
+          "Fate of pollutants in overloaded Wastewater Stabilization Pond (WSP) system",
+          "Szymon Kilian (Wroclaw University of Environmental and Life Sciences)",
+          "https://drive.google.com/open?id=1Tf-HrMTFGteaf_41NO9Z_uxtWydZogEF",
+        ],
+        [
+          "Effect of extracellular polymeric substances (EPS) content on sludge dewaterability using filter-press",
+          "Sujin Lee (Pusan National University)",
+        ],
+        //[
+        //  "Pilot Study for Recovery of Phosphate and Ammonia as Struvite from Semiconductor Wastewater",
+        //  "Jhy-Chern Liu (National Taiwan University of Science and Technology)",
+        //],
+        [
+          "Temperature effect over the PHA:TAG accumulation ratio with mixed microbial cultures and oily substrates",
+          "José Ramón Lorenzo Llarena (Universidade de Santiago de Compostela)",
+        ],
+        [
+          "Impact of high-rate activated sludge system on WWTP energy balance: Effect of HRT and dissolved oxygen",
+          "Cinta Martín Medrano (USC)",
+        ],
+        [
+          "Evaluation of the potential of carbon recovery from sewage sludge plus organic wastes by anaerobic co-fermentation in a region",
+          "Miguel Mauricio-Iglesias (Universidade de Santiago de Compostela)",
+        ],
+        [
+          "Mechanisms of Hexavalent Chromium Reduction by Rhodococcus qingshengii strain SC26",
+          "Alice Melzi (University of Milan)",
+          "https://drive.google.com/open?id=1ooTTIvseMkRf84-y7RBlRIQOP9zkoAoy",
+        ],
+        [
+          "Vinyl Chloride Biodegradation In Contaminated Aquifer Undergoing Stimulation Treatment",
+          "Alice Melzi (University of Milan)",
+          "https://drive.google.com/open?id=1tIe_UelGTUC7sjGoB5mO9HArQjw29x7h",
+        ],
+        [
+          "Thermal treatment assessment to improve the phosphorus recovery as struvite from olive mill wastes",
+          "Marlene Del Mar Mendoza (IRTA)",
+          "https://drive.google.com/open?id=1W2PZdeoWa2zdVRASlgZsTPj_bm3tl-QH",
+        ],
+        [
+          "Starting points for the management of sewage sludge's digestate for phosphorus recovery in the concept of a circular economy",
+          "Vesna Mislej (JP VODOVOD KANALIZACIJA SNAGA d.o.o.)",
+        ],
+        [
+          "Gas-permeable membranes for the reduction of ammonia emissions in pig farms: A global approach.",
+          "Beatriz Molinuevo Salces (Agricultural Technological Institute of Castilla y Léon.)",
+          "https://drive.google.com/open?id=1Tb96H6WWS5lXrMfTUeTppY4o4yxb_qI5",
+        ],
+        [
+          "Production of Volatile Fatty Acids and Kinetic Study of the Anaerobic Digestion of Cheese whey",
+          "Beatriz Molinuevo Salces (Agricultural Technological Institute of Castilla y Léon.)",
+          "https://drive.google.com/open?id=13oYeKUx0fGNgCZ0ZP62hqN9DbckhPlqC",
+        ],
+        [
+          "Treatment of pickling waste liquors using a thraustochytrid for removal of organic carbon and nitrogen and simultaneous production of polyunsaturated fatty acids",
+          "Satoshi Nakai (Hiroshima University)",
+        ],
+        [
+          "Metabolic network reconstruction providing insights into the metabolism relevant for resource recovery in Rhodobacter sphaeroides",
+          "Adrian Oehmen (The University of Queensland)",
+        ],
+        [
+          "Onsite Sanitation Disinfection: A Modeling Approach for Lime Treatment of Fecal Matter Containing Viruses",
+          "Wakana Kaneko (Tohoku University)",
+        ],
+        [
+          "Insights on the Agronomic Potential of Structural Extracellular Polymeric Substances (sEPS) from Aerobic Granular Sludge",
+          "Benedetta Pagliaccia (University of Florence)",
+          "https://drive.google.com/open?id=1hXmtfVTe31Oi5nuDMUMvYZ5I-HZGiTVP",
+        ],
+        [
+          "Influence of system geometry and substrate on the removal of linalool and geraniol in zero-liquid discharge unplanted-NBS",
+          "Paula Paulo (UFMS)",
+        ],
+        [
+          "Reclaimed wastewater reuse impacts: from literature data gaps to integrated risk modelling",
+          "Luca Penserini (Politecnico of Milan)",
+        ],
+        [
+          "LIFE HIDAQUA: Sustainable water management in high water demanding industries",
+          "Queralt Plana (Fundació Eurecat)",
+          "https://drive.google.com/open?id=1uaeC6O8ognWXePcbq5KG6O0RIOCSGg1Y",
+        ],
+        [
+          "Valorizing Methane: Methanotrophs based Biorefinery for Extracellular Biopolymers Production (CH4-BIOPOL)",
+          "David Primo Catalunya (Institut Català de Recerca de l'Aigua)",
+        ],
+        [
+          "Monitoring and thorough behaviour of volatile methylsiloxanes through a wastewater treatment plant",
+          "Nuno Ratola (ALICE - LEPABE - Faculty of Engineering of the University of Porto)",
+        ],
+        [
+          "Volatile methylsiloxanes (VMSs) in biogas generation in WWTPs  a mass balance",
+          "Nuno Ratola (ALICE - LEPABE - Faculty of Engineering of the University of Porto)",
+        ],
+        [
+          "Green roofs and green walls for greywater treatment and reuse: a review of design and operational conditions",
+          "Anacleto Rizzo (IRIDRA Srl)",
+        ],
+        [
+          "Protein and carbohydrate recovery from secondary sludge biomass generated in wastewater treatment plant",
+          "Elena M. Rojo (University of Valladolid)",
+        ],
+        [
+          "Towards a more sustainable water treatment and reuse through brines valorisation",
+          "Adriana Romero (Cetaqua, Water Technology Center)",
+        ],
+        [
+          "Proteins: How electrochemistry can drive the food future of Microbial Protein production",
+          "Laura Rovira Alsina (LEQUiA / University of Girona)",
+        ],
+        [
+          "Low-cost natural by-products: an efficient way to improve emerging contaminants removal in Nature-based Solutions",
+          "Daiane Ruwer (CETIM)",
+        ],
+        [
+          "Preliminary study of anaerobic digestion of olive oil industry wastewaters in a conical spouted bed digester",
+          "Maria J San Jose (University of the Basque Country UPV/EHU)",
+        ],
+        [
+          "Dietary exposure and human health risk assessment of wastewater-derived organic contaminants in leafy vegetables irrigated with treated wastewater under real agricultural field conditions",
+          "Lúcia Santos (Catalan Institute for Water Research (ICRA))",
+        ],
+        [
+          "Biofiltration of odorous emissions in WWTPs through the reuse of by-products of the integral water cycle",
+          "Lidia Saúco Bozic (DAM Aguas)",
+        ],
+        [
+          "LIFE REPTES - Renewable bio-hydrogen production technologies from lignocellulosic waste and sewage sludge co-fermentation",
+          "Lidia Saúco Bozic (DAM Aguas)",
+          "https://drive.google.com/open?id=1xZVH-8eZ3PtTOnCBgCKoxVoe0FCsfUPJ",
+        ],
+        [
+          "New advanced applications of compost from WWTP sludge. Compost-UP! Project",
+          "Lidia Saúco Bozic (DAM Aguas)",
+          "https://drive.google.com/open?id=1xRqJPN0XPgKchl6MEo7DJVQkvq-q4SUS",
+        ],
+        [
+          "Micropollutant uptake in lettuce irrigated with UASB-CW reclaimed wastewater in a water scarce area",
+          "Sofia Semitsoglou Tsiapou (ICRA)",
+        ],
+        [
+          "Soil contamination due to reuse of ZnO nanoparticles contaminated wastewater effluent",
+          "Radhika (Indian Institute of Technology, Delhi)",
+          "https://drive.google.com/open?id=17sV9lp685s8yWmOEUT2ieezWLihqOygi",
+        ],
+        [
+          "Innovative and versatile integrated solution to remove contaminants of emerging concern in water treatment systems",
+          "Aina Soler-Jofra (Acciona)",
+        ],
+        [
+          "Can Peracetic Acid disinfect wastewater? A Portuguese pilot installation in a WWTP says it can",
+          "Diogo Sousa (CENSE - Center for Environmental and Sustainability Research, School of Science and Technology, NOVA University Lisbon)",
+          "https://drive.google.com/open?id=1Vavpe1RCqRN5WJNb07PozIC4I8PzS6Q9",
+        ],
+        [
+          "Enhancing purple phototrophic bacteria granulation by size classification",
+          "Samuel Stegman (The University of Queensland)",
+        ],
+        [
+          "Evaluation of emerging micropollutants presence in laundry greywater facilities for recycling",
+          "Marta Turull (Catalan Institute for Water Research (ICRA))",
+        ],
+        [
+          "Aerobic biodegradability of fat, oil and grease wastes",
+          "Carlota Ucha (Universidade de Santiago de Compostela)",
+        ],
+        [
+          "Optimization of high rate algal ponds design and operation to enhance biomass production for biofertilizer application",
+          "Enrica Uggetti (Universitat Politècnica de Catalunya)",
+        ],
+        [
+          "The GAIA project: Bioelectroconversion of orGAnic waste streams and CO2 into sustaInAble fuels",
+          "Maria Vega (Leitat Technological Center)",
+          "https://drive.google.com/open?id=1crTd1RsH1FR-60c4kqbeLTlo_GBbN0tE",
+        ],
+        [
+          "Determination of microplastics in three wastewater treatment plants in north-western Spain",
+          "Carlota Vijande (Universidade de Santiago de Compostela)",
+        ],
+        [
+          "Synergistic cytotoxicity of specific combination of water disinfection by-products assessed by bacterial reverse mutation tests",
+          "Laura Vinardell (Eurecat)",
+        ],
+        [
+          "Enantioselective uptake, distribution, and biotransformation of chiral pharmaceuticals venlafaxine and O-desmethylvenlafaxine in hydroponic lettuces",
+          "Zhen Wang (Catalan Institute for Water Research)",
+        ],
+        [
+          "Contactless membrane distillation for effective ammonia recovery from waste sludge",
+          "Lei WEN (The University of Hong Kong)",
+          "https://drive.google.com/open?id=1DY1X-baaH8DsKoKGSu83hARLmwoBwBnm",
+        ],
+        [
+          "Gravity-driven Membrane Filtration of Primary Wastewater for Irrigating Soil-plants and Hydroponic-plants",
+          "Bing Wu (University of Iceland)",
+          "https://drive.google.com/open?id=1FkqRZrv9X_QlOZBMz6ryyC8w9zQ5a9xn",
+        ],
+        [
+          "Regeneration of high-quality water for reuse by forward osmosis-reverse osmosis system treating urban wastewater",
+          "Xuefei Yang (CETIM Technological Centre)",
+        ],
+        [
+          "Exploring the potential of olive by-products: antioxidants, sugars, contaminants and energy",
+          "Soraya Zahedi Diaz (Instituto Grasa CSIC)",
+        ],
+        [
+          "Exploring veterinary drug and resistance genes in livestock manure and their removal by biomethanisation",
+          "Soraya Zahedi Diaz (Instituto Grasa CSIC)",
+        ],
+        [
+          "Implementation of a municipal wastewater treatment technology to eutrophic environments: Ammonium nitrogen dosing strategy for developing phosphorus recovery from marine sediments",
+          "Fengyi Zhu (KTH Royal Institute of Technology)",
+        ],
+        [
+          "Application of electrocoagulation treatment to meat industry wastewater",
+          "Nataša Duduković (University of Novi Sad)",
+        ],
+        //[
+        //  "Evaluation of waste stabilization pond in Atibie Hospital, Ghana",
+        //  "Gilbert Hymans (OHAKK 2 CONSULTS LTD)",
+        //],
+        [
+          "Applying helium within a hot-bubble pilot plant to enhance the recovery of pure water from supersaturated air",
+          "Thi Thuy Nguyen (University of New South Wales)",
+          "https://drive.google.com/open?id=1n4CdravFa-0z_0VWqzZG_O8ESKNnR_uH",
+        ],
+        //[
+        //  "Use of Engineered Nanoparticles in Nitrogen and Phosphorus Recovery from Aqueous Solutions",
+        //  "Neslihan Semerci (Marmara University)",
+        //],
+      ],
+    },
+
+    {
+      title:"Digitalization",
+      list:[
+        [
+          "Modelling salinity effects on aerobic granular sludge treating fish-canning wastewater",
+          "Paula Carrera Fernández (Ghent University)",
+        ],
+        [
+          "SADAR: a digital predictive system with photonic pathogen biosensors for safe water reclamation in WWTP",
+          "Ruben Garcia Tirado (FACSA)",
+        ],
+        [
+          "Real-time, in-situ nitrite and nitrate analyser for process control within wastewater treatment facilities",
+          "Meritxell Grau Butinyac (TE Laboratories)",
+          "https://drive.google.com/open?id=1vrUqRzYcEdwftgpQyRqbk7yvhIKIgH_v",
+        ],
+        [
+          "Prediction of methane production of co-digestion of pig manure in WWTP based on metabolic and machine learning models",
+          "Carlos Lafita (Global Omnium)",
+        ],
+        [
+          "Aerial Mapping of Pollution and Odour in a Wastewater Treatment Plant: the SNIFFIRDRONE project",
+          "Lidia Saúco Bozic (DAM Aguas)",
+        ],
+        [
+          "Study of atmospheric pollutants generated in wastewater treatment plants using Artificial Intelligence",
+          "Lidia Saúco Bozic (DAM Aguas)",
+        ],
+        [
+          "Effect of temperature on the kinetics of methane production in the co-digestion of manure and agri-food waste in WWTP",
+          "Mª Jose tarrega Marti (GLOBAL OMNIUM MEDIOAMBIENTE, S.L.)",
+        ],
+        [
+          "Digital Water at Consorci Besòs Tordera",
+          "Jackson Tellez Alvarez (Consorci Besós Tordera 7 Ccb Serveis Mediambientals, Sau)",
+        ],
+        [
+          "Quantitative Image Analysis of Biosolids: Evaluating morphological parameters versus visual features",
+          "Sebastian Topalian (Technical University of Denmark)",
+        ],
+        [
+          "HADES: a digital twin for the optimization of WWTP performance",
+          "Carla Vázquez (ACCIONA)",
+        ],
+        [
+          "4SM Project. Spread sewer sensing for sustainable management: advanced tools for optimal sewer management",
+          "Oriol Gutiérrez (ICRA)",
+        ],
+        //[
+        //  "Comparative modeling of SMP product/utilization on membrane fouling in submerged membrane bioreactor system using MES, PLS, MLR, PCA and ANN techniques",
+        //  "hana benaliouche (University of Constantine)",
+        //],
+      ],
+    },
+
+    {
+      title:"Economics and environmental/social footprint",
+      list:[
+        [
+          "Lowering of groundwater levels and their effect on Water, Sanitation and Hygiene services in the Savelugu District, Northern Region of Ghana",
+          "Albert Acheampong (KNUST (WORLD VISION GHANA))",
+        ],
+        [
+          "Theoretical feasibility assessment of water loops in the Balearic Islands of Mallorca, Cabrera, and Formentera",
+          "Gianluigi Buttiglieri (ICRA)",
+        ],
+        [
+          "The uncertainty of N2O emissions is underestimated and hampers accurate comparison of WWT technologies.",
+          "Carlos Domingo Felez (University of Glasgow)",
+        ],
+        [
+          "Re-thinking industrial wastewater treatment using advanced mathematical modelling.",
+          "Xavier Flores-Alsina (Danmarks Tekniske Universitet)",
+        ],
+        [
+          "Distinct characteristic pollution and systematical ecological risk assessment of microplastic in the Yangtze River",
+          "Qianen Huang (Northwest A&F University)",
+        ],
+        [
+          "Case Study of Climate Change Countermeasures (Jeju Island in South Korea)",
+          "Jinkeun Kim (Jeju National Univ.)",
+          "https://drive.google.com/open?id=1l9Ixh7a0wtyMztkiL6_VVl9CgEWq96yF",
+        ],
+        [
+          "Social footprint evaluated within Chilean rural wastewater treatment plants",
+          "Paula Madariaga (University of Santiago of Chile)",
+        ],
+        [
+          "Stakeholders' attitudes towards acceptance in the use of nutrient reuse technologies and decentralised systems in four case studies in Europe",
+          "Beatriz Medina (WE&B)",
+        ],
+        [
+          "Monitoring of odorous emissions in WWTPs: proposal for a simple procedure",
+          "Laura Palli (GIDA spa)",
+        ],
+        [
+          "The effect of liquid wastes on a full-scale WWTP nitrogen removal performance",
+          "Laura Palli (GIDA spa)",
+        ],
+        [
+          "Nature-based solutions in Europe and Latin America: A comparative analysis of regional situation and addressed challenges",
+          "Yarima Recalde (University of Girona)",
+        ],
+        [
+          "Emerging contaminants occurrence in an urban wastewater impacted aquifer: The Onyar River basin study case",
+          "Nonito Ros Berja (ICRA)",
+        ],
+        [
+          "Effects of Environmental and Social Factors on Eutrophication in Tonle Sap Lake",
+          "Vouchlay Theng (Institute of Technology of Cambodia)",
+          "https://drive.google.com/open?id=1xwVxAsgcvRPyZS8aunv7Pwj-uAliZNVz",
+        ],
+        [
+          "Monitoring and study of specified metals' behaviour in a large Italian wastewater treatment plant",
+          "Francesca Tuci (Università degli Studi di Firenze)",
+        ],
+        [
+          "The challenges of the indigenous perspective on water security in the Amazon region",
+          "Antonina Torrens (Universitat de Barcelona)",
+        ],
+        [
+          "Bioplastics accelerated degradation under simulated conditions: generating data for including their end-of-life in LCA studies",
+          "Brais Vázquez Vázquez (Universidade de Santiago de Compostela)",
+        ],
+        [
+          "Patterns of water quality and diatom community in the largest northwest river of Tonle Sap Basin, Cambodia",
+          "Socheat Chrea (University of Battambang)",
+        ],
+        [
+          "Development of an integrated framework for life-cycle economic, environmental, and human health impact assessment for urban water systems",
+          "Yuyao Wang (The University of Hong Kong)",
+          "https://drive.google.com/open?id=104jfe0z1qqSWW6y6s63mR0R5xNEocee_",
+        ],
+      ],
+    },
+  ];
+
+  let app=Vue.createApp({
+    data(){return{
+      posters,
+    }},
+
+    computed:{
+      count_posters(){
+        let n=0;
+        this.posters.forEach(topic=>{
+          topic.list.forEach(p=>n++);
+        });
+        return n;
+      },
+      count_files(){
+        let n=0;
+        this.posters.forEach(topic=>{
+          topic.list.forEach(p=>{
+            if(p[2]) n++;
+          });
+        });
+        return n;
+      },
+    },
+  }).mount("#app");
 </script>
