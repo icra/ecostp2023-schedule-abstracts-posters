@@ -154,8 +154,8 @@
               new Conf("09:45","Montserrat Sarra, Univ. Autonoma de Barcelona","5.5. Bioreactors for immobilized fungus: Application to long-term continuous pesticides removal by Trametes versicolor.", "White-rot fungi are versatile in degrading a wide broad of xenobiotic pollutants, but the main problem encountered to real application is the maintenance of the fungal activity over a long period. Immobilization on wood has proven to be a suitable strategy for nutrient supply to the fungus, while reducing the competition with indigenous microorganisms. In this study, the performance of two bioreactors (trickle-bed reactor and rotary drum reactor) filled with colonized holm oak wood chips by Trametes versicolor was assessed during a continuous treatment for the removal of pesticides from agricultural wastewater during more than 6 months. The stablished consortia allowed to obtain high removal levels during the entire experimental period."),
               new Conf("10:00","Lorena Gonzalez, Univ. Vigo","5.6. Effect of HRT and dissolved oxygen on the fate of pharmaceutical compounds and antibiotic resistance genes in a high-rate activated sludge reactor.", "High-Rate Activated Sludge (HRAS) reactors could become key units in novel wastewater treatment plants (WWTP) to achieve a net or even positive energy balance. Apart from energy concerns WWTPs must also focus on removing organic micropollutants (OMPs), especially pharmaceutical compounds. Additionally, avoiding the spread of antibiotic resistant genes (ARGs) should also be addressed. HRAS processes are based on high food-to-microorganism ratios, thus they usually operate at low hydraulic retention times (HRT) and low oxygen concentrations (DO). In this contribution it is hypothesized that these operational conditions might affect the biotransformation efficiency of OMPs and the development of ARGs in HRAS reactors. Therefore, in this study, we aim to fill this gap by assessing the fate of OMPs and ARGs in HRAS reactors operating at different DO levels and HRT."),
               new Conf("10:05","Yolaine Bessiere, INSA-Toulouse","5.7. Combining Thermophilic Aerobic Reactor (TAR) with Mesophilic Anaerobic digestion (MAD) to improve sludge reduction and pharmaceuticals degradation", "A combination of thermophilic aerobic reactor (TAR) with mesophilic anaerobic digestion (MAD) was evaluated for its capacity to enhance the sludge reduction, increase the methane production and improve the efficiency of micropollutant biodegradation when applied to a primary sludge obtained after decantation of urban wastewater. Higher elimination of organic matter was achieved in MAD-TAR (76% for VSS) compared to conventional MAD (47%). Nevertheless, the measured methane production was comparable for the two processes showing either a contribution of micro-aerobic degradation or a loss of diluted methane in the gas flow. The removal efficiency of pharmaceutical compounds obtained in the two configurations was compared. The highest removal rates were reported for caffeine (CAF) and sulfamethoxazole (SMX) (>89%) with no significant differences between both processes. MAD-TAR increased significantly the removal for oxazepam (OXA) (73%), propranolol (PRO) (61%) and ofloxacine OFL (41%) and slightly for diclofenac (DIC) (4%) and 2 hydroxy-ibuprofen (2OH-IBP) (5%)."),
-              new Conf("10:10","",""),
-              new Conf("10:15","","Questions/discussion"),
+              new Conf("10:10","","Questions/discussion"),
+              new Conf("10:15","",""),
             ]),
           new Session(
             "T6. Removal of recalcitrant and emerging pollutants II (11:00-13:15)",
@@ -305,6 +305,7 @@
             "CLOSING CEREMONY - SALA SINFÒNICA",
             "",[
               new Conf("16:30","",`
+                Chair: Prof. Juan Lema, Univ. Santiago de Compostela<br><br>
                 Closing Plenary 1:<br>
                 Prof. Gustav Olson, Lund University (Sweeden):<br>
                 “Water - key indicator of global warming and basis for energy and food production”
@@ -318,7 +319,7 @@
                 Statement from the Director of the Catalan Water Agency (ACA), Mr. Samuel Reyes<br><br>
                 Closing remarks, Poster & Platform awards and announcement Next EcoSTP25.
               `),
-              new Conf("20:00","",`Gala dinner`),
+              new Conf("20:00","",`Gala dinner “Sala d’Exposicions” Palau de Congressos (Conference Centre)`),
             ], 3,
           ),
         ]),
@@ -394,8 +395,8 @@
               new Conf("12:30","David Renfrew, Brunel University London", "18.7. Utilising sustainable value propositions to understand the value creation of circular actions in wastewater systems.","Value propositions are used to link the strategic goals of an organisation with the circular actions of innovative wastewater technologies. The value proposition canvas ‘gains creators’ are used to identify value creating actions of the circular solution for selecting relevant performance indicators, these indicators then guide complementary sustainability indicator selection to quantify value creation for stakeholders. The method developed is applied to a small-scale wastewater treatment plant with a novel photobioreactor technology that produces biofertilizer. The indicators show that all strategic and value creating goals were achieved and resulted in sustainable value creation across all pillars of the triple bottom line."),
               new Conf("12:45","Natasa Atanasova. University of Ljubljana", "18.8. Life cycle assessment of on-site nature-based wastewater treatment and reuse systems.", "This research extends the system boundaries of life cycle assessment (LCA) of wastewater treatment technologies, which typically focus on construction, operation, and maintenance, to include resource recovery. LCA of three different nature-based wastewater treatment solutions (treatment wetland, evapotranspirative willow system and high-rate algae pond) were compared with and without the use of recovered resources. The results showed that despite the higher use of some materials (e.g., irrigation system) LCA results were in favour of the systems with reuse of resources. Treatment wetland with the use of reclaimed water provided the best results in 4 of the 6 categories studied (climate change, freshwater eutrophication, water depletion, and metal depletion). Considering CO2 uptake as a positive impact, evapotranspirative willow system showed the best results due to the greatest carbon storage in woody biomass compared to the treatment wetland and the high-rate algae pond."),
               new Conf("12:50","Marta Behjat. Chalmers University of Technology", "18.9. Sustainability assessment at early stages of technology development: phosphorus recovery for fertiliser from dairy wastewater.","A reduction in the availability of phosphate rock resources for fertiliser production coincides with an increase in phosphorus-rich dairy wastewater in Europe. Interest into the development of technologies for phosphorus recovery from wastewater and the use of the products as fertilisers in agriculture has increased. The dairy wastewater is a potential waste stream for these technologies. This work aims to contribute both to the technical development of this emerging technical system and methodological development of assessing the sustainability of it with regard to (1) the identification and selection of sustainability indicators, and (2) the assessment of life cycle environmental impacts. The work describes an approach developed for identifying and selecting the indicators as well as an approach employed for performing a meta-analysis of previously published life cycle assessment results to cope with lack of inventory data."),
-              new Conf("12:55","",""),
-              new Conf("13:00","","Questions/discussion",),
+              new Conf("12:55","","Questions/discussion",),
+              new Conf("13:00","",""),
           ]),
           new Session(
             "T19. Decentralized systems (14:15-16:00)",
@@ -579,6 +580,16 @@
                   "Poster session",
                 ][i]
               }}
+            </td>
+          </tr>
+
+          <tr v-if="day.includes('27') && i==3" >
+            <td style="font-family:monospace;font-size:smaller;" >
+              18:45<br>20:00
+            </td>
+            <td colspan=3 style="background:gold;text-align:center">
+              Girona City guided tour<br>
+              Meeting point: Main entrance of the Girona Conference Centre (Passeig de la Devesa, 35. Girona) 
             </td>
           </tr>
         </tbody>
