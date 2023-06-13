@@ -1,20 +1,11 @@
-no trobats
-==========
-https://drive.google.com/open?id=13ICGWe2Vo2XOEDUmQR6sNkcTeUTkRFjY	Pharmaceutical Removal from Digestate Supernatant, (Comparing Known Technologies)
-https://drive.google.com/open?id=1Jo1tenVBrvnTHWXzfRVa_v8eMDqbzpM2	Fabrication of a Poly-L-Lactic Acid based passive self-dosing system for alkaline stabilization of fresh human urine
-https://drive.google.com/open?id=1GnVMnD4bC8w5WhNHim3N9E40Fd7tGOxm	Multi-module Biochar Filter System for sustainable Onsite Wastewater Treatment
+=== NO TROBATS ===
 https://drive.google.com/open?id=1_4n9UKDR1iWabQQDaGOgE_rM6gLyHQmT	Electrochemical oxidation of ammonia in aqueous solution using high catalytic CuCo bimetallic catalyst supported on Ni foam
-https://drive.google.com/open?id=16ojkiFbMmBLTxKaPwPTmVHmgdsejxlQD	Carbon Negative Low-Power Wastewater Treatment using Algal-Bacterial Biofilms
-https://drive.google.com/open?id=1hcf9Iq248LoYzU8Lqpf8dlQHI0OKTefd	AQUAFARM: Organism interactions can improve WWTP efficiency
-https://drive.google.com/open?id=1jQCf7b0IBiotnfIOTfhpzG2mlUhOceUA	Phosphorus recovery from phosphonate-contaminated wastewater by nonthermal plasma treatment prior to adsorption on granular iron-coated sand
-https://drive.google.com/open?id=1YVkUyuV3v96BtN8IjaRLvTDEPe6Q-gtX	Comparative modelling of SMP product/utilization on membrane fouling in submerged membrane bioreactor system using MES, PLS, MLR, PCA and ANN techniques
-https://drive.google.com/open?id=1x8jprA7nuJGBXYrBvd3IcJCcdOyz8z_a	Characterization of iron-rich assited anammox granules: Extracellular Polymeric Substance (EPS) tell the story
 https://drive.google.com/open?id=1LerXWoIzM_pXj5208pbc575708HdzRUL	Metabollic modelling of a designed bacterial consortium to evaluate its capability for in-situ removal of contaminants from biogas
-https://drive.google.com/open?id=1RrBTFlAM5noZd52c1FDY2wxwOJUh-7AZ	BIOUP - Biomethane production through the integration of renewable energy surpluses in WWTP
-https://drive.google.com/open?id=1Et7ffIhRyf4YOooksiI8T4R_WKvXEqrL	Efficient struvite precipitation in a fluidized bed reactor using a magnesium oxide industrial by product
-https://drive.google.com/open?id=12cmaFBNBStndYif337LEJUqxATnokpGP	LIFE NIMBUS: WWTP biogas biological methanation with bioH2 for sustainable mobility
-https://drive.google.com/open?id=1kkwiO7I2PsnAl_mzpFQixstSY-zB2E5b	WalNUT: Closing wastewater cycles for nutrient recovery
+https://drive.google.com/open?id=15Wvy7savZl8n4MuVg61JiI31z0VOlfQo	Industrial-urban symbiosis waste treatment for regional development in Alcoy region (Spain)
 
-pendents
-========
+=== DUPLICATS ===
+https://drive.google.com/open?id=1qJF5Mif-jrnAMkYvPw_ycxVw76_TINnT	Smart sensor monitoring and prediction for safe wastewater reuse: Development of an Early Warning System tool
+https://drive.google.com/open?id=1LeRGEPO0HKoO15oCdPsctdPTgArDu6x1	Smart sensor monitoring and prediction for safe wastewater reuse: Development of an Early Warning System tool
+
+=== PENDENTS ===
 llista buida
