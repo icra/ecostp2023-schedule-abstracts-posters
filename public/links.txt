@@ -1,11 +1,10 @@
 === NO TROBATS ===
-https://drive.google.com/open?id=1_4n9UKDR1iWabQQDaGOgE_rM6gLyHQmT	Electrochemical oxidation of ammonia in aqueous solution using high catalytic CuCo bimetallic catalyst supported on Ni foam
-https://drive.google.com/open?id=1LerXWoIzM_pXj5208pbc575708HdzRUL	Metabollic modelling of a designed bacterial consortium to evaluate its capability for in-situ removal of contaminants from biogas
-https://drive.google.com/open?id=15Wvy7savZl8n4MuVg61JiI31z0VOlfQo	Industrial-urban symbiosis waste treatment for regional development in Alcoy region (Spain)
+07/06/2023 15:28:10	Wu	Chih-Chao		                  https://drive.google.com/open?id=1_4n9UKDR1iWabQQDaGOgE_rM6gLyHQmT	Electrochemical oxidation of ammonia in aqueous solution using high catalytic CuCo bimetallic catalyst supported on Ni foam
+12/06/2023 11:15:20	Peighami /  Gabriel	Reza / David  https://drive.google.com/open?id=1LerXWoIzM_pXj5208pbc575708HdzRUL	Metabollic modelling of a designed bacterial consortium to evaluate its capability for in-situ removal of contaminants from biogas
+12/06/2023 20:05:42	Raquel Tamarit	Raquel Tamarit		https://drive.google.com/open?id=15Wvy7savZl8n4MuVg61JiI31z0VOlfQo	Industrial-urban symbiosis waste treatment for regional development in Alcoy region (Spain)
 
-=== DUPLICATS ===
-https://drive.google.com/open?id=1qJF5Mif-jrnAMkYvPw_ycxVw76_TINnT	Smart sensor monitoring and prediction for safe wastewater reuse: Development of an Early Warning System tool
-https://drive.google.com/open?id=1LeRGEPO0HKoO15oCdPsctdPTgArDu6x1	Smart sensor monitoring and prediction for safe wastewater reuse: Development of an Early Warning System tool
+=== NO TROBATS I DUPLICATS ===
+Ø
 
 === PENDENTS ===
-llista buida
+Ø
