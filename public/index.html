@@ -445,7 +445,9 @@
     <ul>
       <li class=current><span>SCHEDULE &amp; ABSTRACTS</span>
       <li><a href="posters.html">LIST OF POSTERS</a>
+      <!--
       <li><a href="chat.html">LIVE CHAT</a>
+      -->
     </ul>
   </details>
 </nav>
@@ -456,7 +458,7 @@
 <!--content-->
 <div id=app>
 
-  <div v-if="!current_conf" style="margin-bottom:20px;background:lightyellow">
+  <div v-if="false && !current_conf" style="margin-bottom:20px;background:lightyellow">
     <label>
       <input type=checkbox v-model="view_abstracts_inplace">
       View abstracts inplace (TBD)
