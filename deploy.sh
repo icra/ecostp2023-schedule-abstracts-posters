@@ -14,4 +14,5 @@ rsync -hPvr \
   --exclude "node_modules" \
   --exclude ".git" \
   --exclude "log.txt" \
+  --exclude "package-lock.json" \
   . root@icra.loading.net:/var/www/vhosts/icradev.cat/ecostp2023.icradev.cat
