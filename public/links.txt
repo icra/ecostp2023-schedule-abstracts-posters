@@ -4,8 +4,21 @@
   12/06/2023 20:05:42	Raquel Tamarit	                 https://drive.google.com/open?id=15Wvy7savZl8n4MuVg61JiI31z0VOlfQo	Industrial-urban symbiosis waste treatment for regional development in Alcoy region (Spain)
 
 === ELIMINATS ===
-  [ "Pilot Study for Recovery of Phosphate and Ammonia as Struvite from Semiconductor Wastewater", "Jhy-Chern Liu (National Taiwan University of Science and Technology)", ],
-  [ "Evaluation of waste stabilization pond in Atibie Hospital, Ghana", "Gilbert Hymans (OHAKK 2 CONSULTS LTD)", ],
-  [ "Use of Engineered Nanoparticles in Nitrogen and Phosphorus Recovery from Aqueous Solutions", "Neslihan Semerci (Marmara University)", ],
+  [
+    "Pilot Study for Recovery of Phosphate and Ammonia as Struvite from Semiconductor Wastewater",
+    "Jhy-Chern Liu (National Taiwan University of Science and Technology)",
+  ],
+  [
+    "Evaluation of waste stabilization pond in Atibie Hospital, Ghana",
+    "Gilbert Hymans (OHAKK 2 CONSULTS LTD)",
+  ],
+  [
+    "Use of Engineered Nanoparticles in Nitrogen and Phosphorus Recovery from Aqueous Solutions",
+    "Neslihan Semerci (Marmara University)",
+  ],
+  [
+    "Patterns of water quality and diatom community in the largest northwest river of Tonle Sap Basin, Cambodia",
+    "Socheat Chrea (University of Battambang)",
+  ],
 
 === PENDENTS === Ø
