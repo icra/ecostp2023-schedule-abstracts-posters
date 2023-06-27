@@ -465,7 +465,36 @@
     </label>
   </div>
 
-  <div :style="{display:current_conf?'none':''}">
+  <!--view_abstract-->
+  <div v-if="current_conf"
+    style="
+      margin:0 8px;
+      max-width:800px;
+    "
+  >
+    <div style="margin-bottom:1em">
+      <a href=#
+        @click="back_from_abstract()"
+        style="font-size:larger"
+      >&larr;back</a>
+    </div>
+    <h2>{{current_conf.titol}}</h2>
+    <b>{{current_conf.speaker}}</b>
+    <p style="text-align:justify"><b>Abstract: </b>
+      <span v-if="current_conf.abstract">{{current_conf.abstract}}</span>
+      <span v-else>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+        sint occaecat cupidatat non proident, sunt in culpa qui officia
+        deserunt mollit anim id est laborum.
+      </span>
+    </p>
+  </div>
+
+  <div v-show="!current_conf">
     <details v-for="rooms,day in schedule" open>
       <summary
         v-html="day"
@@ -531,7 +560,10 @@
               <div v-if="room.visible">
                 <div v-if="room.sessions[i] && room.sessions[i].visible && room.sessions[i].confs[j]">
                   <!--conf-->
-                  <div v-for="conf in [room.sessions[i].confs[j]]">
+                  <div
+                    :id="conf.titol"
+                    v-for="conf in [room.sessions[i].confs[j]]"
+                  >
                     <!--conf titol-->
                     <div v-html="conf.titol"></div>
 
@@ -599,35 +631,6 @@
       </table>
     </details>
   </div>
-
-  <!--view_abstract-->
-  <div v-if="current_conf"
-    style="
-      margin:0 8px;
-      max-width:800px;
-    "
-  >
-    <div style="margin-bottom:1em">
-      <a href=#
-        @click="current_conf=null"
-        style="font-size:larger"
-      >&larr;back</a>
-    </div>
-    <h2>{{current_conf.titol}}</h2>
-    <b>{{current_conf.speaker}}</b>
-    <p style="text-align:justify"><b>Abstract: </b>
-      <span v-if="current_conf.abstract">{{current_conf.abstract}}</span>
-      <span v-else>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia
-        deserunt mollit anim id est laborum.
-      </span>
-    </p>
-  </div>
 </div>
 
 <script>
@@ -638,12 +641,30 @@
       //see detail
       current_conf:null,
       view_abstracts_inplace:false,
+
+      //last abstract viewed
+      last_conf_viewed:null,
     }},
 
     //methods
     methods:{
       cell_color(n){
         return ['#bbd5aa','#d9e2f3','#f7caac'][n]||"";
+      },
+
+      back_from_abstract(){
+        this.last_conf_viewed = this.current_conf;
+        this.current_conf     = null;
+
+        setTimeout(this.scroll_into_last_conf,200);
+      },
+
+      scroll_into_last_conf(){
+        if(!this.last_conf_viewed) return;
+        let el = document.getElementById(this.last_conf_viewed.titol);
+        if(!el) return;
+        //console.log(el);
+        el.scrollIntoView();
       },
     },
   }).mount("#app");
